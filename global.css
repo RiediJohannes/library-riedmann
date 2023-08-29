@@ -24,7 +24,9 @@ a {
 }
 
 a:hover {
-    font-weight: 700;
+    color: #6197e7;
+    text-shadow:
+        -0.4px 0 currentColor, 0 0.4px currentColor, 0.4px 0 currentColor, 0 -0.4px currentColor;
 }
 
 img,
