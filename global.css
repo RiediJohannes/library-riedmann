@@ -26,3 +26,9 @@ a {
 a:hover {
     font-weight: 700;
 }
+
+img,
+picture,
+video {
+  max-width: 100%;
+}
