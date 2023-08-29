@@ -63,14 +63,14 @@ aside {
 
   aside,
   section {
-    width: 50%;
+    max-width: 50%;
   }
 }
 
 /* Desktop Styles */
 @media only screen and (min-width: 961px) {
   body {
-    background-color: #b2d6ff; /* Blue */
+    background-color: #1d251c; /* Blue */
   }
 
   .page {
@@ -79,16 +79,16 @@ aside {
   }
 
   section {
-    width: 33.3%;
+    max-width: calc(1/3 * 100%);
   }
 
   header {
-    height: 400px;
+    max-height: 400px;
   }
 
   /* re-order cards */
   aside {
-    height: 200px;
+    max-height: 200px;
     order: 1;
   }
 
