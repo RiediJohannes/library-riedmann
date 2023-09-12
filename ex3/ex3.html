@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Exercise 3</title>
+
+    <link rel="stylesheet" href="ex3.css" />
+  </head>
+  <body>
+    <div class="page">
+      <nav class="card"></nav>
+
+      <header>
+        <div class='photo'>
+          <picture>
+            <source media='(max-width: 400px)'
+                    srcset='images/photo-tall.jpg'/>
+            <source media='(min-width: 401px)'
+                    srcset='images/photo-big.jpg'/>
+            <img src='images/photo-small.jpg'/>
+          </picture>
+        </div>
+      </header>
+
+      <article class="card">
+        <div class='illustration'>
+          <img src='illustration-small.png'
+               srcset='images/illustration-small.png 1x,
+                       images/illustration-big.png 2x'
+               style='max-width: 500px'/>
+        </div>
+      </article>
+
+      <aside class="card">
+        <img src="images/sign-up.svg"/>
+      </aside>
+
+      <section class="card feature-1">
+        <img src="images/feature.svg"/>
+      </section>
+
+      <section class="card feature-2">
+        <img src="images/feature.svg"/>
+      </section>
+
+      <section class="card feature-3">
+        <img src="images/feature.svg"/>
+      </section>
+    </div>
+  </body>
+</html>
