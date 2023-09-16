@@ -15,18 +15,7 @@ li {
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
-    max-width: 30%;
-}
-
-a {
-    color: #3360a2;
-    text-decoration: none;
-}
-
-a:hover {
-    color: #6197e7;
-    text-shadow:
-        -0.4px 0 currentColor, 0 0.4px currentColor, 0.4px 0 currentColor, 0 -0.4px currentColor;
+    max-width: max(85%, 200px);
 }
 
 img,

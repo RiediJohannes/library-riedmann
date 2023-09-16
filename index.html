@@ -1,34 +1,51 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Web Visualization</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Web Visualization</title>
 
-    <!-- importing google fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+  <!-- importing google fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
 
-    <link rel="stylesheet" href="global.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+  <link rel="stylesheet" href="global.css">
 </head>
 <body>
-    <h1>Exercises of Johannes Riedmann</h1>
+  <h1 class="title is-1">Exercises of Johannes Riedmann</h1>
 
-    <h2>Weekly Exercises</h2>
-        <ol>
-            <li>
-                <h3>Exercise 1:</h3>
-                <a href="ex1/ex1.html">web page</a>
-                <a href="https://gitlab.labranet.jamk.fi/AE9614/web-visualization/-/tree/main/ex1">source code</a>
-            </li>
-            <li>
-                <h3>Exercise 3:</h3>
-                <a href="ex3/ex3.html">web page</a>
-                <a href="https://gitlab.labranet.jamk.fi/AE9614/web-visualization/-/tree/main/ex3">source code</a>
-            </li>
-        </ol>
-
-    <h2>Final Assignment</h2>
+  <div class="columns">
+    <section class="section column is-half">
+      <div class="card">
+        <header class="card-header">
+          <h2 class="card-header-title title is-3">Weekly Exercises</h2>
+        </header>
+        <ul class="card-content">
+          <li class="block">
+            <h3 class="is-size-5">Exercise 1:</h3>
+            <a class="button is-primary is-light" href="ex1/ex1.html">web page</a>
+            <a class="button is-info is-light" href="https://gitlab.labranet.jamk.fi/AE9614/web-visualization/-/tree/main/ex1">source code</a>
+          </li>
+          <li class="block">
+            <h3 class="is-size-5">Exercise 3:</h3>
+            <a class="button is-primary is-light" href="ex3/ex3.html">web page</a>
+            <a class="button is-info is-light" href="https://gitlab.labranet.jamk.fi/AE9614/web-visualization/-/tree/main/ex3">source code</a>
+          </li>
+        </ul>
+      </div>
+    </section>
+  
+    <section class="section column is-half">
+      <div class="card">
+        <header class="card-header">
+          <h2 class="card-header-title title is-3">Final Assignment</h2>
+        </header>
+        <div class="card-content">
+        </div>
+      </div>
+    </section>
+  </div>
 </body>
 </html>
