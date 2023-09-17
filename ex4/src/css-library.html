@@ -11,7 +11,7 @@
   <script src="https://kit.fontawesome.com/ee733139c3.js" crossorigin="anonymous"></script>
   <script src="main.js"></script>
 </head>
-<body class="mb-6">
+<body>
   <nav class="navbar" role="navigation" aria-label="main navigation">
     <!-- Part of the nav that is always visible -->
     <div class="navbar-brand">
@@ -60,8 +60,8 @@
   </figure>
 
   <!-- Greeting text -->
-  <article class="section">
-    <div class="container">
+  <article class="hero is-info">
+    <div class="hero-body ml-5">
       <h1 class="title is-1">
         Tervetuloa!
       </h1>
@@ -71,108 +71,132 @@
     </div>
   </article>
 
-  <!-- Membership form -->
-  <section class="section">
-    <h1 class="title is-2">
-      Become a library member today!
-    </h1>
+  <section class="section columns mb-0">
+    <!-- Membership form -->
+    <div class="section column">
+      <h1 class="title is-2">
+        Become a library member today!
+      </h1>
 
-    <form>
-      <!-- full name -->
-      <div class="field">
-        <label class="label">Full name</label>
-        <div class="control has-icons-left">
-          <input class="input" type="text" placeholder="John Doe">
-          <span class="icon is-small is-left">
-            <i class="fas fa-user"></i>
-          </span>
-        </div>
-      </div>
-
-      <!-- email -->
-      <div class="field">
-        <label class="label">Email</label>
-        <div class="control has-icons-left has-icons-right">
-          <input class="input" type="email" placeholder="john.doe@gmail.com">
-          <span class="icon is-small is-left">
-            <i class="fas fa-envelope"></i>
-          </span>
-        </div>
-      </div>
-
-      <!-- password -->
-      <div class="field">
-        <label class="label">Password</label>
-        <div class="control has-icons-left">
-          <input class="input" type="password" placeholder="Password">
-          <span class="icon is-small is-left">
-            <i class="fas fa-lock"></i>
-          </span>
-        </div>
-        <p class="help is-info">Minimum of 8 characters required</p>
-      </div>
-      <!-- confirm password -->
-      <div class="field">
-        <label class="label">Confirm password</label>
-        <div class="control has-icons-left">
-          <input class="input" type="password" placeholder="Password">
-          <span class="icon is-small is-left">
-            <i class="fas fa-lock"></i>
-          </span>
-        </div>
-      </div>
-      
-      <!-- gender -->
-      <div class="field">
-        <label class="label">Gender</label>
-        <div class="control">
-          <div class="select">
-            <select>
-              <option>male</option>
-              <option>female</option>
-              <option>non-binary</option>
-              <option>prefer not to say</option>
-            </select>
+      <form>
+        <!-- full name -->
+        <div class="field">
+          <label class="label">Full name</label>
+          <div class="control has-icons-left">
+            <input class="input" type="text" placeholder="John Doe">
+            <span class="icon is-small is-left">
+              <i class="fas fa-user"></i>
+            </span>
           </div>
         </div>
-      </div>
 
-      <!-- terms and conditions -->
-      <div class="field mt-5">
-        <div class="control">
-          <label class="checkbox">
-            <input type="checkbox">
-            I agree to the <a href="#">terms and conditions</a>
-          </label>
+        <!-- email -->
+        <div class="field">
+          <label class="label">Email</label>
+          <div class="control has-icons-left has-icons-right">
+            <input class="input" type="email" placeholder="john.doe@gmail.com">
+            <span class="icon is-small is-left">
+              <i class="fas fa-envelope"></i>
+            </span>
+          </div>
         </div>
-      </div>
-      
-      <!-- newsletter -->
-      <div class="field is-grouped">
-        <label class="mr-4">Receive newsletter?</label>
-        <div class="control">
-          <label class="radio">
-            <input type="radio" name="question" checked="checked">
-            Yes
-          </label>
-          <label class="radio">
-            <input type="radio" name="question">
-            No
-          </label>
+
+        <!-- password -->
+        <div class="field">
+          <label class="label">Password</label>
+          <div class="control has-icons-left">
+            <input class="input" type="password" placeholder="Password">
+            <span class="icon is-small is-left">
+              <i class="fas fa-lock"></i>
+            </span>
+          </div>
+          <p class="help is-info">Minimum of 8 characters required</p>
         </div>
-      </div>
-      
-      <!-- form buttons -->
-      <div class="field is-grouped">
-        <div class="control">
-          <input type="submit" value="Submit" class="button is-link"/>
+        <!-- confirm password -->
+        <div class="field">
+          <label class="label">Confirm password</label>
+          <div class="control has-icons-left">
+            <input class="input" type="password" placeholder="Password">
+            <span class="icon is-small is-left">
+              <i class="fas fa-lock"></i>
+            </span>
+          </div>
         </div>
-        <div class="control">
-          <input type="reset" value="Cancel" class="button is-link is-light"/>
+        
+        <!-- gender -->
+        <div class="field">
+          <label class="label">Gender</label>
+          <div class="control">
+            <div class="select">
+              <select>
+                <option>male</option>
+                <option>female</option>
+                <option>non-binary</option>
+                <option>prefer not to say</option>
+              </select>
+            </div>
+          </div>
         </div>
-      </div>
-    </form>
+
+        <!-- terms and conditions -->
+        <div class="field mt-5">
+          <div class="control">
+            <label class="checkbox">
+              <input type="checkbox">
+              I agree to the <a href="#">terms and conditions</a>
+            </label>
+          </div>
+        </div>
+        
+        <!-- newsletter -->
+        <div class="field is-grouped">
+          <label class="mr-4">Receive newsletter?</label>
+          <div class="control">
+            <label class="radio">
+              <input type="radio" name="question" checked="checked">
+              Yes
+            </label>
+            <label class="radio">
+              <input type="radio" name="question">
+              No
+            </label>
+          </div>
+        </div>
+        
+        <!-- form buttons -->
+        <div class="field is-grouped mt-5">
+          <div class="control">
+            <input type="submit" value="Submit" class="button is-link"/>
+          </div>
+          <div class="control">
+            <input type="reset" value="Cancel" class="button is-link is-light"/>
+          </div>
+        </div>
+      </form>
+    </div>
+
+    <figure class="column is-desktop">
+      <img class="pt-5 pb-3" src="assets/girl_with_books.jpg" style="height: 100%; object-fit: cover;" alt="Girl with books">
+    </figure>
   </section>
+
+  <footer class="section has-background-info-light">
+    <div class="container has-text-centered">
+      <h1 class="is-size-2 has-text-weight-bold">Want to receive the newest updates?</h1>
+      <p class="is-size-4" >Subscribe to our newsletter!</p>
+
+      <form class="mt-5 mb-2">
+        <div class="field is-grouped has-addons has-addons-centered">
+          <div class="control mr-0">
+            <input type="email" class="input" placeholder="john.doe@gmail.com" style="min-width: 270px;">
+          </div>
+          <div class="control ml-0">
+            <input type="submit" value="Subscribe" class="button is-primary">
+          </div>
+        </div>
+      </form>
+    </div>
+  </footer>
 
 </body>
 </html>
