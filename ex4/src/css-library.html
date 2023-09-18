@@ -6,7 +6,8 @@
   <title>Exercise 4</title>
   
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
-  <style>
+  <!-- single style doesn't warrant a standalone file -->
+  <style> 
     picture img,
     figure img {
       object-fit: cover;
@@ -16,7 +17,7 @@
   <!-- jQuery and custom JS module -->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
   <script src="https://kit.fontawesome.com/ee733139c3.js" crossorigin="anonymous"></script>
-  <script src="main.js"></script>
+  <script src="main.js" defer></script>
 </head>
 <body>
   <nav class="navbar" role="navigation" aria-label="main navigation">
@@ -93,12 +94,12 @@
         Become a library member today!
       </h1>
 
-      <form>
+      <form id="membershipForm">
         <!-- full name -->
         <div class="field">
           <label class="label">Full name</label>
           <div class="control has-icons-left">
-            <input class="input" type="text" placeholder="John Doe">
+            <input class="input" type="text" placeholder="John Doe" required>
             <span class="icon is-small is-left">
               <i class="fas fa-user"></i>
             </span>
@@ -109,7 +110,8 @@
         <div class="field">
           <label class="label">Email</label>
           <div class="control has-icons-left has-icons-right">
-            <input class="input" type="email" placeholder="john.doe@gmail.com">
+            <input class="input" type="email" placeholder="john.doe@gmail.com"
+                   pattern="[a-zA-Z0-9._+\-]+@[a-zA-Z0-9.\-]+\.[a-zA-Z]{2,4}" required>
             <span class="icon is-small is-left">
               <i class="fas fa-envelope"></i>
             </span>
@@ -120,18 +122,19 @@
         <div class="field">
           <label class="label">Password</label>
           <div class="control has-icons-left">
-            <input class="input" type="password" placeholder="Password">
+            <input class="input" type="password" name="password" placeholder="Password"
+                   minlength="8" maxlength="32" required title="Minimum of 8 characters required">
             <span class="icon is-small is-left">
               <i class="fas fa-lock"></i>
             </span>
           </div>
-          <p class="help is-info">Minimum of 8 characters required</p>
+          <!-- <p class="help is-info">Minimum of 8 characters required</p> -->
         </div>
         <!-- confirm password -->
         <div class="field">
           <label class="label">Confirm password</label>
           <div class="control has-icons-left">
-            <input class="input" type="password" placeholder="Password">
+            <input class="input" type="password" name="passwordConfirm" placeholder="Password" required>
             <span class="icon is-small is-left">
               <i class="fas fa-lock"></i>
             </span>
@@ -143,7 +146,7 @@
           <label class="label">Gender</label>
           <div class="control">
             <div class="select">
-              <select>
+              <select required>
                 <option>male</option>
                 <option>female</option>
                 <option>non-binary</option>
@@ -156,8 +159,8 @@
         <!-- terms and conditions -->
         <div class="field mt-5">
           <div class="control">
-            <label class="checkbox">
-              <input type="checkbox">
+            <label class="checkbox" for="terms">
+              <input type="checkbox" name="terms" id="terms" required>
               I agree to the <a href="#">terms and conditions</a>
             </label>
           </div>
@@ -203,7 +206,7 @@
       <form class="mt-5 mb-2">
         <div class="field is-grouped has-addons has-addons-centered">
           <div class="control mr-0">
-            <input type="email" class="input" placeholder="john.doe@gmail.com" style="min-width: 270px;">
+            <input type="email" class="input is-primary" placeholder="john.doe@gmail.com" style="min-width: 270px;">
           </div>
           <div class="control ml-0">
             <input type="submit" value="Subscribe" class="button is-primary">
