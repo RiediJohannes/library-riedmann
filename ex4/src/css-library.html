@@ -6,6 +6,13 @@
   <title>Exercise 4</title>
   
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+  <style>
+    picture img,
+    figure img {
+      object-fit: cover;
+    }
+  </style>
+
   <!-- jQuery and custom JS module -->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
   <script src="https://kit.fontawesome.com/ee733139c3.js" crossorigin="anonymous"></script>
@@ -55,9 +62,17 @@
   </nav>
 
   <!-- Bookshelf image banner -->
-  <figure class="image is-3by1">
-    <img src="assets/bookshelf_large.jpg" style="object-fit: cover;" alt="Full bookshelf">
-  </figure>
+  <picture class="image is-3by1">
+    <source media='(max-width: 400px)'
+            srcset='assets/bookshelf_small.jpg'/>
+    <source media='(min-width: 401px)'
+            srcset='assets/bookshelf_medium.jpg'/>
+    <source media='(min-width: 801px)'
+            srcset='assets/bookshelf_large.jpg'/>
+    <source media='(min-width: 1101px)'
+            srcset='assets/bookshelf_retina.jpg'/>
+    <img src='assets/bookshelf_large.jpg' alt="Full bookshelf"/>
+  </picture>
 
   <!-- Greeting text -->
   <article class="hero is-info">
@@ -176,7 +191,7 @@
     </div>
 
     <figure class="column is-desktop">
-      <img class="pt-5 pb-3" src="assets/girl_with_books.jpg" style="height: 100%; object-fit: cover;" alt="Girl with books">
+      <img class="pt-5 pb-3" src="assets/girl_with_books.jpg" style="height: 100%;" alt="Girl with books">
     </figure>
   </section>
 
