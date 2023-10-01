@@ -1,0 +1,82 @@
+@font-face {
+  font-family: 'Roboto';
+  src: url('fonts/Roboto-Light-webfont.woff') format('woff');
+  font-style: normal;
+  font-weight: 300;
+}
+
+@font-face {
+  font-family: 'Roboto';
+  src: url('fonts/Roboto-LightItalic-webfont.woff') format('woff');
+  font-style: italic;
+  font-weight: 300;
+}
+
+@font-face {
+  font-family: 'Roboto';
+  src: url('fonts/Roboto-Bold-webfont.woff') format('woff');
+  font-style: normal;
+  font-weight: 700;
+}
+
+
+#page {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 300;
+  font-size: 18px;
+  line-height: 1.8em;
+  color: #5D6063;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  line-height: 1.3em;
+  font-weight: normal;
+  font-style: normal;
+}
+
+.my-hero {
+  background-color: #5D6063;
+  color: white;
+  text-align: center;
+  font-size: 50px;
+  padding-top: 0.8em;
+  padding-bottom: 0.8em;
+}
+
+.my-section {
+  padding: 4em 1em;
+  margin: 0 auto;
+  max-width: 540px;
+}
+
+.my-section h2 {
+  font-size: 30px;
+  margin-bottom: .7em;
+}
+
+.my-section:first-of-type {
+  border-top: none;
+}
+
+.my-section p,
+.my-section ul,
+.my-section ol,
+.my-section figure {
+  margin-bottom: 1em;
+}
+
+.my-section p:last-child,
+.my-section ul:last-child,
+.my-section ol:last-child,
+.my-section figure:last-child {
+  margin-bottom: 0;
+}
+
+@media only screen and (min-width: 580px) {
+  .my-section:first-of-type,
+  .my-section {
+    margin: 4em auto;
+    padding: 2.5em 3em;
+    border: 1px solid #D6D9DC;
+  }
+}
