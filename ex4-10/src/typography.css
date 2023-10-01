@@ -1,3 +1,4 @@
+/* Local fonts served by our own server */
 @font-face {
   font-family: 'Roboto';
   src: url('fonts/Roboto-Light-webfont.woff') format('woff');
@@ -28,10 +29,8 @@
   color: #5D6063;
 }
 
-h1, h2, h3, h4, h5, h6 {
+h2 {
   line-height: 1.3em;
-  font-weight: normal;
-  font-style: normal;
 }
 
 .my-hero {
@@ -44,9 +43,11 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .my-section {
-  padding: 4em 1em;
-  margin: 0 auto;
+  padding: 2.5em 3em;
+  flex-basis: 320px;
+  flex-grow: 1;
   max-width: 540px;
+  border: 1px solid #D6D9DC;
 }
 
 .my-section h2 {
@@ -54,29 +55,45 @@ h1, h2, h3, h4, h5, h6 {
   margin-bottom: .7em;
 }
 
-.my-section:first-of-type {
-  border-top: none;
+.wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: space-around;
+  padding: 50px 50px 100px 50px;
+  gap: 50px;
 }
 
-.my-section p,
-.my-section ul,
-.my-section ol,
-.my-section figure {
-  margin-bottom: 1em;
+
+/* font faces */
+.italic > * {
+  font-style: italic;
+  font-weight: normal;
 }
 
-.my-section p:last-child,
-.my-section ul:last-child,
-.my-section ol:last-child,
-.my-section figure:last-child {
-  margin-bottom: 0;
+.bold > * {
+  font-style: normal;
+  font-weight: 700;
 }
 
-@media only screen and (min-width: 580px) {
-  .my-section:first-of-type,
-  .my-section {
-    margin: 4em auto;
-    padding: 2.5em 3em;
-    border: 1px solid #D6D9DC;
-  }
+
+/* web fonts */
+.web-fonts section:nth-child(1) {
+  font-family: 'UnifrakturMaguntia', cursive;
+}
+
+.web-fonts section:nth-child(2) {
+  font-family: 'JetBrains Mono', monospace;
+}
+
+.web-fonts section:nth-child(3) {
+  font-family: 'Space Grotesk', sans-serif;
+}
+
+.web-fonts section:nth-child(4) {
+  font-family: 'Pixelify Sans', sans-serif;
+}
+
+.web-fonts section:nth-child(5) {
+  font-family: 'Audiowide', monospace;
 }

@@ -27,25 +27,27 @@ $(document).ready(function() {
 
     // require both password values to be identical
     const form = document.getElementById('membershipForm');
-    form.onsubmit = (e) => {
-        let passwordsEqual = form.password.value === form.passwordConfirm.value;
-
-        if (!passwordsEqual) {
-            form.passwordConfirm.classList.add("is-danger")
-
-            // add a help text for the user
-            if ($(form.passwordConfirm).siblings('p').length < 1) {
-                const p = document.createElement("p")
-                p.innerText = "Passwords are not equal"
-                p.classList.add("help", "is-danger")
-                form.passwordConfirm.after(p)
+    if (form) {
+        form.onsubmit = (e) => {
+            let passwordsEqual = form.password.value === form.passwordConfirm.value;
+    
+            if (!passwordsEqual) {
+                form.passwordConfirm.classList.add("is-danger")
+    
+                // add a help text for the user
+                if ($(form.passwordConfirm).siblings('p').length < 1) {
+                    const p = document.createElement("p")
+                    p.innerText = "Passwords are not equal"
+                    p.classList.add("help", "is-danger")
+                    form.passwordConfirm.after(p)
+                }
+            } else {
+                // remove the warning colour and all warning texts
+                form.passwordConfirm.classList.remove("is-danger")
+                $(form.passwordConfirm).siblings('p').remove();
             }
-        } else {
-            // remove the warning colour and all warning texts
-            form.passwordConfirm.classList.remove("is-danger")
-            $(form.passwordConfirm).siblings('p').remove();
+    
+            return passwordsEqual;
         }
-
-        return passwordsEqual;
     }
 });
