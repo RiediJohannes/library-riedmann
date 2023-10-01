@@ -97,3 +97,45 @@ h2 {
 .web-fonts section:nth-child(5) {
   font-family: 'Audiowide', monospace;
 }
+
+
+/* paragraph markers */
+.indent,
+.margin {
+  max-width: 650px;
+}
+
+.indent p {
+  text-indent: 1em;
+  margin-bottom: 0;
+}
+
+.indent p:first-of-type {
+  text-indent: 0;
+}
+
+.margin p {
+  margin-bottom: 1em;
+}
+
+.margin p:last-of-type {
+  margin-bottom: 0;
+}
+
+
+/* text alignment */
+.right {
+  text-align: right;
+}
+
+.center {
+  text-align: center;
+}
+
+.right {
+  text-align: right;
+}
+
+.justify {
+  text-align: justify;
+}
