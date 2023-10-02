@@ -11,6 +11,7 @@
 
   color: #5D6063;
   background-color: #EAEDF0;
+  padding-bottom: 50px;
 }
 
 .form-column {
@@ -231,4 +232,24 @@ form {
   .control .button {
     width: auto;
   }
+}
+
+
+footer {
+  padding: 40px 80px 50px 80px;
+}
+
+footer h1 {
+  font-size: 2.2em;
+  font-weight: 700;
+  margin-bottom: 0.3em;
+}
+
+footer div {
+  max-width: 750px;
+  margin: auto;
+}
+
+footer p {
+  margin-bottom: 1em;
 }
