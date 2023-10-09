@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>CSS3 Advanced</title>
+  <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0' />
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+  <link rel="stylesheet" href="styles/styles.css">
+
+  <!-- jQuery and custom JS module -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+  <script src="https://kit.fontawesome.com/ee733139c3.js" crossorigin="anonymous"></script>
+  <script src="main.js" defer></script>
+</head>
+
+<body>
+  <nav class="navbar" role="navigation" aria-label="main navigation">
+    <!-- Part of the nav that is always visible -->
+    <div class="navbar-brand">
+      <a class="navbar-item" href="../../index.html">
+        <object data="assets/logo.svg" height="55px" style="pointer-events: none;"></object>
+      </a>
+      <!-- Hamburger button for mobile devices -->
+      <a role="button" class="navbar-burger" style="height: 75px; width: 60px;" aria-label="menu" aria-expanded="false" data-target="nav-menu">
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+      </a>
+    </div>
+
+    <!-- Part of the nav that is only visible on desktop devices -->
+    <div id="nav-menu" class="navbar-menu">
+      <div class="navbar-start">
+        <a href="css-library.html" class="navbar-item">
+          4 CSS Libraries
+        </a>
+        <a href="web-typography.html" class="navbar-item">
+          5 Web Typography
+        </a>
+        <a href="forms.html" class="navbar-item">
+          6 HTML Forms vs CSS Library Forms
+        </a>
+        <a href="css3-advanced.html" class="navbar-item is-active">
+          7 CSS3 Advanced
+        </a>
+        <a class="navbar-item">
+          8 CSS Pre-Processors
+        </a>
+        <a class="navbar-item">
+          9 CSS Animations
+        </a>
+        <a class="navbar-item">
+          10 SVG Illustrations
+        </a>
+      </div>
+    </div>
+  </nav>
+  
+  <div id="page">
+    <div class="container">
+      <div class="card">
+        <h5 class="card-title">Container Queries</h5>
+        <p class="card-text">
+          Container Queries is one of the latest and highly anticipated
+          additions to the CSS language. Unlike traditional media queries which respond to
+          the dimensions of the viewport, Container Queries allow styles to adapt based on
+          the dimensions of an element's container (parent). This means that you can apply styles
+          to an element depending on how much space it has available, enabling more precise
+          and context-aware layouts. For example, you could dynamically adjust the font
+          size inside a card based solely on the width of its parent element, not based
+          on the overall screen width. Therefore, the layout of the webpage can be changed
+          more freely as the content of the cards will adapt automatically to the space given.
+        </p>
+      </div>
+  
+      <div class="card">
+        <h5 class="card-title">CSS Nesting</h5>
+        <p class="card-text">
+          CSS nesting allows you to nest CSS selectors within one another, similar to how they are structured
+          in the HTML document. This makes it easier to write modular and organized stylesheets,
+          as selectors can be grouped together based on their relationships in the HTML markup.
+          For instance, you could define styles for your <code>&lta&gt</code> tag within an existing selector
+          for the <code>&ltnav&gt</code> tag, thereby scoping those styles only to links inside a navbar.
+          Previously, you had to write a separate CSS block with the selector <code>nav a</code> to achieve
+          the same behaviour. The addition of this new feature thus massively enhances code readability
+          and maintainability. In fact, it has been one of the main "selling points" of the popular CSS
+          preprocessor SASS/SCSS.
+        </p>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
