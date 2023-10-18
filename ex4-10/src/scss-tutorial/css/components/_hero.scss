@@ -1,4 +1,4 @@
-.hero {
+.my-hero {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -21,7 +21,7 @@
   }
 }
 
-.hero-img {
+.my-hero-img {
   position: relative;
   max-width: 40rem;
   margin-left: auto;
@@ -36,7 +36,7 @@
   }
 }
 
-.hero-subtitle {
+.my-hero-subtitle {
   color: #45C1FF;
   font-size: .85rem;
   text-transform: uppercase;
@@ -47,7 +47,7 @@
   margin-bottom: 1.5rem;
 }
 
-.hero-btns {
+.my-hero-btns {
   margin-bottom: 4.5rem;
   padding-top: .5rem;
 }

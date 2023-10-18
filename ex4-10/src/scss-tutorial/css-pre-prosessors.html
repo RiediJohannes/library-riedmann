@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Exercise 7 - CSS Pre-processors</title>
 
-  <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css"> -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
   <link rel="shortcut icon" type="image/png" href="favicon.png" />
   <link rel="stylesheet" href="css/main.css">
 
@@ -17,35 +17,77 @@
 </head>
 
 <body>
-  <header class="header">
-    <nav class="navbar">
-      <a class="logo" href="#">
+  <nav class="navbar" role="navigation" aria-label="main navigation">
+    <!-- Part of the nav that is always visible -->
+    <div class="navbar-brand">
+      <a class="navbar-item" href="../../index.html">
+        <object data="assets/logo.svg" height="55px" style="pointer-events: none;"></object>
+      </a>
+      <!-- Hamburger button for mobile devices -->
+      <a role="button" class="navbar-burger" style="height: 75px; width: 60px;" aria-label="menu" aria-expanded="false" data-target="nav-menu">
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+      </a>
+    </div>
+
+    <!-- Part of the nav that is only visible on desktop devices -->
+    <div id="nav-menu" class="navbar-menu">
+      <div class="navbar-start">
+        <a href="css-library.html" class="navbar-item">
+          4 CSS Libraries
+        </a>
+        <a href="web-typography.html" class="navbar-item">
+          5 Web Typography
+        </a>
+        <a href="forms.html" class="navbar-item">
+          6 HTML Forms vs CSS Library Forms
+        </a>
+        <a href="css3-advanced.html" class="navbar-item">
+          7 CSS3 Advanced
+        </a>
+        <a href="css-pre-prosessors.html" class="navbar-item is-active">
+          8 CSS Pre-Processors
+        </a>
+        <a class="navbar-item">
+          9 CSS Animations
+        </a>
+        <a class="navbar-item">
+          10 SVG Illustrations
+        </a>
+      </div>
+    </div>
+  </nav>
+
+  <header class="my-header">
+    <nav class="my-navbar">
+      <a class="my-logo" href="#">
         <img src="images/logo.svg" alt="">
       </a>
 
-      <ul class="header-nav">
-        <li class="nav-item"><a class="nav-link" href="#">What is Crossfit?</a></li>
-        <li class="nav-item"><a class="nav-link" href="#">Workouts</a></li>
-        <li class="nav-item"><a class="nav-link" href="#">Locations</a></li>
-        <li class="nav-item"><a class="nav-link" href="#">Contact Us</a></li>
-        <li class="nav-item"><a class="nav-link btn-primary" href="#">Login</a></li>
+      <ul class="my-header-nav">
+        <li class="my-nav-item"><a class="my-nav-link" href="#">What is Crossfit?</a></li>
+        <li class="my-nav-item"><a class="my-nav-link" href="#">Workouts</a></li>
+        <li class="my-nav-item"><a class="my-nav-link" href="#">Locations</a></li>
+        <li class="my-nav-item"><a class="my-nav-link" href="#">Contact Us</a></li>
+        <li class="my-nav-item"><a class="my-nav-link btn-primary" href="#">Login</a></li>
       </ul>
     </nav>
 
     <!-- Hero Intro-->
-    <div class="hero">
-      <span class="hero-subtitle">Welcome to crossfit fitness</span>
+    <div class="my-hero">
+      <span class="my-hero-subtitle">Welcome to crossfit fitness</span>
       <h1>Join the world's largest community for fitness & health</h1>
       <p>With over 14 thousand independently owned Fitness gyms, our locations offer dedicated
         fitness professionals with the shared goal of improving health and happiness for everyone!</p>
-      <div class="hero-btns">
+      <div class="my-hero-btns">
         <a class="btn-primary" href="#">Sign Up</a>
         <button class="btn-link">Learn More</button>
       </div>
     </div>
 
     <!-- Hero Image-->
-    <div class="hero-img">
+    <div class="my-hero-img">
       <img src="images/banner-1.jpg" alt="Join fitness now">
     </div>
   </header>

@@ -1,31 +1,32 @@
-.navbar {
+.my-navbar {
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
 
-.logo {
+.my-logo {
   width: 110px;
 }
 
-.nav-item {
-  margin-left: 3rem;
+.my-nav-item {
+  margin-left: min(3rem, 5vw);
 }
 
-.nav-link {
+.my-nav-link {
   text-decoration: none;
   color: #0A2463;
   font-size: .95rem;
   font-weight: 500;
 }
 
-.header {
+.my-header {
   padding: 1.5rem;
   padding-bottom: 15rem;
   margin-bottom: 20rem;
   background-color: #F2F5FA;
 }
-.header-nav {
+
+.my-header-nav {
   display: flex;
   list-style: none;
   margin: 0;

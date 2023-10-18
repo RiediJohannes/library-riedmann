@@ -162,42 +162,42 @@ p {
   align-items: center;
 }
 
-.navbar {
+.my-navbar {
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
 
-.logo {
+.my-logo {
   width: 110px;
 }
 
-.nav-item {
-  margin-left: 3rem;
+.my-nav-item {
+  margin-left: min(3rem, 5vw);
 }
 
-.nav-link {
+.my-nav-link {
   text-decoration: none;
   color: #0A2463;
   font-size: 0.95rem;
   font-weight: 500;
 }
 
-.header {
+.my-header {
   padding: 1.5rem;
   padding-bottom: 15rem;
   margin-bottom: 20rem;
   background-color: #F2F5FA;
 }
 
-.header-nav {
+.my-header-nav {
   display: flex;
   list-style: none;
   margin: 0;
   padding: 0;
 }
 
-.hero {
+.my-hero {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -209,22 +209,22 @@ p {
   margin-right: auto;
   padding: 0 2rem;
 }
-.hero h1 {
+.my-hero h1 {
   max-width: 75%;
   margin-bottom: 1.5rem;
 }
-.hero p {
+.my-hero p {
   max-width: 50%;
   margin-bottom: 1.5rem;
 }
 
-.hero-img {
+.my-hero-img {
   position: relative;
   max-width: 40rem;
   margin-left: auto;
   margin-right: auto;
 }
-.hero-img img {
+.my-hero-img img {
   position: absolute;
   border-radius: 6px;
   max-width: 100%;
@@ -232,7 +232,7 @@ p {
   box-shadow: 0 1.5rem 4rem rgba(22, 28, 45, 0.1);
 }
 
-.hero-subtitle {
+.my-hero-subtitle {
   color: #45C1FF;
   font-size: 0.85rem;
   text-transform: uppercase;
@@ -243,7 +243,7 @@ p {
   margin-bottom: 1.5rem;
 }
 
-.hero-btns {
+.my-hero-btns {
   margin-bottom: 4.5rem;
   padding-top: 0.5rem;
 }
@@ -258,6 +258,11 @@ p {
   margin-bottom: 1.5rem;
 }
 
+@media screen and (max-width: 800px) {
+  .reasons {
+    grid-template-columns: 1fr;
+  }
+}
 .reasons-subtitle {
   color: #45C1FF;
   font-size: 0.85rem;

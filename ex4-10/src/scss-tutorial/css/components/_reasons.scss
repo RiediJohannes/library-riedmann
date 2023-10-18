@@ -1,9 +1,10 @@
 @use "../abstracts/mixins" as *;
 @use "../abstracts/variables" as *;
 
+
 .reasons {
   display: grid;
-  grid-template-columns: repeat(2,minmax(0,1fr));
+  grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 2.25rem;
   margin-bottom: 10rem;
 
@@ -11,6 +12,13 @@
     margin-bottom: 1.5rem;
   }
 }
+
+@media screen and (max-width: 800px) {
+  .reasons {
+    grid-template-columns: 1fr;
+  }
+}
+
 
 .reasons-subtitle {
   color: #45C1FF;
