@@ -9,20 +9,33 @@
   margin-left: auto;
   margin-right: auto;
   padding: 0 2rem;
+
+  h1 {
+    max-width: 75%;
+    margin-bottom: 1.5rem;
+  }
+
+  p {
+    max-width: 50%;
+    margin-bottom: 1.5rem;
+  }
 }
+
 .hero-img {
   position: relative;
   max-width: 40rem;
   margin-left: auto;
   margin-right: auto;
+
+  img {
+    position: absolute;
+    border-radius: 6px;
+    max-width: 100%;
+    border-radius: 4px;
+    box-shadow: 0 1.5rem 4rem rgba(22,28,45,.1);
+  }
 }
-.hero-img img {
-  position: absolute;
-  border-radius: 6px;
-  max-width: 100%;
-  border-radius: 4px;
-  box-shadow: 0 1.5rem 4rem rgba(22,28,45,.1);
-}
+
 .hero-subtitle {
   color: #45C1FF;
   font-size: .85rem;
@@ -31,15 +44,6 @@
   font-weight: 600;
   display: block;
   margin-top: 3rem;
-  margin-bottom: 1.5rem;
-}
-
-.hero h1 {
-  max-width: 75%;
-  margin-bottom: 1.5rem;
-}
-.hero p {
-  max-width: 50%;
   margin-bottom: 1.5rem;
 }
 
