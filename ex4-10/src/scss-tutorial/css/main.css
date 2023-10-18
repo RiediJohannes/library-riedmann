@@ -226,7 +226,6 @@ p {
 }
 .my-hero-img img {
   position: absolute;
-  border-radius: 6px;
   max-width: 100%;
   border-radius: 4px;
   box-shadow: 0 1.5rem 4rem rgba(22, 28, 45, 0.1);
