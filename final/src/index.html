@@ -17,8 +17,13 @@
     <!-- Part of the nav that is always visible -->
     <div class="navbar-brand">
       <a class="navbar-item" href="index.html">
-        <object data="assets/svg/logo.svg" height="55px" style="pointer-events: none;"></object>
+        <object id="logo" data="assets/svg/logo.svg" style="pointer-events: none;"></object>
       </a>
+
+      <a class="navbar-item shopping-cart-icon is-hidden-desktop" href="index.html">
+        <img src="assets/svg/icons/shopping-cart.svg" alt="">
+      </a>
+
       <!-- Hamburger button for mobile devices -->
       <a role="button" class="navbar-burger" style="height: 75px; width: 60px;" aria-label="menu" aria-expanded="false" data-target="nav-menu">
         <span aria-hidden="true"></span>
@@ -41,6 +46,12 @@
         </a>
         <a href="css3-advanced.html" class="navbar-item">
           404
+        </a>
+      </div>
+
+      <div class="navbar-end">
+        <a class="navbar-item shopping-cart-icon is-hidden-touch" href="index.html">
+          <img src="assets/svg/icons/shopping-cart.svg" alt="">
         </a>
       </div>
     </div>

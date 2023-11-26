@@ -4,6 +4,7 @@
 @use "./general/reset";
 @use "./general/typography";
 
+
 // component imports
 // @use "components/buttons";
 // @use "components/navbar";
@@ -13,6 +14,7 @@
 // layout imports
 // @use "layout/layout";
 // @use "layout/footer";
+@use "layout/header";
 
 // these need to be imported because Bulma does not support @use yet
 @import "./abstracts/theming";

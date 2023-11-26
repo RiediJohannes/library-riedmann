@@ -75,6 +75,23 @@ img {
 /*
   Defines custom variables to be used within SCSS modules
 */
+nav #logo {
+  max-height: 60px;
+  max-width: 50vw;
+}
+nav .shopping-cart-icon {
+  margin-left: auto;
+}
+nav .navbar-burger {
+  margin-left: 0px !important;
+}
+
+/*
+  Overrides bulma's default variables to create a custom theme
+*/
+/*
+  Defines custom variables to be used within SCSS modules
+*/
 /*! bulma.io v0.9.3 | MIT License | github.com/jgthms/bulma */
 /* Bulma Utilities */
 .pagination-previous,
@@ -4499,7 +4516,7 @@ button.dropdown-item.is-active {
 }
 
 .navbar {
-  background-color: #1e1e1e;
+  background-color: #2c2c2c;
   min-height: 3.25rem;
   position: relative;
   z-index: 30;
@@ -5271,7 +5288,7 @@ a.navbar-item:focus, a.navbar-item:focus-within, a.navbar-item:hover, a.navbar-i
   }
 
   .navbar-menu {
-    background-color: #1e1e1e;
+    background-color: #2c2c2c;
     box-shadow: 0 8px 16px rgba(10, 10, 10, 0.1);
     padding: 0.5rem 0;
   }
@@ -5399,7 +5416,7 @@ body.has-navbar-fixed-bottom-touch {
   }
 
   .navbar-dropdown {
-    background-color: #1e1e1e;
+    background-color: #2c2c2c;
     border-bottom-left-radius: 6px;
     border-bottom-right-radius: 6px;
     border-top: 2px solid hsl(0deg, 0%, 86%);
