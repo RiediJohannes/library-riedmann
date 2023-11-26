@@ -1,0 +1,13 @@
+/*
+  Defines custom variables to be used within SCSS modules
+*/
+
+// import bulma's initial variables
+@import "../../node_modules/bulma/sass/utilities/initial-variables.sass";
+@import "../../node_modules/bulma/sass/utilities/derived-variables.sass";
+
+
+// colours
+$my-black: #1e1e1e;
+$my-dark-grey: #2c2c2c;
+$my-primary: #0b7fc1;

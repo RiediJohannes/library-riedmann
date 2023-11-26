@@ -1,0 +1,16 @@
+/*
+  Overrides bulma's default variables to create a custom theme
+*/
+
+@import "./variables";
+
+
+$primary: $my-primary;
+
+$scheme-main: $my-black;
+// $scheme-invert: lightblue;
+
+$background: $my-dark-grey;
+$text: #EEEEEE;
+
+$family-sans-serif: "Inter", "Helvetica", "Arial", sans-serif;
