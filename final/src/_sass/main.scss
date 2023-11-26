@@ -10,11 +10,12 @@
 // @use "components/navbar";
 // @use "components/hero";
 // @use "components/reasons";
+@use "./components/navigation";
 
 // layout imports
 // @use "layout/layout";
 // @use "layout/footer";
-@use "layout/header";
+@import "./layout/header";
 
 // these need to be imported because Bulma does not support @use yet
 @import "./abstracts/theming";

@@ -1,18 +1,41 @@
 @import "../abstracts/theming";
 @import "../../node_modules/bulma/sass/utilities/mixins.sass";
 
-nav {
-  #logo {
-    max-height: 60px;
-    max-width: 50vw;
+#thumbnail {
+  height: calc(100svh - $navbar-height);
+  position: relative;
+  overflow: hidden;
+
+  // put the background image inside a pseudo-element in order to
+  // rotate it by -90deg for mobile devices (background-images are not rotatable)
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    height: calc(100svh - $navbar-height);
+    width: 100vw;
+    z-index: -1;
+
+    // background image
+    background-image: url(../assets/svg/waves.svg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+
+    // rotate image to landscape mode on mobile and tablet devices
+    @include until($desktop) {
+      transform-origin: 0 0;
+      rotate: -90deg;
+      width: calc(100svh - $navbar-height);
+      height: 100vw;
+      top: 100%;
+    }
   }
-  
-  .shopping-cart-icon {
-    margin-left: auto;
-  }
-  
-  .navbar-burger {
-    margin-left: 0px !important;
+
+  .catchphrase {
+    text-align: center;
+    position: absolute;
+    top: 50%;
+    width: 100%;
   }
 }
-
