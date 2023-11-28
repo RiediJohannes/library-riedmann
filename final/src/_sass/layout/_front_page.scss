@@ -1,7 +1,9 @@
-@import "../abstracts/theming";
+@import "../abstracts/variables";
 @import "../../node_modules/bulma/sass/utilities/mixins.sass";
 
 #thumbnail {
+  display: flex;
+  align-items: center;
   height: calc(100svh - $navbar-height);
   position: relative;
   overflow: hidden;
@@ -14,7 +16,7 @@
     top: 0;
     height: calc(100svh - $navbar-height);
     width: 100vw;
-    z-index: -1;
+    z-index: -5;
 
     // background image
     background-image: url(../assets/svg/waves.svg);
@@ -34,8 +36,20 @@
 
   .catchphrase {
     text-align: center;
-    position: absolute;
-    top: 50%;
     width: 100%;
+
+    h1 {
+      font-size: 3em;
+      font-weight: 700;
+    }
+
+    span {
+      font-size: 1.5em;
+      font-weight: 300;
+    }
   }
+}
+
+#thumbnail + .section {
+  padding-top: 0;
 }

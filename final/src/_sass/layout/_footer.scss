@@ -1,0 +1,8 @@
+@import "../abstracts/variables";
+
+footer {
+  min-height: 150px;
+  margin-top: 100px;
+  background-color: $my-turquoise;
+  clip-path: polygon(0 0, 100% 20%, 100% 100%, 0 100%);
+}

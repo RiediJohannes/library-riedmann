@@ -1,22 +1,19 @@
 @charset "utf-8";
 
-// general imports
-@use "./general/reset";
-@use "./general/typography";
+// bulma imports
+@import "./abstracts/variables";
+@import "../node_modules/bulma/bulma";
 
+// general imports
+@import "./general/reset";
+@import "./general/typography";
 
 // component imports
-// @use "components/buttons";
-// @use "components/navbar";
-// @use "components/hero";
-// @use "components/reasons";
-@use "./components/navigation";
+@import "./components/hero";
+@import "./components/navigation";
 
 // layout imports
-// @use "layout/layout";
-// @use "layout/footer";
-@import "./layout/header";
+@import "./layout/footer";
+@import "./layout/front_page";
 
-// these need to be imported because Bulma does not support @use yet
-@import "./abstracts/theming";
-@import "../node_modules/bulma/bulma";
+

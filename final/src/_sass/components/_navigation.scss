@@ -1,9 +1,13 @@
-@import "../abstracts/theming";
+@use "../abstracts/variables";
+@import "../../node_modules/bulma/sass/utilities/mixins.sass";
 
-nav {
-  .navbar {
-    max-height: $navbar-height;
-  }
+$navbar-background-color: $background;
+$navbar-dropdown-background-color: $background;
+$navbar-height: 5rem;
+
+
+.navbar {
+  max-height: $navbar-height;
 
   #logo {
     max-height: 60px;
@@ -16,6 +20,14 @@ nav {
   
   .navbar-burger {
     margin-left: 0px !important;
+  }
+
+  // prevent the menu from pushing down the page contents when open
+  @include until($desktop) {
+    .navbar-menu.is-active {
+      position: absolute;
+      width: 100%;
+    } 
   }
 }
 

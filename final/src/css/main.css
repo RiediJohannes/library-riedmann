@@ -1,138 +1,7 @@
 @charset "UTF-8";
-*,
-*::before,
-*::after {
-  box-sizing: border-box;
-}
-
-body,
-h1,
-h2,
-h3,
-h4,
-p,
-figure,
-blockquote,
-dl,
-dd {
-  margin: 0;
-}
-
-html:focus-within {
-  scroll-behavior: smooth;
-}
-
-body {
-  min-height: 100vh;
-  text-rendering: optimizeSpeed;
-  line-height: 1.5;
-}
-
-a:not([class]) {
-  text-decoration-skip-ink: auto;
-}
-
-img,
-picture {
-  max-width: 100%;
-  display: block;
-}
-
-input,
-button,
-textarea,
-select {
-  font: inherit;
-}
-
-@media (prefers-reduced-motion: reduce) {
-  html:focus-within {
-    scroll-behavior: auto;
-  }
-
-  *,
-*::before,
-*::after {
-    animation-duration: 0.01ms !important;
-    animation-iteration-count: 1 !important;
-    transition-duration: 0.01ms !important;
-    scroll-behavior: auto !important;
-  }
-}
-img {
-  image-rendering: -webkit-optimize-contrast;
-}
-
 /*
-  Overrides bulma's default variables to create a custom theme
-*/
-/*
-  Defines custom variables to be used within SCSS modules
-*/
-/*
-  Overrides bulma's default variables to create a custom theme
-*/
-/*
-  Defines custom variables to be used within SCSS modules
-*/
-nav .navbar {
-  max-height: 5rem;
-}
-nav #logo {
-  max-height: 60px;
-  max-width: 50vw;
-}
-nav .shopping-cart-icon {
-  margin-left: auto;
-}
-nav .navbar-burger {
-  margin-left: 0px !important;
-}
-
-/*
-  Overrides bulma's default variables to create a custom theme
-*/
-/*
-  Defines custom variables to be used within SCSS modules
-*/
-#thumbnail {
-  height: calc(100svh - 5rem);
-  position: relative;
-  overflow: hidden;
-}
-#thumbnail::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  height: calc(100svh - 5rem);
-  width: 100vw;
-  z-index: -1;
-  background-image: url(../assets/svg/waves.svg);
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: cover;
-}
-@media screen and (max-width: 1023px) {
-  #thumbnail::before {
-    transform-origin: 0 0;
-    rotate: -90deg;
-    width: calc(100svh - 5rem);
-    height: 100vw;
-    top: 100%;
-  }
-}
-#thumbnail .catchphrase {
-  text-align: center;
-  position: absolute;
-  top: 50%;
-  width: 100%;
-}
-
-/*
-  Overrides bulma's default variables to create a custom theme
-*/
-/*
-  Defines custom variables to be used within SCSS modules
+  Defines custom variables to be used within SCSS modules and  
+  overrides bulma's default variables to create a custom theme
 */
 /*! bulma.io v0.9.3 | MIT License | github.com/jgthms/bulma */
 /* Bulma Utilities */
@@ -231,7 +100,7 @@ fieldset[disabled] .file-name, fieldset[disabled] .select select, .select fields
   user-select: none;
   -moz-appearance: none;
   -webkit-appearance: none;
-  background-color: rgba(10, 10, 10, 0.2);
+  background-color: rgba(238, 238, 238, 0.2);
   border: none;
   border-radius: 9999px;
   cursor: pointer;
@@ -269,10 +138,10 @@ fieldset[disabled] .file-name, fieldset[disabled] .select select, .select fields
   width: 2px;
 }
 .modal-close:hover, .delete:hover, .modal-close:focus, .delete:focus {
-  background-color: rgba(10, 10, 10, 0.3);
+  background-color: rgba(238, 238, 238, 0.3);
 }
 .modal-close:active, .delete:active {
-  background-color: rgba(10, 10, 10, 0.4);
+  background-color: rgba(238, 238, 238, 0.4);
 }
 .is-small.modal-close, .is-small.delete {
   height: 16px;
@@ -580,10 +449,10 @@ table th {
 }
 
 a.box:hover, a.box:focus {
-  box-shadow: 0 0.5em 1em -0.125em rgba(10, 10, 10, 0.1), 0 0 0 1px hsl(229deg, 53%, 53%);
+  box-shadow: 0 0.5em 1em -0.125em rgba(238, 238, 238, 0.1), 0 0 0 1px hsl(229deg, 53%, 53%);
 }
 a.box:active {
-  box-shadow: inset 0 1px 2px rgba(10, 10, 10, 0.2), 0 0 0 1px hsl(229deg, 53%, 53%);
+  box-shadow: inset 0 1px 2px rgba(238, 238, 238, 0.2), 0 0 0 1px hsl(229deg, 53%, 53%);
 }
 
 .button {
@@ -2855,7 +2724,7 @@ a.tag:hover {
 }
 
 .textarea, .input {
-  box-shadow: inset 0 0.0625em 0.125em rgba(10, 10, 10, 0.05);
+  box-shadow: inset 0 0.0625em 0.125em rgba(238, 238, 238, 0.05);
   max-width: 100%;
   width: 100%;
 }
@@ -3942,7 +3811,7 @@ a.tag:hover {
 .card-header {
   background-color: transparent;
   align-items: stretch;
-  box-shadow: 0 0.125em 0.25em rgba(10, 10, 10, 0.1);
+  box-shadow: 0 0.125em 0.25em rgba(238, 238, 238, 0.1);
   display: flex;
 }
 
@@ -4074,7 +3943,7 @@ button.dropdown-item {
 a.dropdown-item:hover,
 button.dropdown-item:hover {
   background-color: #2c2c2c;
-  color: hsl(0deg, 0%, 4%);
+  color: #EEEEEE;
 }
 a.dropdown-item.is-active,
 button.dropdown-item.is-active {
@@ -4477,7 +4346,7 @@ button.dropdown-item.is-active {
 }
 
 .modal-background {
-  background-color: rgba(10, 10, 10, 0.86);
+  background-color: rgba(238, 238, 238, 0.86);
 }
 
 .modal-content,
@@ -4558,8 +4427,8 @@ button.dropdown-item.is-active {
 }
 
 .navbar {
-  background-color: #2c2c2c;
-  min-height: 5rem;
+  background-color: #1e1e1e;
+  min-height: 3.25rem;
   position: relative;
   z-index: 30;
 }
@@ -5126,7 +4995,7 @@ button.dropdown-item.is-active {
 .navbar > .container {
   align-items: stretch;
   display: flex;
-  min-height: 5rem;
+  min-height: 3.25rem;
   width: 100%;
 }
 .navbar.has-shadow {
@@ -5150,11 +5019,11 @@ button.dropdown-item.is-active {
 
 html.has-navbar-fixed-top,
 body.has-navbar-fixed-top {
-  padding-top: 5rem;
+  padding-top: 3.25rem;
 }
 html.has-navbar-fixed-bottom,
 body.has-navbar-fixed-bottom {
-  padding-bottom: 5rem;
+  padding-bottom: 3.25rem;
 }
 
 .navbar-brand,
@@ -5162,7 +5031,7 @@ body.has-navbar-fixed-bottom {
   align-items: stretch;
   display: flex;
   flex-shrink: 0;
-  min-height: 5rem;
+  min-height: 3.25rem;
 }
 
 .navbar-brand a.navbar-item:focus, .navbar-brand a.navbar-item:hover {
@@ -5180,9 +5049,9 @@ body.has-navbar-fixed-bottom {
   color: #EEEEEE;
   cursor: pointer;
   display: block;
-  height: 5rem;
+  height: 3.25rem;
   position: relative;
-  width: 5rem;
+  width: 3.25rem;
   margin-left: auto;
 }
 .navbar-burger span {
@@ -5266,7 +5135,7 @@ a.navbar-item:focus, a.navbar-item:focus-within, a.navbar-item:hover, a.navbar-i
 }
 .navbar-item.is-tab {
   border-bottom: 1px solid transparent;
-  min-height: 5rem;
+  min-height: 3.25rem;
   padding-bottom: calc(0.5rem - 1px);
 }
 .navbar-item.is-tab:focus, .navbar-item.is-tab:hover {
@@ -5330,8 +5199,8 @@ a.navbar-item:focus, a.navbar-item:focus-within, a.navbar-item:hover, a.navbar-i
   }
 
   .navbar-menu {
-    background-color: #2c2c2c;
-    box-shadow: 0 8px 16px rgba(10, 10, 10, 0.1);
+    background-color: #1e1e1e;
+    box-shadow: 0 8px 16px rgba(238, 238, 238, 0.1);
     padding: 0.5rem 0;
   }
   .navbar-menu.is-active {
@@ -5348,24 +5217,24 @@ a.navbar-item:focus, a.navbar-item:focus-within, a.navbar-item:hover, a.navbar-i
     bottom: 0;
   }
   .navbar.is-fixed-bottom-touch.has-shadow {
-    box-shadow: 0 -2px 3px rgba(10, 10, 10, 0.1);
+    box-shadow: 0 -2px 3px rgba(238, 238, 238, 0.1);
   }
   .navbar.is-fixed-top-touch {
     top: 0;
   }
   .navbar.is-fixed-top .navbar-menu, .navbar.is-fixed-top-touch .navbar-menu {
     -webkit-overflow-scrolling: touch;
-    max-height: calc(100vh - 5rem);
+    max-height: calc(100vh - 3.25rem);
     overflow: auto;
   }
 
   html.has-navbar-fixed-top-touch,
 body.has-navbar-fixed-top-touch {
-    padding-top: 5rem;
+    padding-top: 3.25rem;
   }
   html.has-navbar-fixed-bottom-touch,
 body.has-navbar-fixed-bottom-touch {
-    padding-bottom: 5rem;
+    padding-bottom: 3.25rem;
   }
 }
 @media screen and (min-width: 1024px) {
@@ -5378,7 +5247,7 @@ body.has-navbar-fixed-bottom-touch {
   }
 
   .navbar {
-    min-height: 5rem;
+    min-height: 3.25rem;
   }
   .navbar.is-spaced {
     padding: 1rem 2rem;
@@ -5402,7 +5271,7 @@ body.has-navbar-fixed-bottom-touch {
   }
   .navbar.is-transparent .navbar-dropdown a.navbar-item:focus, .navbar.is-transparent .navbar-dropdown a.navbar-item:hover {
     background-color: #2c2c2c;
-    color: hsl(0deg, 0%, 4%);
+    color: #EEEEEE;
   }
   .navbar.is-transparent .navbar-dropdown a.navbar-item.is-active {
     background-color: #2c2c2c;
@@ -5430,7 +5299,7 @@ body.has-navbar-fixed-bottom-touch {
     border-radius: 6px 6px 0 0;
     border-top: none;
     bottom: 100%;
-    box-shadow: 0 -8px 8px rgba(10, 10, 10, 0.1);
+    box-shadow: 0 -8px 8px rgba(238, 238, 238, 0.1);
     top: auto;
   }
   .navbar-item.is-active .navbar-dropdown, .navbar-item.is-hoverable:focus .navbar-dropdown, .navbar-item.is-hoverable:focus-within .navbar-dropdown, .navbar-item.is-hoverable:hover .navbar-dropdown {
@@ -5458,11 +5327,11 @@ body.has-navbar-fixed-bottom-touch {
   }
 
   .navbar-dropdown {
-    background-color: #2c2c2c;
+    background-color: #1e1e1e;
     border-bottom-left-radius: 6px;
     border-bottom-right-radius: 6px;
     border-top: 2px solid hsl(0deg, 0%, 86%);
-    box-shadow: 0 8px 8px rgba(10, 10, 10, 0.1);
+    box-shadow: 0 8px 8px rgba(238, 238, 238, 0.1);
     display: none;
     font-size: 0.875rem;
     left: 0;
@@ -5480,7 +5349,7 @@ body.has-navbar-fixed-bottom-touch {
   }
   .navbar-dropdown a.navbar-item:focus, .navbar-dropdown a.navbar-item:hover {
     background-color: #2c2c2c;
-    color: hsl(0deg, 0%, 4%);
+    color: #EEEEEE;
   }
   .navbar-dropdown a.navbar-item.is-active {
     background-color: #2c2c2c;
@@ -5489,7 +5358,7 @@ body.has-navbar-fixed-bottom-touch {
   .navbar.is-spaced .navbar-dropdown, .navbar-dropdown.is-boxed {
     border-radius: 6px;
     border-top: none;
-    box-shadow: 0 8px 8px rgba(10, 10, 10, 0.1), 0 0 0 1px rgba(10, 10, 10, 0.1);
+    box-shadow: 0 8px 8px rgba(238, 238, 238, 0.1), 0 0 0 1px rgba(238, 238, 238, 0.1);
     display: block;
     opacity: 0;
     pointer-events: none;
@@ -5526,7 +5395,7 @@ body.has-navbar-fixed-bottom-touch {
     bottom: 0;
   }
   .navbar.is-fixed-bottom-desktop.has-shadow {
-    box-shadow: 0 -2px 3px rgba(10, 10, 10, 0.1);
+    box-shadow: 0 -2px 3px rgba(238, 238, 238, 0.1);
   }
   .navbar.is-fixed-top-desktop {
     top: 0;
@@ -5534,24 +5403,24 @@ body.has-navbar-fixed-bottom-touch {
 
   html.has-navbar-fixed-top-desktop,
 body.has-navbar-fixed-top-desktop {
-    padding-top: 5rem;
+    padding-top: 3.25rem;
   }
   html.has-navbar-fixed-bottom-desktop,
 body.has-navbar-fixed-bottom-desktop {
-    padding-bottom: 5rem;
+    padding-bottom: 3.25rem;
   }
   html.has-spaced-navbar-fixed-top,
 body.has-spaced-navbar-fixed-top {
-    padding-top: 7rem;
+    padding-top: 5.25rem;
   }
   html.has-spaced-navbar-fixed-bottom,
 body.has-spaced-navbar-fixed-bottom {
-    padding-bottom: 7rem;
+    padding-bottom: 5.25rem;
   }
 
   a.navbar-item.is-active,
 .navbar-link.is-active {
-    color: hsl(0deg, 0%, 4%);
+    color: #EEEEEE;
   }
   a.navbar-item.is-active:not(:focus):not(:hover),
 .navbar-link.is-active:not(:focus):not(:hover) {
@@ -5563,7 +5432,7 @@ body.has-spaced-navbar-fixed-bottom {
   }
 }
 .hero.is-fullheight-with-navbar {
-  min-height: calc(100vh - 5rem);
+  min-height: calc(100vh - 3.25rem);
 }
 
 .pagination {
@@ -5630,7 +5499,7 @@ body.has-spaced-navbar-fixed-bottom {
 .pagination-previous:active,
 .pagination-next:active,
 .pagination-link:active {
-  box-shadow: inset 0 1px 2px rgba(10, 10, 10, 0.2);
+  box-shadow: inset 0 1px 2px rgba(238, 238, 238, 0.2);
 }
 .pagination-previous[disabled],
 .pagination-next[disabled],
@@ -9752,7 +9621,7 @@ a.has-text-danger-dark:hover, a.has-text-danger-dark:focus {
   color: hsl(0deg, 0%, 4%);
 }
 .hero.is-white .tabs.is-boxed a:hover, .hero.is-white .tabs.is-toggle a:hover {
-  background-color: rgba(10, 10, 10, 0.1);
+  background-color: rgba(238, 238, 238, 0.1);
 }
 .hero.is-white .tabs.is-boxed li.is-active a, .hero.is-white .tabs.is-boxed li.is-active a:hover, .hero.is-white .tabs.is-toggle li.is-active a, .hero.is-white .tabs.is-toggle li.is-active a:hover {
   background-color: hsl(0deg, 0%, 4%);
@@ -9815,7 +9684,7 @@ a.has-text-danger-dark:hover, a.has-text-danger-dark:focus {
   color: hsl(0deg, 0%, 100%);
 }
 .hero.is-black .tabs.is-boxed a:hover, .hero.is-black .tabs.is-toggle a:hover {
-  background-color: rgba(10, 10, 10, 0.1);
+  background-color: rgba(238, 238, 238, 0.1);
 }
 .hero.is-black .tabs.is-boxed li.is-active a, .hero.is-black .tabs.is-boxed li.is-active a:hover, .hero.is-black .tabs.is-toggle li.is-active a, .hero.is-black .tabs.is-toggle li.is-active a:hover {
   background-color: hsl(0deg, 0%, 100%);
@@ -9878,7 +9747,7 @@ a.has-text-danger-dark:hover, a.has-text-danger-dark:focus {
   color: rgba(0, 0, 0, 0.7);
 }
 .hero.is-light .tabs.is-boxed a:hover, .hero.is-light .tabs.is-toggle a:hover {
-  background-color: rgba(10, 10, 10, 0.1);
+  background-color: rgba(238, 238, 238, 0.1);
 }
 .hero.is-light .tabs.is-boxed li.is-active a, .hero.is-light .tabs.is-boxed li.is-active a:hover, .hero.is-light .tabs.is-toggle li.is-active a, .hero.is-light .tabs.is-toggle li.is-active a:hover {
   background-color: rgba(0, 0, 0, 0.7);
@@ -9941,7 +9810,7 @@ a.has-text-danger-dark:hover, a.has-text-danger-dark:focus {
   color: #fff;
 }
 .hero.is-dark .tabs.is-boxed a:hover, .hero.is-dark .tabs.is-toggle a:hover {
-  background-color: rgba(10, 10, 10, 0.1);
+  background-color: rgba(238, 238, 238, 0.1);
 }
 .hero.is-dark .tabs.is-boxed li.is-active a, .hero.is-dark .tabs.is-boxed li.is-active a:hover, .hero.is-dark .tabs.is-toggle li.is-active a, .hero.is-dark .tabs.is-toggle li.is-active a:hover {
   background-color: #fff;
@@ -10004,7 +9873,7 @@ a.has-text-danger-dark:hover, a.has-text-danger-dark:focus {
   color: #fff;
 }
 .hero.is-primary .tabs.is-boxed a:hover, .hero.is-primary .tabs.is-toggle a:hover {
-  background-color: rgba(10, 10, 10, 0.1);
+  background-color: rgba(238, 238, 238, 0.1);
 }
 .hero.is-primary .tabs.is-boxed li.is-active a, .hero.is-primary .tabs.is-boxed li.is-active a:hover, .hero.is-primary .tabs.is-toggle li.is-active a, .hero.is-primary .tabs.is-toggle li.is-active a:hover {
   background-color: #fff;
@@ -10067,7 +9936,7 @@ a.has-text-danger-dark:hover, a.has-text-danger-dark:focus {
   color: #fff;
 }
 .hero.is-link .tabs.is-boxed a:hover, .hero.is-link .tabs.is-toggle a:hover {
-  background-color: rgba(10, 10, 10, 0.1);
+  background-color: rgba(238, 238, 238, 0.1);
 }
 .hero.is-link .tabs.is-boxed li.is-active a, .hero.is-link .tabs.is-boxed li.is-active a:hover, .hero.is-link .tabs.is-toggle li.is-active a, .hero.is-link .tabs.is-toggle li.is-active a:hover {
   background-color: #fff;
@@ -10130,7 +9999,7 @@ a.has-text-danger-dark:hover, a.has-text-danger-dark:focus {
   color: #fff;
 }
 .hero.is-info .tabs.is-boxed a:hover, .hero.is-info .tabs.is-toggle a:hover {
-  background-color: rgba(10, 10, 10, 0.1);
+  background-color: rgba(238, 238, 238, 0.1);
 }
 .hero.is-info .tabs.is-boxed li.is-active a, .hero.is-info .tabs.is-boxed li.is-active a:hover, .hero.is-info .tabs.is-toggle li.is-active a, .hero.is-info .tabs.is-toggle li.is-active a:hover {
   background-color: #fff;
@@ -10193,7 +10062,7 @@ a.has-text-danger-dark:hover, a.has-text-danger-dark:focus {
   color: #fff;
 }
 .hero.is-success .tabs.is-boxed a:hover, .hero.is-success .tabs.is-toggle a:hover {
-  background-color: rgba(10, 10, 10, 0.1);
+  background-color: rgba(238, 238, 238, 0.1);
 }
 .hero.is-success .tabs.is-boxed li.is-active a, .hero.is-success .tabs.is-boxed li.is-active a:hover, .hero.is-success .tabs.is-toggle li.is-active a, .hero.is-success .tabs.is-toggle li.is-active a:hover {
   background-color: #fff;
@@ -10256,7 +10125,7 @@ a.has-text-danger-dark:hover, a.has-text-danger-dark:focus {
   color: rgba(0, 0, 0, 0.7);
 }
 .hero.is-warning .tabs.is-boxed a:hover, .hero.is-warning .tabs.is-toggle a:hover {
-  background-color: rgba(10, 10, 10, 0.1);
+  background-color: rgba(238, 238, 238, 0.1);
 }
 .hero.is-warning .tabs.is-boxed li.is-active a, .hero.is-warning .tabs.is-boxed li.is-active a:hover, .hero.is-warning .tabs.is-toggle li.is-active a, .hero.is-warning .tabs.is-toggle li.is-active a:hover {
   background-color: rgba(0, 0, 0, 0.7);
@@ -10319,7 +10188,7 @@ a.has-text-danger-dark:hover, a.has-text-danger-dark:focus {
   color: #fff;
 }
 .hero.is-danger .tabs.is-boxed a:hover, .hero.is-danger .tabs.is-toggle a:hover {
-  background-color: rgba(10, 10, 10, 0.1);
+  background-color: rgba(238, 238, 238, 0.1);
 }
 .hero.is-danger .tabs.is-boxed li.is-active a, .hero.is-danger .tabs.is-boxed li.is-active a:hover, .hero.is-danger .tabs.is-toggle li.is-active a, .hero.is-danger .tabs.is-toggle li.is-active a:hover {
   background-color: #fff;
@@ -10438,4 +10307,204 @@ a.has-text-danger-dark:hover, a.has-text-danger-dark:focus {
 .footer {
   background-color: hsl(0deg, 0%, 98%);
   padding: 3rem 1.5rem 6rem;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body,
+h1,
+h2,
+h3,
+h4,
+p,
+figure,
+blockquote,
+dl,
+dd {
+  margin: 0;
+}
+
+html:focus-within {
+  scroll-behavior: smooth;
+}
+
+body {
+  min-height: 100vh;
+  text-rendering: optimizeSpeed;
+  line-height: 1.5;
+  overflow-x: hidden;
+}
+
+a:not([class]) {
+  text-decoration-skip-ink: auto;
+}
+
+img,
+picture {
+  max-width: 100%;
+  display: block;
+}
+
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html:focus-within {
+    scroll-behavior: auto;
+  }
+
+  *,
+*::before,
+*::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+img {
+  image-rendering: -webkit-optimize-contrast;
+}
+
+/*
+  Defines custom variables to be used within SCSS modules and  
+  overrides bulma's default variables to create a custom theme
+*/
+.my-hero {
+  width: 100%;
+  position: relative;
+  text-align: center;
+  line-height: 5rem;
+  margin-bottom: 50px;
+}
+.my-hero::after {
+  content: "";
+  display: block;
+  position: absolute;
+  z-index: -3;
+  top: -5px;
+  left: -15%;
+  width: 130%;
+  height: 100px;
+  background-color: #2c2c2c;
+  rotate: 3deg;
+}
+.my-hero h1 {
+  font-size: 2rem;
+}
+.my-hero h1::before {
+  content: "";
+  display: block;
+  position: absolute;
+  z-index: -2;
+  top: -5px;
+  left: -15%;
+  width: 130%;
+  height: 100px;
+  background-color: rgba(0, 95, 182, 0.38);
+  rotate: -6deg;
+}
+.my-hero h1::after {
+  content: "";
+  display: block;
+  position: absolute;
+  z-index: -1;
+  top: -5px;
+  left: -15%;
+  width: 130%;
+  height: 100px;
+  background-color: rgba(165, 26, 135, 0.63);
+  rotate: 3deg;
+}
+
+/*
+  Defines custom variables to be used within SCSS modules and  
+  overrides bulma's default variables to create a custom theme
+*/
+.navbar {
+  max-height: 5rem;
+}
+.navbar #logo {
+  max-height: 60px;
+  max-width: 50vw;
+}
+.navbar .shopping-cart-icon {
+  margin-left: auto;
+}
+.navbar .navbar-burger {
+  margin-left: 0px !important;
+}
+@media screen and (max-width: 1023px) {
+  .navbar .navbar-menu.is-active {
+    position: absolute;
+    width: 100%;
+  }
+}
+
+/*
+  Defines custom variables to be used within SCSS modules and  
+  overrides bulma's default variables to create a custom theme
+*/
+footer {
+  min-height: 150px;
+  margin-top: 100px;
+  background-color: rgba(0, 255, 255, 0.45);
+  clip-path: polygon(0 0, 100% 20%, 100% 100%, 0 100%);
+}
+
+/*
+  Defines custom variables to be used within SCSS modules and  
+  overrides bulma's default variables to create a custom theme
+*/
+#thumbnail {
+  display: flex;
+  align-items: center;
+  height: calc(100svh - 5rem);
+  position: relative;
+  overflow: hidden;
+}
+#thumbnail::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  height: calc(100svh - 5rem);
+  width: 100vw;
+  z-index: -5;
+  background-image: url(../assets/svg/waves.svg);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+@media screen and (max-width: 1023px) {
+  #thumbnail::before {
+    transform-origin: 0 0;
+    rotate: -90deg;
+    width: calc(100svh - 5rem);
+    height: 100vw;
+    top: 100%;
+  }
+}
+#thumbnail .catchphrase {
+  text-align: center;
+  width: 100%;
+}
+#thumbnail .catchphrase h1 {
+  font-size: 3em;
+  font-weight: 700;
+}
+#thumbnail .catchphrase span {
+  font-size: 1.5em;
+  font-weight: 300;
+}
+
+#thumbnail + .section {
+  padding-top: 0;
 }

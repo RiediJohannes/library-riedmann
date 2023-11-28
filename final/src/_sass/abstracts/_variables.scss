@@ -1,5 +1,6 @@
 /*
-  Defines custom variables to be used within SCSS modules
+  Defines custom variables to be used within SCSS modules and  
+  overrides bulma's default variables to create a custom theme
 */
 
 // import bulma's initial variables
@@ -10,4 +11,19 @@
 // colours
 $my-black: #1e1e1e;
 $my-dark-grey: #2c2c2c;
+$my-white: #EEEEEE;
+
 $my-primary: #0b7fc1;
+$my-turquoise: rgba(0, 255, 255, 0.45);
+
+
+
+$primary: $my-primary;
+
+$scheme-main: $my-black;
+$scheme-invert: $my-white;
+
+$background: $my-dark-grey;
+
+$text: $my-white;
+$family-sans-serif: "Inter", "Helvetica", "Arial", sans-serif;
