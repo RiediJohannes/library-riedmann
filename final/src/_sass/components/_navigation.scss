@@ -1,10 +1,5 @@
-@use "../abstracts/variables";
-@import "../../node_modules/bulma/sass/utilities/mixins.sass";
-
-$navbar-background-color: $background;
-$navbar-dropdown-background-color: $background;
-$navbar-height: 5rem;
-
+@use "../abstracts/variables" as *;
+@use "../../node_modules/bulma/sass/utilities/mixins.sass" as mix;
 
 .navbar {
   max-height: $navbar-height;
@@ -23,7 +18,7 @@ $navbar-height: 5rem;
   }
 
   // prevent the menu from pushing down the page contents when open
-  @include until($desktop) {
+  @include mix.until($desktop) {
     .navbar-menu.is-active {
       position: absolute;
       width: 100%;

@@ -1,19 +1,18 @@
 @charset "utf-8";
 
+
+// general imports
+@use "./general/reset";
+@use "./general/typography";
+
+// component imports
+@use "./components/hero";
+@use "./components/navigation";
+
+// layout imports
+@use "./layout/footer";
+@use "./layout/front_page";
+
 // bulma imports
 @import "./abstracts/variables";
 @import "../node_modules/bulma/bulma";
-
-// general imports
-@import "./general/reset";
-@import "./general/typography";
-
-// component imports
-@import "./components/hero";
-@import "./components/navigation";
-
-// layout imports
-@import "./layout/footer";
-@import "./layout/front_page";
-
-

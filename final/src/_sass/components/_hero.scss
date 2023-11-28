@@ -1,4 +1,11 @@
-@use "../../node_modules/bulma/sass/utilities/mixins.sass";
+@use "../abstracts/variables" as *;
+@use "../abstracts/mixins" as mix;
+
+$tilt-angle: 3deg;
+
+// @include from($desktop) {
+//   $tilt-angle: 30deg;
+// }
 
 .my-hero {
   width: 100%;
@@ -8,22 +15,14 @@
   margin-bottom: 50px;
 
   &::after {
-    content: '';
-    display: block;
-    position: absolute;
-    z-index: -3;
-    top: -5px;
-    left: -15%;
-    width: 130%;
-    height: 100px;
-    background-color: $background;
-    rotate: 3deg;
+    @include mix.tilted-rectangle($background, 100px, $tilt-angle, -3);
   }
 
   h1 {
     font-size: 2rem;
 
     &::before {
+      @include mix.tilted-rectangle($background, 100px, $tilt-angle, -3);
       content: '';
       display: block;
       position: absolute;
@@ -33,7 +32,7 @@
       width: 130%;
       height: 100px;
       background-color: rgba(0, 95, 182, 0.38);
-      rotate: -6deg;
+      rotate: calc(-2 * $tilt-angle);
     }
   
     &::after {
@@ -46,7 +45,7 @@
       width: 130%;
       height: 100px;
       background-color: rgba(165, 26, 135, 0.63);
-      rotate: 3deg;
+      rotate: $tilt-angle;
     }
   }
 }

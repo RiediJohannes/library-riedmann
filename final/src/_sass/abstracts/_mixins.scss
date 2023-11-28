@@ -1,0 +1,14 @@
+@forward "../../node_modules/bulma/sass/utilities/mixins.sass";
+
+@mixin tilted-rectangle($color, $height, $tilt-angle, $z) {
+  content: '';
+  display: block;
+  position: absolute;
+  z-index: $z;
+  top: -5px;
+  left: -15%;
+  width: 130%;
+  height: $height;
+  background-color: $color;
+  rotate: $tilt-angle;
+}

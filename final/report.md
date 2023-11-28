@@ -1,3 +1,5 @@
 total development time:
 - Prototyping: ~6h
-- Webpage: 5h
+- Webpage: 6h
+
+Start: 17:00
