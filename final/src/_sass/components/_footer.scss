@@ -1,0 +1,19 @@
+@use "../abstracts/variables" as *;
+
+footer {
+  margin-top: 20px;
+  clip-path: polygon(0 0, 100% 20%, 100% 100%, 0 100%);
+
+  div {
+    max-width: 300px;
+    margin: auto;
+  }
+
+  a {
+    color: white;
+
+    &:hover {
+      color: darken(white, 20);
+    }
+  }
+}

@@ -1,5 +1,5 @@
-@import "../abstracts/variables";
-@import "../../node_modules/bulma/sass/utilities/mixins.sass";
+@use "../abstracts/variables" as *;
+@use "../../node_modules/bulma/sass/utilities/mixins.sass" as mix;
 
 #thumbnail {
   display: flex;
@@ -25,7 +25,7 @@
     background-size: cover;
 
     // rotate image to landscape mode on mobile and tablet devices
-    @include until($desktop) {
+    @include mix.until($desktop) {
       transform-origin: 0 0;
       rotate: -90deg;
       width: calc(100svh - $navbar-height);
@@ -52,4 +52,29 @@
 
 #thumbnail + .section {
   padding-top: 0;
+}
+
+.graphic-column {
+  max-height: clamp(30vh, 400px, 55svh);
+
+  .graphic {
+    width: 100%;
+    height: 100%;
+  }
+}
+
+article {
+  font-size: 1.1em;
+
+  @include mix.from($tablet) {
+    font-size: 1.4em;
+    max-width: 500px;
+    margin: auto;
+  }
+
+  @include mix.from($desktop) {
+    font-size: 1.6em;
+    max-width: 500px;
+    margin: auto;
+  }
 }

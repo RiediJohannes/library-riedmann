@@ -16,14 +16,17 @@ $my-white: #EEEEEE;
 $my-primary: #0b7fc1;
 $my-turquoise: rgba(0, 255, 255, 0.45);
 
+$dim-blue: rgba(0, 95, 182, 0.38);
+$dim-magenta: rgba(165, 26, 135, 0.63);
 
 
 $primary: $my-primary;
 
 $scheme-main: $my-black;
 $scheme-invert: $my-white;
-
 $background: $my-dark-grey;
+
+$turquoise: $my-turquoise;
 
 $text: $my-white;
 $family-sans-serif: "Inter", "Helvetica", "Arial", sans-serif;
@@ -32,3 +35,6 @@ $family-sans-serif: "Inter", "Helvetica", "Arial", sans-serif;
 $navbar-background-color: $background;
 $navbar-dropdown-background-color: $background;
 $navbar-height: 5rem;
+
+$footer-background-color: $turquoise;
+$footer-padding: 4rem 1.5rem 5rem;
