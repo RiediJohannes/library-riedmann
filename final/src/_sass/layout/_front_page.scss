@@ -62,19 +62,3 @@
     height: 100%;
   }
 }
-
-article {
-  font-size: 1.1em;
-
-  @include mix.from($tablet) {
-    font-size: 1.4em;
-    max-width: 500px;
-    margin: auto;
-  }
-
-  @include mix.from($desktop) {
-    font-size: 1.6em;
-    max-width: 500px;
-    margin: auto;
-  }
-}
