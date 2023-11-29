@@ -1,0 +1,46 @@
+@use "../abstracts/variables" as *;
+@use "../../node_modules/bulma/sass/utilities/mixins.sass" as mix;
+
+#book-results {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  padding: 1rem;
+  gap: 1rem;
+
+  @include mix.from($desktop) {
+    padding: 2.5rem;
+    gap: 2.5rem;
+  }
+}
+
+.book-preview {
+  display: inline-block;
+  flex-grow: 1;
+  flex-basis: 450px;
+  // aspect-ratio: 5 / 2.7;
+
+  .card-content {
+    width: 450px;
+    height: auto;
+  }
+
+  .book-info {
+    padding-left: 0.3rem;
+    flex-basis: 60%;
+  }
+
+  .cover {
+    flex-basis: 40%;
+    max-width: 28%;
+
+    @include mix.from($desktop) {
+      max-width: 45%;
+    }
+  }
+
+  figure, img {
+    object-fit: cover;
+  }
+}

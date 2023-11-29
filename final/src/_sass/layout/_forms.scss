@@ -24,4 +24,9 @@ input[type="submit"] {
 
 .searchbar {
   width: min(100%, 600px);
+  border-radius: $radius;
+
+  &:focus-within {
+    box-shadow: 0 0 0.5em 0em rgba($primary, 1);
+  }
 }

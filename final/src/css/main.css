@@ -240,6 +240,47 @@ footer a:hover {
   color: #cccccc;
 }
 
+#book-results {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  padding: 1rem;
+  gap: 1rem;
+}
+@media screen and (min-width: 1024px) {
+  #book-results {
+    padding: 2.5rem;
+    gap: 2.5rem;
+  }
+}
+
+.book-preview {
+  display: inline-block;
+  flex-grow: 1;
+  flex-basis: 450px;
+}
+.book-preview .card-content {
+  width: 450px;
+  height: auto;
+}
+.book-preview .book-info {
+  padding-left: 0.3rem;
+  flex-basis: 60%;
+}
+.book-preview .cover {
+  flex-basis: 40%;
+  max-width: 28%;
+}
+@media screen and (min-width: 1024px) {
+  .book-preview .cover {
+    max-width: 45%;
+  }
+}
+.book-preview figure, .book-preview img {
+  object-fit: cover;
+}
+
 #thumbnail {
   display: flex;
   align-items: center;
@@ -316,6 +357,10 @@ input[type=submit] {
 
 .searchbar {
   width: min(100%, 600px);
+  border-radius: 6px;
+}
+.searchbar:focus-within {
+  box-shadow: 0 0 0.5em 0em #0b7fc1;
 }
 
 .short-text-block {
@@ -4169,8 +4214,8 @@ a.tag:hover {
 }
 
 .card {
-  background-color: #1e1e1e;
-  border-radius: 0.25rem;
+  background-color: #2c2c2c;
+  border-radius: 15px;
   box-shadow: 0 0.5em 10em -0.125em rgba(166, 125, 255, 0.3), 0 0px 0.5em 2px rgba(166, 125, 255, 0.25);
   color: #EEEEEE;
   max-width: 100%;
@@ -4178,12 +4223,12 @@ a.tag:hover {
 }
 
 .card-footer:first-child, .card-content:first-child, .card-header:first-child {
-  border-top-left-radius: 0.25rem;
-  border-top-right-radius: 0.25rem;
+  border-top-left-radius: 15px;
+  border-top-right-radius: 15px;
 }
 .card-footer:last-child, .card-content:last-child, .card-header:last-child {
-  border-bottom-left-radius: 0.25rem;
-  border-bottom-right-radius: 0.25rem;
+  border-bottom-left-radius: 15px;
+  border-bottom-right-radius: 15px;
 }
 
 .card-header {
@@ -4228,17 +4273,17 @@ a.tag:hover {
   position: relative;
 }
 .card-image:first-child img {
-  border-top-left-radius: 0.25rem;
-  border-top-right-radius: 0.25rem;
+  border-top-left-radius: 15px;
+  border-top-right-radius: 15px;
 }
 .card-image:last-child img {
-  border-bottom-left-radius: 0.25rem;
-  border-bottom-right-radius: 0.25rem;
+  border-bottom-left-radius: 15px;
+  border-bottom-right-radius: 15px;
 }
 
 .card-content {
   background-color: transparent;
-  padding: 1.5rem;
+  padding: 0.3rem;
 }
 
 .card-footer {
