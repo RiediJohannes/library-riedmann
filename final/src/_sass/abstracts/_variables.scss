@@ -29,24 +29,36 @@ $dim-magenta: rgba(165, 26, 135, 0.63);
 */
 $primary: $my-primary;
 
+$white: $my-white;
+$black: $my-black;
+$grey-darker: #AAAAAA;
+
+$turquoise: $my-turquoise;
+$lavender: $my-lavender;
+
 $scheme-main: $my-black;
 $scheme-main-bis: lighten($my-black, 10%);
 $scheme-main-ter: lighten($my-black, 20%);
 
-$scheme-invert: $my-white;
-$scheme-invert-bis: darken($my-white, 10%);
-$scheme-invert-ter: darken($my-white, 20%);
+$scheme-invert: $lavender;
+$scheme-invert-bis: darken($scheme-invert, 10%);
+$scheme-invert-ter: darken($scheme-invert, 20%);
 
 $background: $my-dark-grey;
 
-$turquoise: $my-turquoise;
-$lavender: $my-lavender;
+$shadow:
+  0 0.5em 10em -0.125em rgba($scheme-invert, 0.3),
+  0 0px 0.5em 2px rgba($scheme-invert, 0.25);
+
+$radius-small: 3px;
+$radius: 6px;
+$radius-large: 10px;
 
 
 /*
   Bulma typography overrides
 */
-$text: $my-white;
+$text: $white;
 $family-sans-serif: font.$text;
 $link: $lavender;
 $link-hover: lighten($lavender, 10%);
@@ -63,6 +75,13 @@ $navbar-item-active-background-color: darken($background, 2%);
 
 $footer-background-color: $turquoise;
 $footer-padding: 4rem 1.5rem 5rem;
+
+$box-background-color: $background;
+
+$input-color: $white-ter;
+
+$pre-padding: 60px;
+$gap: 60px;
 
 
 // lastly, import bulma's derived variables which will now be calculated using the overrides
