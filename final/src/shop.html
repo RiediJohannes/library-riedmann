@@ -35,10 +35,10 @@
     <!-- Part of the nav that is only visible on desktop devices -->
     <div id="nav-menu" class="navbar-menu">
       <div class="navbar-start">
-        <a href="index.html" class="navbar-item is-active">
+        <a href="index.html" class="navbar-item">
           Home
         </a>
-        <a href="shop.html" class="navbar-item">
+        <a href="shop.html" class="navbar-item is-active">
           Shop
         </a>
         <a href="login.html" class="navbar-item">
@@ -56,5 +56,30 @@
       </div>
     </div>
   </nav>
+
+  <header class="box is-radiusless">
+    <form action="index.html" method="get" class="is-flex is-justify-content-center">
+      <div class="field has-addons searchbar">
+        <div class="control is-flex-grow-1">
+          <input type="text" class="input" placeholder="Search term">
+        </div>
+        <div class="control">
+          <button type="submit" class="button is-primary">
+            <div class="is-hidden-desktop">
+              <span class="icon is-left px-4 mx-0">
+                <i class="fa-solid fa-magnifying-glass"></i>
+              </span>
+            </div>
+            <div class="is-hidden-touch">
+              <span class="icon">
+                <i class="fa-solid fa-magnifying-glass"></i>
+              </span>
+              <span>Search</span>
+            </div>
+          </button>
+        </div>
+      </div>
+    </form>
+  </header>
 </body>
 </html>
