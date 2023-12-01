@@ -1,0 +1,41 @@
+@use "../abstracts/variables" as *;
+@use "../../node_modules/bulma/sass/utilities/mixins.sass" as mix;
+
+.cart {
+  max-width: 800px;
+  margin: auto;
+}
+
+.cart-table {
+  @include mix.from($tablet) {
+    font-size: 1.2rem;
+  }
+
+  td, th {
+    vertical-align: middle !important;
+  }
+
+  tbody {
+    tr, td, figure {
+      height: 5em !important;
+      max-height: 5em !important;
+    }
+
+    figure, img {
+      width: auto;
+      height: 100%;
+      aspect-ratio: 2 / 3;
+    }
+  }
+
+  tfoot {
+    th {
+      height: 3em !important;
+    }
+  }
+
+  th:last-child,
+  td:last-child {
+    text-align: right !important;
+  }
+}

@@ -10,10 +10,12 @@
 @use "./components/navigation";
 @use "./components/footer";
 @use "./components/book_tile";
+@use "./components/cart_table";
 
 // layout imports
 @use "./layout/front_page";
 @use "./layout/forms";
+@use "./layout/tables";
 
 // bulma imports
 @import "./abstracts/variables";
