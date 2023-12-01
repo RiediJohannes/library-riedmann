@@ -13,22 +13,52 @@
     padding: 2.5rem;
     gap: 2.5rem;
   }
+
+  &:after {
+    content: "";
+    flex: auto;
+    flex-basis: 450px;
+    flex-grow: 0; // 1
+  }
 }
 
 .book-preview {
   display: inline-block;
-  flex-grow: 1;
+  flex-grow: 0; // 1
   flex-basis: 450px;
   // aspect-ratio: 5 / 2.7;
 
   .card-content {
     width: 450px;
     height: auto;
+    align-items: stretch;
   }
 
   .book-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
     padding-left: 0.3rem;
     flex-basis: 60%;
+  }
+
+  .rating {
+    svg path {
+      fill: $star-empty-color;
+    }
+
+    svg[data-filled] path {
+      fill: $star-filled-color;
+    }
+  }
+
+  @include mix.from($desktop) {
+    padding: 0.5rem;
+
+    .book-info {
+      padding-left: 0.8rem;
+    }
   }
 
   .cover {

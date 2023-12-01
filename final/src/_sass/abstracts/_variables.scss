@@ -14,14 +14,22 @@
 */
 $my-black: #1e1e1e;
 $my-dark-grey: #2c2c2c;
+$my-light-grey: #585858;
 $my-white: #EEEEEE;
 
 $my-primary: #0b7fc1;
 $my-turquoise: rgba(0, 255, 255, 0.45);
 $my-lavender: #a67dff;
+$my-yellow: #E1CA00;
 
 $dim-blue: rgba(0, 95, 182, 0.38);
 $dim-magenta: rgba(165, 26, 135, 0.63);
+
+/*
+  Some custom properties
+*/
+$star-filled-color: $my-yellow;
+$star-empty-color: #585858;
 
 
 /*
@@ -54,6 +62,7 @@ $radius-small: 3px;
 $radius: 6px;
 $radius-large: 10px;
 
+$tablet: 680px;
 
 /*
   Bulma typography overrides
