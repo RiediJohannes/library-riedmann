@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Shop</title>
+
+  <link rel="stylesheet" href="../css/main.css">
+
+  <script src="https://kit.fontawesome.com/ee733139c3.js" crossorigin="anonymous"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+  <script src="../lib/main.js" defer></script>
+</head>
+<body>
+  <nav class="navbar" role="navigation" aria-label="main navigation">
+    <!-- Part of the nav that is always visible -->
+    <div class="navbar-brand">
+      <a class="navbar-item" href="../index.html">
+        <object id="logo" data="../assets/svg/logo.svg" style="pointer-events: none;"></object>
+      </a>
+
+      <a class="navbar-item shopping-cart-icon is-hidden-desktop" href="../index.html">
+        <img src="../assets/svg/icons/shopping-cart.svg" alt="">
+      </a>
+
+      <!-- Hamburger button for mobile devices -->
+      <a role="button" class="navbar-burger" style="width: 60px;" aria-label="menu" aria-expanded="false" data-target="nav-menu">
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+      </a>        
+    </div>
+
+    <!-- Part of the nav that is only visible on desktop devices -->
+    <div id="nav-menu" class="navbar-menu">
+      <div class="navbar-start">
+        <a href="../index.html" class="navbar-item is-active">
+          Home
+        </a>
+        <a href="../shop.html" class="navbar-item">
+          Shop
+        </a>
+        <a href="../login.html" class="navbar-item">
+          Login
+        </a>
+        <a href="../404.html" class="navbar-item">
+          404
+        </a>
+      </div>
+
+      <div class="navbar-end">
+        <a class="navbar-item shopping-cart-icon is-hidden-touch" href="../index.html">
+          <img src="../assets/svg/icons/shopping-cart.svg" alt="Shopping cart icon">
+        </a>
+      </div>
+    </div>
+  </nav>
+</body>
+</html>

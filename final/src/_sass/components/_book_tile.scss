@@ -26,10 +26,20 @@
   display: inline-block;
   flex-grow: 0; // 1
   flex-basis: 450px;
-  // aspect-ratio: 5 / 2.7;
+
+  &:hover {
+    color: $text;
+    background-color: lighten($background, 5%);
+    // uncomment this for a striking visual hover effect
+    // box-shadow: $shadow !important;
+
+    // .title {
+    //   color: $link-hover;
+    // }
+  }
 
   .card-content {
-    width: 450px;
+    // width: 450px;
     height: auto;
     align-items: stretch;
   }
@@ -38,18 +48,49 @@
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-
     padding-left: 0.3rem;
     flex-basis: 60%;
+
+    @include mix.from($tablet) {
+      font-size: 1.2rem;
+    }
+
+    .title, .subtitle {
+      // restrict the book title and author to two lines of full width and add an ellipsis ("...") after
+      display: -webkit-box;
+      line-clamp: 2;  /* number of lines to show */
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+      text-overflow: ellipsis;
+
+      @include mix.from($desktop) {
+        line-clamp: 3;  /* number of lines to show */
+        -webkit-line-clamp: 3;
+      }
+    }
+
+    .title {
+      font-size: 1.1em;
+    }
+
+    .subtitle {
+      font-size: 1em;
+    }
   }
 
   .rating {
-    svg path {
-      fill: $star-empty-color;
-    }
+    .star {
+      width: 21px;
+      height: 20px;
 
-    svg[data-filled] path {
-      fill: $star-filled-color;
+      path {
+        fill: $star-empty-color;
+      }
+
+      &[data-filled] path {
+        fill: $star-filled-color;
+      }
     }
   }
 
@@ -63,11 +104,6 @@
 
   .cover {
     flex-basis: 40%;
-    max-width: 28%;
-
-    @include mix.from($desktop) {
-      max-width: 45%;
-    }
   }
 
   figure, img {

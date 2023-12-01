@@ -69,8 +69,14 @@ $tablet: 680px;
 */
 $text: $white;
 $family-sans-serif: font.$text;
+
 $link: $lavender;
 $link-hover: lighten($lavender, 10%);
+
+$title-color: $white;
+$title-family: font.$title;
+$subtitle-color: $grey-darker;
+$subtitle-family: font.$title;
 
 
 /*
