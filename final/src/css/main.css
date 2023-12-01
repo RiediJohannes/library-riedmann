@@ -471,6 +471,25 @@ table {
   overflow: hidden;
 }
 
+.item-page {
+  max-width: 1200px;
+  margin: auto;
+}
+
+.cover-box {
+  width: 100%;
+  aspect-ratio: 1;
+  max-height: 65svh;
+  padding: 10px;
+}
+.cover-box img {
+  object-fit: contain;
+  height: 100%;
+  width: auto;
+  margin: auto;
+  box-shadow: 0 0.5em 10em -0.125em rgba(166, 125, 255, 0.3), 0 0px 0.5em 2px rgba(166, 125, 255, 0.25);
+}
+
 @font-face {
   font-family: "Saira Semi Condensed";
   src: url("../assets/fonts/Saira/SairaSemiCondensed-Regular.ttf");
