@@ -1,2 +1,2 @@
 # redirect the user to index.html if gitlab pages tries to access a 404 page in the root dir
-/404.html /final/src/index.html 200
+/web-visualization/404.html /web-visualization/final/src/index.html 200
