@@ -4,6 +4,7 @@
 /*
   1. pen and paper animations
 */
+$pen-animation-duration: 8s;
 
 @keyframes move-pen {
   // pens lies next to paper
@@ -78,7 +79,7 @@
   transform-origin: 0 0;
   stroke-dasharray: 50;
   stroke-dashoffset: 50;
-  animation: "write-scribble-1" 8s linear infinite;
+  animation: "write-scribble-1" $pen-animation-duration linear infinite;
 }
 
 #scribble-2 {
@@ -86,12 +87,12 @@
   transform-origin: 0 0;
   stroke-dasharray: 160;
   stroke-dashoffset: 160;
-  animation: "write-scribble-2" 8s linear infinite;
+  animation: "write-scribble-2" $pen-animation-duration linear infinite;
 }
 
 #pen {
   // sadly, this animation needs to be linear - otherwise the writing part will look very stiff
-  animation: "move-pen" 8s linear infinite;
+  animation: "move-pen" $pen-animation-duration linear infinite;
 }
 
 
@@ -99,6 +100,7 @@
 /*
   2. sword and shield animations
 */
+$sword-animation-duration: 4s;
 
 @keyframes wield-sword {
   0%, 30% {
@@ -154,11 +156,11 @@
 }
 
 #sword {
-  animation: "wield-sword" 4s cubic-bezier(.79,.14,.15,.86) infinite;
+  animation: "wield-sword" $sword-animation-duration cubic-bezier(.79,.14,.15,.86) infinite;
 }
 
 #shield {
-  animation: "wield-shield" 4s cubic-bezier(.79,.14,.15,.86) infinite;
+  animation: "wield-shield" $sword-animation-duration cubic-bezier(.79,.14,.15,.86) infinite;
 }
 
 
@@ -166,6 +168,7 @@
 /*
   3. brain gear animations
 */
+$full-rotation-duration: 3s;
 
 @keyframes rotate {
   from {
@@ -177,13 +180,13 @@
 }
 
 #gear-large {
-  animation: "rotate" 3s linear infinite;
+  animation: "rotate" $full-rotation-duration linear infinite;
 }
 
 #gear-medium {
-  animation: "rotate" 3s linear reverse infinite;
+  animation: "rotate" $full-rotation-duration linear reverse infinite;
 }
 
 #gear-small {
-  animation: "rotate" 3s linear infinite;
+  animation: "rotate" $full-rotation-duration linear infinite;
 }
