@@ -6,14 +6,14 @@ $tilt-angle: 3deg;
 .my-hero {
   position: relative;
   text-align: center;
-  line-height: 5rem;
+  padding-top: 1.3rem;
   margin-bottom: 4rem;
 
   &::after {
     @include mix.tilted-rectangle($background, 100px, $tilt-angle, -3);
   }
 
-  h1 {
+  .title {
     font-size: 2rem;
 
     &::before {
@@ -33,7 +33,7 @@ $tilt-angle: 3deg;
       @include mix.tilted-rectangle($background, 100px, $tilt-angle, -3);
     }
   
-    h1 {
+    .title {
       font-size: 2rem;
   
       &::before {

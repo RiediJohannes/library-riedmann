@@ -123,7 +123,7 @@ img {
 .my-hero {
   position: relative;
   text-align: center;
-  line-height: 5rem;
+  padding-top: 1.3rem;
   margin-bottom: 4rem;
   /* reduce the tilt angle on larger devices */
 }
@@ -139,10 +139,10 @@ img {
   background-color: #2c2c2c;
   rotate: 3deg;
 }
-.my-hero h1 {
+.my-hero .title {
   font-size: 2rem;
 }
-.my-hero h1::before {
+.my-hero .title::before {
   content: "";
   display: block;
   position: absolute;
@@ -154,7 +154,7 @@ img {
   background-color: rgba(0, 95, 182, 0.38);
   rotate: -6deg;
 }
-.my-hero h1::after {
+.my-hero .title::after {
   content: "";
   display: block;
   position: absolute;
@@ -179,10 +179,10 @@ img {
     background-color: #2c2c2c;
     rotate: 1.5deg;
   }
-  .my-hero h1 {
+  .my-hero .title {
     font-size: 2rem;
   }
-  .my-hero h1::before {
+  .my-hero .title::before {
     content: "";
     display: block;
     position: absolute;
@@ -194,7 +194,7 @@ img {
     background-color: rgba(0, 95, 182, 0.38);
     rotate: -3deg;
   }
-  .my-hero h1::after {
+  .my-hero .title::after {
     content: "";
     display: block;
     position: absolute;
@@ -414,13 +414,22 @@ footer a:hover {
   text-align: center;
   width: 100%;
 }
-#thumbnail .catchphrase h1 {
-  font-size: 3em;
+#thumbnail .catchphrase .title {
+  font-size: 3.5rem;
   font-weight: 700;
 }
-#thumbnail .catchphrase span {
-  font-size: 1.5em;
+#thumbnail .catchphrase .subtitle {
+  font-size: 1.5rem;
   font-weight: 300;
+  color: #EEEEEE;
+}
+@media screen and (min-width: 1024px) {
+  #thumbnail .catchphrase .title {
+    font-size: 4.5rem;
+  }
+  #thumbnail .catchphrase .subtitle {
+    font-size: 2rem;
+  }
 }
 
 #thumbnail + .section {
