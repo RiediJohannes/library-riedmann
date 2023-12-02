@@ -39,6 +39,11 @@ picture {
   display: block;
 }
 
+svg * { 
+  transform-box: fill-box;
+  transform-origin: 50% 50%;
+}
+
 input,
 button,
 textarea,

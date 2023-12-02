@@ -71,6 +71,11 @@
   .graphic {
     width: 100%;
     height: 100%;
-    padding: 0.5em;
+    padding: 0.7em;
+    overflow: visible;
+
+    @include mix.from($desktop) {
+      padding: 1.7em;
+    }
   }
 }

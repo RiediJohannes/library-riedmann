@@ -8,20 +8,21 @@ $tilt-angle: 3deg;
   text-align: center;
   padding-top: 1.3rem;
   margin-bottom: 4rem;
+  z-index: 10;
 
   &::after {
-    @include mix.tilted-rectangle($background, 100px, $tilt-angle, -3);
+    @include mix.tilted-rectangle($background, 100px, $tilt-angle, 7);
   }
 
   .title {
     font-size: 2rem;
 
     &::before {
-      @include mix.tilted-rectangle($dim-blue, 100px, calc(-2 * $tilt-angle), -2);
+      @include mix.tilted-rectangle($dim-blue, 100px, calc(-2 * $tilt-angle), 8);
     }
   
     &::after {
-      @include mix.tilted-rectangle($dim-magenta, 100px, $tilt-angle, -1);
+      @include mix.tilted-rectangle($dim-magenta, 100px, $tilt-angle, 9);
     }
   }
 
