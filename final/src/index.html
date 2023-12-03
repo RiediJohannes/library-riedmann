@@ -1,13 +1,35 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <!-- general meta information -->
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="msapplication-TileColor" content="#da532c">
+  <meta name="msapplication-config" content="/web-visualization/final/src/assets/favicons/light/browserconfig.xml">
+  <meta name="theme-color" content="#ffffff">
   <title>Bookstore Riedmann</title>
 
+  <!-- favicons in various sizes for light mode enjoyers -->
+  <link rel="apple-touch-icon" sizes="180x180" href="/web-visualization/final/src/assets/favicons/light/apple-touch-icon.png" media="(prefers-color-scheme: light)">
+  <link rel="icon" type="image/png" sizes="32x32" href="/web-visualization/final/src/assets/favicons/light/favicon-32x32.png" media="(prefers-color-scheme: light)">
+  <link rel="icon" type="image/png" sizes="16x16" href="/web-visualization/final/src/assets/favicons/light/favicon-16x16.png" media="(prefers-color-scheme: light)">
+  <link rel="manifest" href="/web-visualization/final/src/assets/favicons/light/site.webmanifest" media="(prefers-color-scheme: light)">
+  <link rel="mask-icon" href="/web-visualization/final/src/assets/favicons/light/safari-pinned-tab.svg" color="#5bbad5" media="(prefers-color-scheme: light)">
+  <link rel="shortcut icon" href="/web-visualization/final/src/assets/favicons/light/favicon.ico" media="(prefers-color-scheme: light)">
+
+  <!-- favicons in various sizes for dark mode enjoyers -->
+  <link rel="apple-touch-icon" sizes="180x180" href="/web-visualization/final/src/assets/favicons/dark/apple-touch-icon.png" media="(prefers-color-scheme: dark)">
+  <link rel="icon" type="image/png" sizes="32x32" href="/web-visualization/final/src/assets/favicons/dark/favicon-32x32.png" media="(prefers-color-scheme: dark)">
+  <link rel="icon" type="image/png" sizes="16x16" href="/web-visualization/final/src/assets/favicons/dark/favicon-16x16.png" media="(prefers-color-scheme: dark)">
+  <link rel="manifest" href="/web-visualization/final/src/assets/favicons/dark/site.webmanifest" media="(prefers-color-scheme: dark)">
+  <link rel="mask-icon" href="/web-visualization/final/src/assets/favicons/dark/safari-pinned-tab.svg" color="#5bbad5" media="(prefers-color-scheme: dark)">
+  <link rel="shortcut icon" href="/web-visualization/final/src/assets/favicons/dark/favicon.ico" media="(prefers-color-scheme: dark)">
+  
+  <!-- global stylesheet (product of bulma CSS + custom SCSS) -->
   <link rel="stylesheet" href="css/main.css">
 
+  <!-- scripts for font-awesome (small icons), jQuery and custom JS module -->
   <script src="https://kit.fontawesome.com/ee733139c3.js" crossorigin="anonymous"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
   <script type="module" src="lib/main.js" defer></script>
@@ -43,9 +65,6 @@
         </a>
         <a href="login.html" class="navbar-item">
           Login
-        </a>
-        <a href="404.html" class="navbar-item">
-          404
         </a>
       </div>
 
