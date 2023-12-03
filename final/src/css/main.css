@@ -34,7 +34,8 @@ body {
 }
 
 a:not([class]) {
-  text-decoration-skip-ink: auto;
+  -webkit-text-decoration-skip: ink;
+          text-decoration-skip-ink: auto;
 }
 
 img,
@@ -498,7 +499,8 @@ img {
 
 footer {
   margin-top: 20px;
-  clip-path: polygon(0 0, 100% 20%, 100% 100%, 0 100%);
+  -webkit-clip-path: polygon(0 0, 100% 20%, 100% 100%, 0 100%);
+          clip-path: polygon(0 0, 100% 20%, 100% 100%, 0 100%);
 }
 @media screen and (min-width: 1024px) {
   footer {
@@ -604,7 +606,8 @@ footer a:hover {
   flex-basis: 40%;
 }
 .book-preview figure, .book-preview img {
-  object-fit: cover;
+  -o-object-fit: cover;
+     object-fit: cover;
 }
 
 .cart {
@@ -754,7 +757,8 @@ table {
   padding: 10px;
 }
 .cover-box img {
-  object-fit: contain;
+  -o-object-fit: contain;
+     object-fit: contain;
   height: 100%;
   width: auto;
   margin: auto;
@@ -877,7 +881,6 @@ fieldset[disabled] .file-name, fieldset[disabled] .select select, .select fields
   -webkit-touch-callout: none;
   -webkit-user-select: none;
   -moz-user-select: none;
-  -ms-user-select: none;
   user-select: none;
 }
 
@@ -907,7 +910,6 @@ fieldset[disabled] .file-name, fieldset[disabled] .select select, .select fields
   -webkit-touch-callout: none;
   -webkit-user-select: none;
   -moz-user-select: none;
-  -ms-user-select: none;
   user-select: none;
   -moz-appearance: none;
   -webkit-appearance: none;
@@ -1120,7 +1122,9 @@ html {
   overflow-x: hidden;
   overflow-y: scroll;
   text-rendering: optimizeLegibility;
-  text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+     -moz-text-size-adjust: 100%;
+          text-size-adjust: 100%;
 }
 
 article,
@@ -8419,6 +8423,7 @@ label.panel-block:hover {
   flex-basis: 0;
   flex-grow: 1;
   flex-shrink: 1;
+  min-height: -moz-min-content;
   min-height: min-content;
 }
 .tile.is-ancestor {
