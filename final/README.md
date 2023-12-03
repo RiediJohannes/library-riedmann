@@ -72,7 +72,11 @@ For the creation of **custom vector graphics** (SVG) [Inkscape](https://inkscape
 
 ## Implementation
 
-This chapter focuses on some general thoughts about 
+This chapter focuses on some general thoughts about my implementation of the webpage.
+
+/*
+  Chapter pending
+*/
 
 
 ## Learning Outcomes
@@ -94,14 +98,3 @@ A newly obtained skill from this course in general was the method of animating i
 
 **Pending**  
 _A grade proposal will follow as soon as the project is completely finished. The proposal will also depend on the feedback of the halfway assessment._
-
-
----
-
-The report should consider the following issues:
-
-+ ~~Resourcing (use of time)~~  
-+ ~~Technology choices with reasoning behind them~~
-+ General thoughts about the work process and what was learned
-+ ~~Grade proposal for yourself, with reasoning~~
-
