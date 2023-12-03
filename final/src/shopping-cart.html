@@ -32,7 +32,7 @@
   <!-- scripts for font-awesome (small icons), jQuery and custom JS module -->
   <script src="https://kit.fontawesome.com/ee733139c3.js" crossorigin="anonymous"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
-  <script type="module" src="lib/main.js" defer></script>
+  <script src="lib/main.js" defer></script>
 </head>
 <body>
   <nav class="navbar" role="navigation" aria-label="main navigation">
@@ -101,10 +101,15 @@
       <div class="level-left">
         <h1 class="level-item is-size-5">Shopping Cart</h1>
       </div>
-      <div class="level-right">
-        <a class="button is-primary level-item">
+      <div class="level-right pr-2 is-hidden-touch">
+        <button class="button is-primary level-item buy-button">
           Buy now
-        </a>
+        </button>
+      </div>
+      <div class="level-right is-hidden-desktop">
+        <button class="button is-primary level-item buy-button">
+          Buy now
+        </button>
       </div>
     </div>
   </header>
@@ -118,7 +123,7 @@
           <th>Price</th>
         </tr>
       </thead>
-      <tbody>
+      <tbody class="clear-target">
         <tr>
           <td>
             <figure class="image">
@@ -141,7 +146,7 @@
       <tfoot>
         <tr>
           <th colspan="2">Total</th>
-          <th>23,99€</th>
+          <th id="total-price">23,99€</th>
         </tr>
       </tfoot>
     </table>
@@ -149,12 +154,12 @@
     <div class="level is-mobile">
       <div class="level-left"></div>
       <div class="level-right">
-        <button class="level-item button is-danger is-outlined">
+        <button id="clear-button" class="level-item button is-danger is-outlined">
           Clear cart
         </button>
-        <a href="" class="level-item button is-primary">
+        <button class="level-item button is-primary buy-button">
           Buy now
-        </a>
+        </button>
       </div>
     </div>
   </section>

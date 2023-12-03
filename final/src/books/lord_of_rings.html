@@ -32,7 +32,7 @@
   <!-- scripts for font-awesome (small icons), jQuery and custom JS module -->
   <script src="https://kit.fontawesome.com/ee733139c3.js" crossorigin="anonymous"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
-  <script type="module" src="lib/main.js" defer></script>
+  <script src="../lib/main.js" defer></script>
 </head>
 <body>
   <nav class="navbar" role="navigation" aria-label="main navigation">
@@ -118,7 +118,7 @@
           <h2 class="title is-5 mb-3">Price</h2>
           <span class="price">13,99€</span>
         </div>
-        <button class="block button is-primary is-fullwidth">
+        <button class="block button is-primary is-fullwidth" onclick="addToCart()">
           Add to cart
         </button>
       </article>
