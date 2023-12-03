@@ -151,55 +151,55 @@ img {
     rotate: -45deg;
   }
   64% {
-    translate: 60px -20px;
+    translate: 60px -18px;
     rotate: -45deg;
   }
   65% {
-    translate: 63.2727272727px -18.1818181818px;
+    translate: 63.2727272727px -16.4545454545px;
     rotate: -45deg;
   }
   66% {
-    translate: 66.5454545455px -16.3636363636px;
+    translate: 66.5454545455px -14.9090909091px;
     rotate: -55deg;
   }
   67% {
-    translate: 69.8181818182px -14.5454545455px;
+    translate: 69.8181818182px -13.3636363636px;
     rotate: -45deg;
   }
   68% {
-    translate: 73.0909090909px -12.7272727273px;
+    translate: 73.0909090909px -11.8181818182px;
     rotate: -55deg;
   }
   69% {
-    translate: 76.3636363636px -10.9090909091px;
+    translate: 76.3636363636px -10.2727272727px;
     rotate: -45deg;
   }
   70% {
-    translate: 79.6363636364px -9.0909090909px;
+    translate: 79.6363636364px -8.7272727273px;
     rotate: -55deg;
   }
   71% {
-    translate: 82.9090909091px -7.2727272727px;
+    translate: 82.9090909091px -7.1818181818px;
     rotate: -45deg;
   }
   72% {
-    translate: 86.1818181818px -5.4545454545px;
+    translate: 86.1818181818px -5.6363636364px;
     rotate: -55deg;
   }
   73% {
-    translate: 89.4545454545px -3.6363636364px;
+    translate: 89.4545454545px -4.0909090909px;
     rotate: -45deg;
   }
   74% {
-    translate: 92.7272727273px -1.8181818182px;
+    translate: 92.7272727273px -2.5454545455px;
     rotate: -55deg;
   }
   75% {
-    translate: 96px 0px;
+    translate: 96px -1px;
     rotate: -45deg;
   }
   80% {
-    translate: 96px 0px;
+    translate: 96px -1px;
     rotate: -45deg;
   }
   84%, 94% {
@@ -232,7 +232,7 @@ img {
   transform-origin: 0 0;
   stroke-dasharray: 50;
   stroke-dashoffset: 50;
-  animation: "write-scribble-1" 8s linear infinite;
+  animation: write-scribble-1 8s linear infinite;
 }
 
 #scribble-2 {
@@ -240,11 +240,11 @@ img {
   transform-origin: 0 0;
   stroke-dasharray: 160;
   stroke-dashoffset: 160;
-  animation: "write-scribble-2" 8s linear infinite;
+  animation: write-scribble-2 8s linear infinite;
 }
 
 #pen {
-  animation: "move-pen" 8s linear infinite;
+  animation: move-pen 8s linear infinite;
 }
 
 /*
@@ -302,11 +302,11 @@ img {
   }
 }
 #sword {
-  animation: "wield-sword" 4s cubic-bezier(0.79, 0.14, 0.15, 0.86) infinite;
+  animation: wield-sword 4s cubic-bezier(0.79, 0.14, 0.15, 0.86) infinite;
 }
 
 #shield {
-  animation: "wield-shield" 4s cubic-bezier(0.79, 0.14, 0.15, 0.86) infinite;
+  animation: wield-shield 4s cubic-bezier(0.79, 0.14, 0.15, 0.86) infinite;
 }
 
 /*
@@ -321,15 +321,15 @@ img {
   }
 }
 #gear-large {
-  animation: "rotate" 3s linear infinite;
+  animation: rotate 3s linear infinite;
 }
 
 #gear-medium {
-  animation: "rotate" 3s linear reverse infinite;
+  animation: rotate 3s linear reverse infinite;
 }
 
 #gear-small {
-  animation: "rotate" 3s linear infinite;
+  animation: rotate 3s linear infinite;
 }
 
 /*

@@ -30,18 +30,18 @@ $pen-animation-duration: 8s;
   }
   // guide pen to start of second line
   64% {
-    translate: 60px -20px;
+    translate: 60px -18px;
     rotate: -45deg;
   }
   // write second line (wiggling movement to imitate writing)
   @for $i from 1 through 11 {
     #{64% + $i * 1%} {
-      @include mix.wiggling-translation(60px, -20px, 96px, 0px, -50deg, 11, $i);
+      @include mix.wiggling-translation(60px, -18px, 96px, -1px, -50deg, 11, $i);
     }
   }
   // keep position at end of second line
   80% {
-    translate: 96px 0px;
+    translate: 96px -1px;
     rotate: -45deg;
   }
   // hold pen in the top left
@@ -79,7 +79,7 @@ $pen-animation-duration: 8s;
   transform-origin: 0 0;
   stroke-dasharray: 50;
   stroke-dashoffset: 50;
-  animation: "write-scribble-1" $pen-animation-duration linear infinite;
+  animation: write-scribble-1 $pen-animation-duration linear infinite;
 }
 
 #scribble-2 {
@@ -87,12 +87,12 @@ $pen-animation-duration: 8s;
   transform-origin: 0 0;
   stroke-dasharray: 160;
   stroke-dashoffset: 160;
-  animation: "write-scribble-2" $pen-animation-duration linear infinite;
+  animation: write-scribble-2 $pen-animation-duration linear infinite;
 }
 
 #pen {
   // sadly, this animation needs to be linear - otherwise the writing part will look very stiff
-  animation: "move-pen" $pen-animation-duration linear infinite;
+  animation: move-pen $pen-animation-duration linear infinite;
 }
 
 
@@ -156,11 +156,11 @@ $sword-animation-duration: 4s;
 }
 
 #sword {
-  animation: "wield-sword" $sword-animation-duration cubic-bezier(.79,.14,.15,.86) infinite;
+  animation: wield-sword $sword-animation-duration cubic-bezier(.79,.14,.15,.86) infinite;
 }
 
 #shield {
-  animation: "wield-shield" $sword-animation-duration cubic-bezier(.79,.14,.15,.86) infinite;
+  animation: wield-shield $sword-animation-duration cubic-bezier(.79,.14,.15,.86) infinite;
 }
 
 
@@ -180,13 +180,13 @@ $full-rotation-duration: 3s;
 }
 
 #gear-large {
-  animation: "rotate" $full-rotation-duration linear infinite;
+  animation: rotate $full-rotation-duration linear infinite;
 }
 
 #gear-medium {
-  animation: "rotate" $full-rotation-duration linear reverse infinite;
+  animation: rotate $full-rotation-duration linear reverse infinite;
 }
 
 #gear-small {
-  animation: "rotate" $full-rotation-duration linear infinite;
+  animation: rotate $full-rotation-duration linear infinite;
 }
