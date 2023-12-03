@@ -10,10 +10,10 @@ footer {
   }
 
   a {
-    color: white;
+    color: $text;
 
     &:hover {
-      color: darken(white, 20);
+      color: darken($text, 20);
     }
   }
 }
