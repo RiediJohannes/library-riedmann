@@ -43,7 +43,10 @@
       </a>
 
       <a class="navbar-item shopping-cart-icon is-hidden-desktop" href="shopping-cart.html">
-        <img src="assets/svg/icons/shopping-cart.svg" alt="">
+        <span class="icon">
+          <!-- <i class="fa-solid fa-cart-shopping"></i> -->
+          <img src="assets/svg/icons/shopping-cart.svg" alt="Shopping cart icon">
+        </span>
       </a>
 
       <!-- Hamburger button for mobile devices -->
@@ -63,15 +66,32 @@
         <a href="shop.html" class="navbar-item">
           Shop
         </a>
-        <a href="login.html" class="navbar-item">
+        <!-- Only show these on desktop devices -->
+        <a href="shopping-cart.html" class="navbar-item is-hidden-desktop">
+          Shopping Cart
+        </a>
+        <hr class="navbar-divider">
+        <a href="login.html" class="navbar-item is-hidden-desktop">
           Login
         </a>
       </div>
 
       <div class="navbar-end">
-        <a class="navbar-item shopping-cart-icon is-hidden-touch" href="shopping-cart.html">
-          <img src="assets/svg/icons/shopping-cart.svg" alt="Shopping cart icon">
-        </a>
+        <div class="navbar-item buttons is-hidden-touch">
+          <a class="button is-link is-dark" href="shopping-cart.html">
+            <span class="icon">
+              <i class="fa-solid fa-cart-shopping"></i>
+              <!-- <img src="assets/svg/icons/shopping-cart.svg" style="padding: 2px;" alt="Shopping cart icon"> -->
+            </span>
+            <span>Shopping Cart</span>
+          </a>
+          <a class="button is-link is-outlined" href="login.html">
+            <span class="icon">
+              <i class="fa-solid fa-sign-in"></i>
+            </span>
+            <span>Login</span>
+          </a>
+        </div>
       </div>
     </div>
   </nav>

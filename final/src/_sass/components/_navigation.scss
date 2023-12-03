@@ -23,6 +23,12 @@
       padding-right: 1.4em;
     }
   }
+
+  .navbar-start .navbar-divider {
+    display: block;
+    background-color: $scheme-main-ter;
+    margin: 0;
+  }
   
   .shopping-cart-icon {
     margin-left: auto;
@@ -32,6 +38,23 @@
   
   .navbar-burger {
     margin-left: 0px !important;
+  }
+
+  .button.is-link {
+    color: $background;
+
+    &:hover {
+      background-color: darken($link, 5%);
+      color: $background;
+    }
+
+    &.is-outlined {
+      color: $link;
+      
+      &:hover {
+        color: $background;
+      }
+    }
   }
 
   // prevent the menu from pushing down the page contents when open
