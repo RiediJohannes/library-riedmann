@@ -36,12 +36,12 @@ $pen-animation-duration: 8s;
   // write second line (wiggling movement to imitate writing)
   @for $i from 1 through 11 {
     #{64% + $i * 1%} {
-      @include mix.wiggling-translation(60px, -18px, 96px, -1px, -50deg, 11, $i);
+      @include mix.wiggling-translation(59px, -16px, 97px, -1px, -50deg, 11, $i);
     }
   }
   // keep position at end of second line
   80% {
-    translate: 96px -1px;
+    translate: 97px -1px;
     rotate: -45deg;
   }
   // hold pen in the top left
