@@ -15,23 +15,28 @@
   },
   "license": "MIT",
   "devDependencies": {
+    "@babel/core": "^7.23.5",
+    "@babel/preset-env": "^7.23.5",
+    "@babel/preset-typescript": "^7.23.3",
+    "@babel/cli": "^7.0.0",
     "autoprefixer": "^10.4.7",
-    "babel-cli": "^6.26.0",
     "babel-preset-env": "^1.7.0",
     "babel-preset-es2015-ie": "^6.7.0",
     "bulma": "^0.9.3",
     "npm-run-all": "^4.1.5",
     "postcss-cli": "^9.1.0",
-    "sass": "^1.51.0"
+    "sass": "^1.51.0",
+    "typescript": "^5.3.2"
   },
   "scripts": {
-    "css-deploy": "npm run css-build && npm run css-postcss",
-    "css-build": "sass --no-source-map _sass/main.scss:css/main.css",
-    "css-postcss": "postcss --use autoprefixer --output css/main.css css/main.css",
-    "css-watch": "npm run css-build -- --watch",
     "deploy": "npm run css-deploy && npm run js-build",
-    "js-build": "babel _javascript --out-dir lib",
+    "css-deploy": "npm run css-build && npm run css-postcss",
+    "css-postcss": "postcss css/main.css -u autoprefixer -o css/main.css --no-map",
+    "postcss-watch": "npm run css-postcss -- --watch",
+    "css-build": "sass --no-source-map _sass/main.scss:css/main.css",
+    "css-watch": "npm run css-build -- --watch",
+    "js-build": "babel --extensions .ts _js --out-dir lib",
     "js-watch": "npm run js-build -- --watch",
-    "start": "npm-run-all --parallel css-watch js-watch"
+    "start": "npm-run-all --parallel css-watch js-watch postcss-watch"
   }
 }
