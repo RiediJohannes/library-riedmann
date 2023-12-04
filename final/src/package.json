@@ -15,10 +15,10 @@
   },
   "license": "MIT",
   "devDependencies": {
+    "@babel/cli": "^7.0.0",
     "@babel/core": "^7.23.5",
     "@babel/preset-env": "^7.23.5",
     "@babel/preset-typescript": "^7.23.3",
-    "@babel/cli": "^7.0.0",
     "autoprefixer": "^10.4.7",
     "babel-preset-env": "^1.7.0",
     "babel-preset-es2015-ie": "^6.7.0",
@@ -35,7 +35,7 @@
     "postcss-watch": "npm run css-postcss -- --watch",
     "css-build": "sass --no-source-map _sass/main.scss:css/main.css",
     "css-watch": "npm run css-build -- --watch",
-    "js-build": "babel --extensions .ts _js --out-dir lib",
+    "js-build": "babel --extensions \".ts,.js\" _js --out-dir lib",
     "js-watch": "npm run js-build -- --watch",
     "start": "npm-run-all --parallel css-watch js-watch postcss-watch"
   }

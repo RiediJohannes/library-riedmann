@@ -1,7 +1,6 @@
 "use strict";
 
 $(document).ready(function () {
-
   // Check for click events on the navbar burger icon
   $(".navbar-burger").click(function () {
     // Toggle the "is-active" class on both the "navbar-burger" and the "navbar-menu"
@@ -27,14 +26,9 @@ $("#clear-button").click(function () {
     $(this).prop("disabled", true);
   });
 });
-
 $(".buy-button").each(function () {
   var button = $(this); // raw dom element
   button.on("click", function () {
     document.location.href = "index.html";
   });
 });
-
-function addToCart() {
-  document.location.href = "../index.html";
-}
