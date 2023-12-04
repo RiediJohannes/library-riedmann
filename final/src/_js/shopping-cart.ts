@@ -1,27 +1,40 @@
 let idCounter = 0;
 
-class ShoppingCart {
-  _items: Map<number, string>;
 
-  constructor(items: Map<number, string> = new Map()) {
-    this._items = items ?? new Map<number, string>();
+interface Item {
+  title: string,
+  author: string,
+  price: number
+}
+
+class ShoppingCart {
+  _items: Map<number, Item>;
+
+  constructor(items: Map<number, Item> = new Map()) {
+    this._items = items ?? new Map<number, Item>();
 
     if (this._items.size > 0) {
       idCounter = Math.max(...this._items.keys()) + 1;
     }
   }
 
-  get items() : Map<number, string> {
+  get items() : Map<number, Item> {
     return this._items;
   }
 
-  addItem(item: string) : void {
+  addItem(item: Item) : void {
     this._items.set(idCounter++, item);
+  }
+
+  removeItem(id: number) : Item | null {
+    let item: Item | null = this._items.get(id) ?? null;
+    this._items.delete(id)
+    return item;
   }
 
   toJSON(): string {
     // serialize map separately as JSON would create an object from it
-    const itemList: [number, string][] = Array.from(this._items.entries());
+    const itemList: [number, Item][] = Array.from(this._items.entries());
     const serializableCart = {
         items: itemList
     };
@@ -31,7 +44,7 @@ class ShoppingCart {
   // Deserialize the class from its JSON representation
   static fromJSON(json: string): ShoppingCart {
       const jsonCart = JSON.parse(json);
-      const itemMap = new Map<number, string>(jsonCart.items ?? []);
+      const itemMap = new Map<number, Item>(jsonCart.items ?? []);
       return new ShoppingCart(itemMap);
   }
 }
@@ -40,21 +53,19 @@ class ShoppingCart {
 function addToCart() {
   localStorage.clear();
 
-  if (!("cart" in localStorage)) {
-    let cart = new ShoppingCart();
-    localStorage.setItem("cart", cart.toJSON())
-  }
-
   let cart: ShoppingCart = ShoppingCart.fromJSON(localStorage.getItem("cart") ?? '{}')
 
   console.log(cart);
-  cart.addItem("Harry Po-ah");
+  cart.addItem({ title: "Harry Po-ah", author: "No clue", price: 10.00 });
+  cart.addItem({ title: "Du Sau du", author: "Me", price: 100.00 });
 
-  cart.items.forEach((item: string, id: number) => {
+  cart.items.forEach((item: Item, id: number) => {
     console.log("ID: " + id);
-    console.log("Item: " + item);
+    console.log("Item: " + item.title);
   });
 
+  cart.removeItem(0);
+  console.log(cart);
 
   // document.location.href = "../index.html";
 }

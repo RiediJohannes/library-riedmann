@@ -33,6 +33,14 @@ var ShoppingCart = /*#__PURE__*/function () {
       this._items.set(idCounter++, item);
     }
   }, {
+    key: "removeItem",
+    value: function removeItem(id) {
+      var _this$_items$get;
+      var item = (_this$_items$get = this._items.get(id)) !== null && _this$_items$get !== void 0 ? _this$_items$get : null;
+      this._items["delete"](id);
+      return item;
+    }
+  }, {
     key: "toJSON",
     value: function toJSON() {
       // serialize map separately as JSON would create an object from it
@@ -58,17 +66,24 @@ var ShoppingCart = /*#__PURE__*/function () {
 function addToCart() {
   var _localStorage$getItem;
   localStorage.clear();
-  if (!("cart" in localStorage)) {
-    var _cart = new ShoppingCart();
-    localStorage.setItem("cart", _cart.toJSON());
-  }
   var cart = ShoppingCart.fromJSON((_localStorage$getItem = localStorage.getItem("cart")) !== null && _localStorage$getItem !== void 0 ? _localStorage$getItem : '{}');
   console.log(cart);
-  cart.addItem("Harry Po-ah");
+  cart.addItem({
+    title: "Harry Po-ah",
+    author: "No clue",
+    price: 10.00
+  });
+  cart.addItem({
+    title: "Du Sau du",
+    author: "Me",
+    price: 100.00
+  });
   cart.items.forEach(function (item, id) {
     console.log("ID: " + id);
-    console.log("Item: " + item);
+    console.log("Item: " + item.title);
   });
+  cart.removeItem(0);
+  console.log(cart);
 
   // document.location.href = "../index.html";
 }
