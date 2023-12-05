@@ -71,11 +71,17 @@ function getCart(): ShoppingCart {
   return ShoppingCart.fromJSON(localStorage.getItem("cart") ?? '{}'); 
 }
 
-function createItemRow(item: Item) {
+function createItemRow(item: Item): HTMLElement {
   let row = document.createElement("tr")
 
   let imageCell = document.createElement("td");
-  imageCell.innerText = item.title;
+  let figure = document.createElement("figure");
+  figure.classList.add('image');
+  let img = document.createElement("img");
+  img.src = "assets/raster/lord_of_rings.jpg";
+  img.alt = "Cover of book [" + item.title ?? "unknown" + "]";
+  figure.appendChild(img);
+  imageCell.appendChild(figure);
   row.appendChild(imageCell);
 
   let titleCell = document.createElement("td");
@@ -83,7 +89,9 @@ function createItemRow(item: Item) {
   row.appendChild(titleCell);
 
   let priceCell = document.createElement("td");
-  priceCell.innerText = item.title;
+  let price = item.priceCents / 100;
+  priceCell.innerText = price.toLocaleString("de-DE", { style: "currency", currency: "EUR" });
+  priceCell.dataset.cents = item.priceCents.toString();
   row.appendChild(priceCell);
 
   return row;
@@ -93,4 +101,13 @@ window.onload = function() {
   Array.from(document.getElementsByClassName("to-cart-button")).forEach(element => {
     element.addEventListener("click", addToCart);
   });
+
+  let itemList = document.getElementById("item-table");
+  if (itemList) {
+    getCart().items.forEach((item, id) => {
+      let itemRow = createItemRow(item);
+      itemRow.dataset.id = id.toString();
+      itemList?.appendChild(itemRow);
+    });
+  }
 };

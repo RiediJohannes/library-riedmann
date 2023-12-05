@@ -81,15 +81,27 @@ function getCart() {
   return ShoppingCart.fromJSON((_localStorage$getItem = localStorage.getItem("cart")) !== null && _localStorage$getItem !== void 0 ? _localStorage$getItem : '{}');
 }
 function createItemRow(item) {
+  var _ref;
   var row = document.createElement("tr");
   var imageCell = document.createElement("td");
-  imageCell.innerText = item.title;
+  var figure = document.createElement("figure");
+  figure.classList.add('image');
+  var img = document.createElement("img");
+  img.src = "assets/raster/lord_of_rings.jpg";
+  img.alt = (_ref = "Cover of book [" + item.title) !== null && _ref !== void 0 ? _ref : "unknown" + "]";
+  figure.appendChild(img);
+  imageCell.appendChild(figure);
   row.appendChild(imageCell);
   var titleCell = document.createElement("td");
   titleCell.innerText = item.title;
   row.appendChild(titleCell);
   var priceCell = document.createElement("td");
-  priceCell.innerText = item.title;
+  var price = item.priceCents / 100;
+  priceCell.innerText = price.toLocaleString("de-DE", {
+    style: "currency",
+    currency: "EUR"
+  });
+  priceCell.dataset.cents = item.priceCents.toString();
   row.appendChild(priceCell);
   return row;
 }
@@ -97,4 +109,12 @@ window.onload = function () {
   Array.from(document.getElementsByClassName("to-cart-button")).forEach(function (element) {
     element.addEventListener("click", addToCart);
   });
+  var itemList = document.getElementById("item-table");
+  if (itemList) {
+    getCart().items.forEach(function (item, id) {
+      var itemRow = createItemRow(item);
+      itemRow.dataset.id = id.toString();
+      itemList === null || itemList === void 0 || itemList.appendChild(itemRow);
+    });
+  }
 };
