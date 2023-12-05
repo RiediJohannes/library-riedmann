@@ -4,7 +4,7 @@ let idCounter = 0;
 interface Item {
   title: string,
   author: string,
-  price: number
+  priceCents: number
 }
 
 class ShoppingCart {
@@ -50,28 +50,47 @@ class ShoppingCart {
 }
 
 
-function addToCart() {
-  localStorage.clear();
+function addToCart(): void {
+  let cart: ShoppingCart = getCart();
 
-  let cart: ShoppingCart = ShoppingCart.fromJSON(localStorage.getItem("cart") ?? '{}')
+  let newItem: Item = {
+    title: document.getElementById("title")?.innerText ?? "Unknown title",
+    author: document.getElementById("author")?.innerText ?? "Unknown author",
+    priceCents: parseInt(document.getElementById("price")?.dataset.cents ?? "NaN"),
+  }
+
+  cart.addItem(newItem);
 
   console.log(cart);
-  cart.addItem({ title: "Harry Po-ah", author: "No clue", price: 10.00 });
-  cart.addItem({ title: "Du Sau du", author: "Me", price: 100.00 });
+  localStorage.setItem("cart", cart.toJSON());
 
-  cart.items.forEach((item: Item, id: number) => {
-    console.log("ID: " + id);
-    console.log("Item: " + item.title);
-  });
+  document.location.href = "../shopping-cart.html";
+}
 
-  cart.removeItem(0);
-  console.log(cart);
+function getCart(): ShoppingCart {
+  return ShoppingCart.fromJSON(localStorage.getItem("cart") ?? '{}'); 
+}
 
-  // document.location.href = "../index.html";
+function createItemRow(item: Item) {
+  let row = document.createElement("tr")
+
+  let imageCell = document.createElement("td");
+  imageCell.innerText = item.title;
+  row.appendChild(imageCell);
+
+  let titleCell = document.createElement("td");
+  titleCell.innerText = item.title;
+  row.appendChild(titleCell);
+
+  let priceCell = document.createElement("td");
+  priceCell.innerText = item.title;
+  row.appendChild(priceCell);
+
+  return row;
 }
 
 window.onload = function() {
   Array.from(document.getElementsByClassName("to-cart-button")).forEach(element => {
-    element.addEventListener("click", addToCart)
+    element.addEventListener("click", addToCart);
   });
 };

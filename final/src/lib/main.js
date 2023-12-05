@@ -11,9 +11,7 @@ $(document).ready(function () {
 
 // clear the shopping cart
 $("#clear-button").click(function () {
-  $(".clear-target").each(function (i, obj) {
-    $(obj).empty();
-  });
+  $("#item-table").empty();
 
   // reset the total price
   $("#total-price").text("0,00€");

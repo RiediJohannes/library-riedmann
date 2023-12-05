@@ -64,28 +64,34 @@ var ShoppingCart = /*#__PURE__*/function () {
   return ShoppingCart;
 }();
 function addToCart() {
+  var _document$getElementB, _document$getElementB2, _document$getElementB3, _document$getElementB4, _document$getElementB5, _document$getElementB6;
+  var cart = getCart();
+  var newItem = {
+    title: (_document$getElementB = (_document$getElementB2 = document.getElementById("title")) === null || _document$getElementB2 === void 0 ? void 0 : _document$getElementB2.innerText) !== null && _document$getElementB !== void 0 ? _document$getElementB : "Unknown title",
+    author: (_document$getElementB3 = (_document$getElementB4 = document.getElementById("author")) === null || _document$getElementB4 === void 0 ? void 0 : _document$getElementB4.innerText) !== null && _document$getElementB3 !== void 0 ? _document$getElementB3 : "Unknown author",
+    priceCents: parseInt((_document$getElementB5 = (_document$getElementB6 = document.getElementById("price")) === null || _document$getElementB6 === void 0 ? void 0 : _document$getElementB6.dataset.cents) !== null && _document$getElementB5 !== void 0 ? _document$getElementB5 : "NaN")
+  };
+  cart.addItem(newItem);
+  console.log(cart);
+  localStorage.setItem("cart", cart.toJSON());
+  document.location.href = "../shopping-cart.html";
+}
+function getCart() {
   var _localStorage$getItem;
-  localStorage.clear();
-  var cart = ShoppingCart.fromJSON((_localStorage$getItem = localStorage.getItem("cart")) !== null && _localStorage$getItem !== void 0 ? _localStorage$getItem : '{}');
-  console.log(cart);
-  cart.addItem({
-    title: "Harry Po-ah",
-    author: "No clue",
-    price: 10.00
-  });
-  cart.addItem({
-    title: "Du Sau du",
-    author: "Me",
-    price: 100.00
-  });
-  cart.items.forEach(function (item, id) {
-    console.log("ID: " + id);
-    console.log("Item: " + item.title);
-  });
-  cart.removeItem(0);
-  console.log(cart);
-
-  // document.location.href = "../index.html";
+  return ShoppingCart.fromJSON((_localStorage$getItem = localStorage.getItem("cart")) !== null && _localStorage$getItem !== void 0 ? _localStorage$getItem : '{}');
+}
+function createItemRow(item) {
+  var row = document.createElement("tr");
+  var imageCell = document.createElement("td");
+  imageCell.innerText = item.title;
+  row.appendChild(imageCell);
+  var titleCell = document.createElement("td");
+  titleCell.innerText = item.title;
+  row.appendChild(titleCell);
+  var priceCell = document.createElement("td");
+  priceCell.innerText = item.title;
+  row.appendChild(priceCell);
+  return row;
 }
 window.onload = function () {
   Array.from(document.getElementsByClassName("to-cart-button")).forEach(function (element) {
