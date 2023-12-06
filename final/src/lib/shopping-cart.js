@@ -80,12 +80,13 @@ var ShoppingCart = /*#__PURE__*/function () {
   return ShoppingCart;
 }();
 function addToCart() {
-  var _document$getElementB, _document$getElementB2, _document$getElementB3, _document$getElementB4, _document$getElementB5, _document$getElementB6;
+  var _document$getElementB, _document$getElementB2, _document$getElementB3, _document$getElementB4, _document$getElementB5, _document$getElementB6, _document$getElementB7;
   var cart = getCart();
   var newItem = {
     title: (_document$getElementB = (_document$getElementB2 = document.getElementById("title")) === null || _document$getElementB2 === void 0 ? void 0 : _document$getElementB2.innerText) !== null && _document$getElementB !== void 0 ? _document$getElementB : "Unknown title",
     author: (_document$getElementB3 = (_document$getElementB4 = document.getElementById("author")) === null || _document$getElementB4 === void 0 ? void 0 : _document$getElementB4.innerText) !== null && _document$getElementB3 !== void 0 ? _document$getElementB3 : "Unknown author",
-    priceCents: parseInt((_document$getElementB5 = (_document$getElementB6 = document.getElementById("price")) === null || _document$getElementB6 === void 0 ? void 0 : _document$getElementB6.dataset.cents) !== null && _document$getElementB5 !== void 0 ? _document$getElementB5 : "NaN")
+    priceCents: parseInt((_document$getElementB5 = (_document$getElementB6 = document.getElementById("price")) === null || _document$getElementB6 === void 0 ? void 0 : _document$getElementB6.dataset.cents) !== null && _document$getElementB5 !== void 0 ? _document$getElementB5 : "NaN"),
+    coverUrl: (_document$getElementB7 = document.getElementById("cover")) === null || _document$getElementB7 === void 0 ? void 0 : _document$getElementB7.src
   };
   cart.addItem(newItem);
   console.log(cart);
@@ -103,7 +104,7 @@ function createItemRow(item) {
   var figure = document.createElement("figure");
   figure.classList.add('image');
   var img = document.createElement("img");
-  img.src = "assets/raster/lord_of_rings.jpg";
+  img.src = item.coverUrl;
   img.alt = (_ref = "Cover of book [" + item.title) !== null && _ref !== void 0 ? _ref : "unknown" + "]";
   figure.appendChild(img);
   imageCell.appendChild(figure);
@@ -144,7 +145,7 @@ function setBuyButtonsDisabled(isDisabled) {
 
 // set listeners and the like when the DOM has loaded
 window.onload = function () {
-  var _document$getElementB7;
+  var _document$getElementB8;
   Array.from(document.getElementsByClassName("to-cart-button")).forEach(function (element) {
     element.addEventListener("click", addToCart);
   });
@@ -187,14 +188,14 @@ window.onload = function () {
   }
 
   // clear the shopping cart
-  (_document$getElementB7 = document.getElementById("clear-button")) === null || _document$getElementB7 === void 0 || _document$getElementB7.addEventListener("click", function () {
-    var _document$getElementB8;
+  (_document$getElementB8 = document.getElementById("clear-button")) === null || _document$getElementB8 === void 0 || _document$getElementB8.addEventListener("click", function () {
+    var _document$getElementB9;
     // empty the shopping cart in localStorage
     var clearedCart = getCart().clear();
     localStorage.setItem("cart", clearedCart.toJSON());
 
     // clear the item table in the UI
-    (_document$getElementB8 = document.getElementById("item-table")) === null || _document$getElementB8 === void 0 || _document$getElementB8.replaceChildren();
+    (_document$getElementB9 = document.getElementById("item-table")) === null || _document$getElementB9 === void 0 || _document$getElementB9.replaceChildren();
 
     // reset the total price
     var totalPriceLabel = document.getElementById("total-price");

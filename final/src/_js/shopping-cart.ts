@@ -4,7 +4,8 @@ let idCounter = 0;
 interface Item {
   title: string,
   author: string,
-  priceCents: number
+  priceCents: number,
+  coverUrl: string,
 }
 
 class ShoppingCart {
@@ -71,6 +72,7 @@ function addToCart(): void {
     title: document.getElementById("title")?.innerText ?? "Unknown title",
     author: document.getElementById("author")?.innerText ?? "Unknown author",
     priceCents: parseInt(document.getElementById("price")?.dataset.cents ?? "NaN"),
+    coverUrl: (document.getElementById("cover") as HTMLImageElement)?.src
   }
 
   cart.addItem(newItem);
@@ -92,7 +94,7 @@ function createItemRow(item: Item): HTMLElement {
   let figure = document.createElement("figure");
   figure.classList.add('image');
   let img = document.createElement("img");
-  img.src = "assets/raster/lord_of_rings.jpg";
+  img.src = item.coverUrl;
   img.alt = "Cover of book [" + item.title ?? "unknown" + "]";
   figure.appendChild(img);
   imageCell.appendChild(figure);
