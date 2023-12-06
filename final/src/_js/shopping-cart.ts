@@ -6,6 +6,7 @@ interface Item {
   author: string,
   priceCents: number,
   coverUrl: string,
+  itemUrl: string
 }
 
 class ShoppingCart {
@@ -72,7 +73,8 @@ function addToCart(): void {
     title: document.getElementById("title")?.innerText ?? "Unknown title",
     author: document.getElementById("author")?.innerText ?? "Unknown author",
     priceCents: parseInt(document.getElementById("price")?.dataset.cents ?? "NaN"),
-    coverUrl: (document.getElementById("cover") as HTMLImageElement)?.src
+    coverUrl: (document.getElementById("cover") as HTMLImageElement)?.src,
+    itemUrl: document.location.href,
   }
 
   cart.addItem(newItem);
@@ -109,6 +111,10 @@ function createItemRow(item: Item): HTMLElement {
   priceCell.innerText = getCurrencyString(item.priceCents);
   priceCell.dataset.cents = item.priceCents.toString();
   row.appendChild(priceCell);
+
+  row.addEventListener("click", () => {
+    document.location.href = item.itemUrl;
+  })
 
   return row;
 }

@@ -86,7 +86,8 @@ function addToCart() {
     title: (_document$getElementB = (_document$getElementB2 = document.getElementById("title")) === null || _document$getElementB2 === void 0 ? void 0 : _document$getElementB2.innerText) !== null && _document$getElementB !== void 0 ? _document$getElementB : "Unknown title",
     author: (_document$getElementB3 = (_document$getElementB4 = document.getElementById("author")) === null || _document$getElementB4 === void 0 ? void 0 : _document$getElementB4.innerText) !== null && _document$getElementB3 !== void 0 ? _document$getElementB3 : "Unknown author",
     priceCents: parseInt((_document$getElementB5 = (_document$getElementB6 = document.getElementById("price")) === null || _document$getElementB6 === void 0 ? void 0 : _document$getElementB6.dataset.cents) !== null && _document$getElementB5 !== void 0 ? _document$getElementB5 : "NaN"),
-    coverUrl: (_document$getElementB7 = document.getElementById("cover")) === null || _document$getElementB7 === void 0 ? void 0 : _document$getElementB7.src
+    coverUrl: (_document$getElementB7 = document.getElementById("cover")) === null || _document$getElementB7 === void 0 ? void 0 : _document$getElementB7.src,
+    itemUrl: document.location.href
   };
   cart.addItem(newItem);
   console.log(cart);
@@ -117,6 +118,9 @@ function createItemRow(item) {
   priceCell.innerText = getCurrencyString(item.priceCents);
   priceCell.dataset.cents = item.priceCents.toString();
   row.appendChild(priceCell);
+  row.addEventListener("click", function () {
+    document.location.href = item.itemUrl;
+  });
   return row;
 }
 function getCurrencyString(priceInCents) {
