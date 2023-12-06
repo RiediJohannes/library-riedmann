@@ -6,11 +6,3 @@ $(document).ready(function() {
       $(".navbar-menu").toggleClass("is-active");
   });
 });
-
-
-$(".buy-button").each(function () {
-  let button = $(this); // raw dom element
-  button.on("click", function() {
-    document.location.href = "index.html";
-  });
-});

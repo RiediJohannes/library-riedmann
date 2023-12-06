@@ -205,11 +205,28 @@ window.onload = function () {
     // unfocus the clear button
     this.blur();
   });
-};
+  var _iterator2 = _createForOfIteratorHelper(document.getElementsByClassName("buy-button")),
+    _step2;
+  try {
+    for (_iterator2.s(); !(_step2 = _iterator2.n()).done;) {
+      var button = _step2.value;
+      button.addEventListener("click", function () {
+        var cart = getCart();
+        cart.items.forEach(function (item, id) {
+          console.log("Bought item " + id + ":" + "\ntitle: " + item.title + "\nauthor: " + item.author + "\nprice: " + item.priceCents / 100);
+        });
 
-// getCart().items.forEach((item, id) => {
-//   console.log("Buying item " + id + ":" +
-//     "\ntitle: " + item.title +
-//     "\nauthor: " + item.author +
-//     "\nprice: " + item.priceCents / 100);
-// })
+        // empty the shopping cart
+        cart.clear();
+        localStorage.setItem("cart", cart.toJSON());
+
+        // return to home page
+        document.location.href = "index.html";
+      });
+    }
+  } catch (err) {
+    _iterator2.e(err);
+  } finally {
+    _iterator2.f();
+  }
+};
