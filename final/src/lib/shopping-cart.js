@@ -1,5 +1,6 @@
 "use strict";
 
+function _createForOfIteratorHelper(o, allowArrayLike) { var it = typeof Symbol !== "undefined" && o[Symbol.iterator] || o["@@iterator"]; if (!it) { if (Array.isArray(o) || (it = _unsupportedIterableToArray(o)) || allowArrayLike && o && typeof o.length === "number") { if (it) o = it; var i = 0; var F = function F() {}; return { s: F, n: function n() { if (i >= o.length) return { done: true }; return { done: false, value: o[i++] }; }, e: function e(_e) { throw _e; }, f: F }; } throw new TypeError("Invalid attempt to iterate non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); } var normalCompletion = true, didErr = false, err; return { s: function s() { it = it.call(o); }, n: function n() { var step = it.next(); normalCompletion = step.done; return step; }, e: function e(_e2) { didErr = true; err = _e2; }, f: function f() { try { if (!normalCompletion && it["return"] != null) it["return"](); } finally { if (didErr) throw err; } } }; }
 function _typeof(o) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (o) { return typeof o; } : function (o) { return o && "function" == typeof Symbol && o.constructor === Symbol && o !== Symbol.prototype ? "symbol" : typeof o; }, _typeof(o); }
 function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _unsupportedIterableToArray(arr) || _nonIterableSpread(); }
 function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
@@ -39,6 +40,12 @@ var ShoppingCart = /*#__PURE__*/function () {
       var item = (_this$_items$get = this._items.get(id)) !== null && _this$_items$get !== void 0 ? _this$_items$get : null;
       this._items["delete"](id);
       return item;
+    }
+  }, {
+    key: "clear",
+    value: function clear() {
+      this._items = new Map();
+      return this;
     }
   }, {
     key: "toJSON",
@@ -93,6 +100,7 @@ function createItemRow(item) {
   imageCell.appendChild(figure);
   row.appendChild(imageCell);
   var titleCell = document.createElement("td");
+  titleCell.dataset.meta = "title";
   titleCell.innerText = item.title;
   row.appendChild(titleCell);
   var priceCell = document.createElement("td");
@@ -105,16 +113,83 @@ function createItemRow(item) {
   row.appendChild(priceCell);
   return row;
 }
+function setBuyButtonsDisabled(isDisabled) {
+  var _iterator = _createForOfIteratorHelper(document.getElementsByClassName('buy-button')),
+    _step;
+  try {
+    for (_iterator.s(); !(_step = _iterator.n()).done;) {
+      var button = _step.value;
+      if (button instanceof HTMLButtonElement) {
+        button.disabled = isDisabled;
+      }
+    }
+  } catch (err) {
+    _iterator.e(err);
+  } finally {
+    _iterator.f();
+  }
+}
+
+// set listeners and the like when the DOM has loaded
 window.onload = function () {
+  var _document$getElementB7;
   Array.from(document.getElementsByClassName("to-cart-button")).forEach(function (element) {
     element.addEventListener("click", addToCart);
   });
+  setBuyButtonsDisabled(true);
   var itemList = document.getElementById("item-table");
   if (itemList) {
+    // observe the item list for changes in its children
+    var itemListObserver = new MutationObserver(function (mutations) {
+      mutations.forEach(function (mutation) {
+        if (mutation.type === 'childList') {
+          var _container$children;
+          var container = mutation.target;
+          setBuyButtonsDisabled(((_container$children = container.children) === null || _container$children === void 0 ? void 0 : _container$children.length) === 0);
+        }
+      });
+    });
+
+    // only observe childList changes
+    var childListOnly = {
+      attributes: false,
+      childList: true,
+      characterData: false
+    };
+    itemListObserver.observe(itemList, childListOnly);
+
+    // fill the item list with one table row per item in the shopping cart
     getCart().items.forEach(function (item, id) {
       var itemRow = createItemRow(item);
       itemRow.dataset.id = id.toString();
       itemList === null || itemList === void 0 || itemList.appendChild(itemRow);
     });
   }
+
+  // clear the shopping cart
+  (_document$getElementB7 = document.getElementById("clear-button")) === null || _document$getElementB7 === void 0 || _document$getElementB7.addEventListener("click", function () {
+    var _document$getElementB8;
+    // clear the item table in the UI
+    (_document$getElementB8 = document.getElementById("item-table")) === null || _document$getElementB8 === void 0 || _document$getElementB8.replaceChildren();
+
+    // empty the shopping cart in localStorage
+    var clearedCart = getCart().clear();
+    localStorage.setItem("cart", clearedCart.toJSON());
+
+    // reset the total price
+    var totalPriceLabel = document.getElementById("total-price");
+    if (totalPriceLabel) {
+      totalPriceLabel.innerText = "0,00€";
+    }
+
+    // unfocus the clear button
+    this.blur();
+  });
 };
+
+// getCart().items.forEach((item, id) => {
+//   console.log("Buying item " + id + ":" +
+//     "\ntitle: " + item.title +
+//     "\nauthor: " + item.author +
+//     "\nprice: " + item.priceCents / 100);
+// })

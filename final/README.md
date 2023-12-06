@@ -18,9 +18,9 @@ I divided my time records into three parts:
 | activity        | time          |
 | :-------------- | ------------: |
 | prototyping     | 6h            |
-| implementation  | 36h 30min     |
+| implementation  | 34h 30min     |
 | report          | 2h            |
-| **total**       | **44h 30min** |
+| **total**       | **42h 30min** |
 
 In total, ... have been invested into creating this webpage so far. However, this includes the prototyping stage and writing the report you are currently reading. 
 

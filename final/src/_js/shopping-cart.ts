@@ -32,6 +32,11 @@ class ShoppingCart {
     return item;
   }
 
+  clear() : ShoppingCart {
+    this._items = new Map<number, Item>();
+    return this;
+  }
+
   toJSON(): string {
     // serialize map separately as JSON would create an object from it
     const itemList: [number, Item][] = Array.from(this._items.entries());
@@ -85,6 +90,7 @@ function createItemRow(item: Item): HTMLElement {
   row.appendChild(imageCell);
 
   let titleCell = document.createElement("td");
+  titleCell.dataset.meta = "title";
   titleCell.innerText = item.title;
   row.appendChild(titleCell);
 
@@ -97,17 +103,73 @@ function createItemRow(item: Item): HTMLElement {
   return row;
 }
 
+function setBuyButtonsDisabled(isDisabled: boolean): void {
+  for (let button of document.getElementsByClassName('buy-button')) {
+    if (button instanceof HTMLButtonElement) {
+      button.disabled = isDisabled;
+    }
+  }
+}
+
+
+// set listeners and the like when the DOM has loaded
 window.onload = function() {
   Array.from(document.getElementsByClassName("to-cart-button")).forEach(element => {
     element.addEventListener("click", addToCart);
   });
 
+  setBuyButtonsDisabled(true);
+
   let itemList = document.getElementById("item-table");
+
   if (itemList) {
+    // observe the item list for changes in its children
+    let itemListObserver = new MutationObserver((mutations) => {
+      mutations.forEach((mutation) => {
+        if (mutation.type === 'childList') {
+          let container = mutation.target as HTMLElement;
+          setBuyButtonsDisabled(container.children?.length === 0)
+        }
+      });
+    });    
+    
+    // only observe childList changes
+    let childListOnly = { attributes: false, childList: true, characterData: false };
+    itemListObserver.observe(itemList, childListOnly);
+
+    // fill the item list with one table row per item in the shopping cart
     getCart().items.forEach((item, id) => {
       let itemRow = createItemRow(item);
       itemRow.dataset.id = id.toString();
       itemList?.appendChild(itemRow);
     });
   }
+
+  // clear the shopping cart
+  document.getElementById("clear-button")?.addEventListener("click", function() {
+    // clear the item table in the UI
+    document.getElementById("item-table")?.replaceChildren();
+    
+    // empty the shopping cart in localStorage
+    let clearedCart = getCart().clear();
+    localStorage.setItem("cart", clearedCart.toJSON());
+
+    // reset the total price
+    let totalPriceLabel = document.getElementById("total-price");
+    if (totalPriceLabel) {
+      totalPriceLabel.innerText = "0,00€";
+    }
+
+    // unfocus the clear button
+    this.blur();
+  });
+
+
 };
+
+// getCart().items.forEach((item, id) => {
+//   console.log("Buying item " + id + ":" +
+//     "\ntitle: " + item.title +
+//     "\nauthor: " + item.author +
+//     "\nprice: " + item.priceCents / 100);
+// })

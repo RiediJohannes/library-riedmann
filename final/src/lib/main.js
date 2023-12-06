@@ -8,22 +8,6 @@ $(document).ready(function () {
     $(".navbar-menu").toggleClass("is-active");
   });
 });
-
-// clear the shopping cart
-$("#clear-button").click(function () {
-  $("#item-table").empty();
-
-  // reset the total price
-  $("#total-price").text("0,00€");
-
-  // unfocus the clear button
-  $("#clear-button").blur();
-
-  // disable every buy button
-  $(".buy-button").each(function () {
-    $(this).prop("disabled", true);
-  });
-});
 $(".buy-button").each(function () {
   var button = $(this); // raw dom element
   button.on("click", function () {
