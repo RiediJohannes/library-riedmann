@@ -48,6 +48,15 @@ var ShoppingCart = /*#__PURE__*/function () {
       return this;
     }
   }, {
+    key: "getTotalPriceCents",
+    value: function getTotalPriceCents() {
+      var sum = 0;
+      this._items.forEach(function (item, _id) {
+        sum += item.priceCents;
+      });
+      return sum;
+    }
+  }, {
     key: "toJSON",
     value: function toJSON() {
       // serialize map separately as JSON would create an object from it
@@ -104,14 +113,17 @@ function createItemRow(item) {
   titleCell.innerText = item.title;
   row.appendChild(titleCell);
   var priceCell = document.createElement("td");
-  var price = item.priceCents / 100;
-  priceCell.innerText = price.toLocaleString("de-DE", {
-    style: "currency",
-    currency: "EUR"
-  });
+  priceCell.innerText = getCurrencyString(item.priceCents);
   priceCell.dataset.cents = item.priceCents.toString();
   row.appendChild(priceCell);
   return row;
+}
+function getCurrencyString(priceInCents) {
+  var price = priceInCents / 100;
+  return price.toLocaleString("de-DE", {
+    style: "currency",
+    currency: "EUR"
+  });
 }
 function setBuyButtonsDisabled(isDisabled) {
   var _iterator = _createForOfIteratorHelper(document.getElementsByClassName('buy-button')),
@@ -137,6 +149,10 @@ window.onload = function () {
     element.addEventListener("click", addToCart);
   });
   setBuyButtonsDisabled(true);
+  var totalPriceLabel = document.getElementById("total-price");
+  if (totalPriceLabel) {
+    totalPriceLabel.innerText = getCurrencyString(0);
+  }
   var itemList = document.getElementById("item-table");
   if (itemList) {
     // observe the item list for changes in its children
@@ -146,6 +162,10 @@ window.onload = function () {
           var _container$children;
           var container = mutation.target;
           setBuyButtonsDisabled(((_container$children = container.children) === null || _container$children === void 0 ? void 0 : _container$children.length) === 0);
+          var _totalPriceLabel = document.getElementById("total-price");
+          if (_totalPriceLabel) {
+            _totalPriceLabel.innerText = getCurrencyString(getCart().getTotalPriceCents());
+          }
         }
       });
     });
@@ -169,17 +189,17 @@ window.onload = function () {
   // clear the shopping cart
   (_document$getElementB7 = document.getElementById("clear-button")) === null || _document$getElementB7 === void 0 || _document$getElementB7.addEventListener("click", function () {
     var _document$getElementB8;
-    // clear the item table in the UI
-    (_document$getElementB8 = document.getElementById("item-table")) === null || _document$getElementB8 === void 0 || _document$getElementB8.replaceChildren();
-
     // empty the shopping cart in localStorage
     var clearedCart = getCart().clear();
     localStorage.setItem("cart", clearedCart.toJSON());
 
+    // clear the item table in the UI
+    (_document$getElementB8 = document.getElementById("item-table")) === null || _document$getElementB8 === void 0 || _document$getElementB8.replaceChildren();
+
     // reset the total price
     var totalPriceLabel = document.getElementById("total-price");
     if (totalPriceLabel) {
-      totalPriceLabel.innerText = "0,00€";
+      totalPriceLabel.innerText = getCurrencyString(0);
     }
 
     // unfocus the clear button

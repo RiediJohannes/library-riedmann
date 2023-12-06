@@ -37,6 +37,15 @@ class ShoppingCart {
     return this;
   }
 
+  getTotalPriceCents(): number {
+    let sum = 0;
+    this._items.forEach((item: Item, _id: number) => {
+      sum += item.priceCents;
+    })
+
+    return sum;
+  }
+
   toJSON(): string {
     // serialize map separately as JSON would create an object from it
     const itemList: [number, Item][] = Array.from(this._items.entries());
@@ -95,12 +104,16 @@ function createItemRow(item: Item): HTMLElement {
   row.appendChild(titleCell);
 
   let priceCell = document.createElement("td");
-  let price = item.priceCents / 100;
-  priceCell.innerText = price.toLocaleString("de-DE", { style: "currency", currency: "EUR" });
+  priceCell.innerText = getCurrencyString(item.priceCents);
   priceCell.dataset.cents = item.priceCents.toString();
   row.appendChild(priceCell);
 
   return row;
+}
+
+function getCurrencyString(priceInCents: number): string {
+  let price = priceInCents / 100;
+  return price.toLocaleString("de-DE", { style: "currency", currency: "EUR" });
 }
 
 function setBuyButtonsDisabled(isDisabled: boolean): void {
@@ -120,8 +133,12 @@ window.onload = function() {
 
   setBuyButtonsDisabled(true);
 
-  let itemList = document.getElementById("item-table");
+  let totalPriceLabel = document.getElementById("total-price");
+  if (totalPriceLabel) {
+    totalPriceLabel.innerText = getCurrencyString(0);
+  }
 
+  let itemList = document.getElementById("item-table");
   if (itemList) {
     // observe the item list for changes in its children
     let itemListObserver = new MutationObserver((mutations) => {
@@ -129,6 +146,11 @@ window.onload = function() {
         if (mutation.type === 'childList') {
           let container = mutation.target as HTMLElement;
           setBuyButtonsDisabled(container.children?.length === 0)
+
+          let totalPriceLabel = document.getElementById("total-price")
+          if (totalPriceLabel) {
+            totalPriceLabel.innerText = getCurrencyString(getCart().getTotalPriceCents());
+          }
         }
       });
     });    
@@ -147,24 +169,22 @@ window.onload = function() {
 
   // clear the shopping cart
   document.getElementById("clear-button")?.addEventListener("click", function() {
-    // clear the item table in the UI
-    document.getElementById("item-table")?.replaceChildren();
-    
     // empty the shopping cart in localStorage
     let clearedCart = getCart().clear();
     localStorage.setItem("cart", clearedCart.toJSON());
+    
+    // clear the item table in the UI
+    document.getElementById("item-table")?.replaceChildren();
 
     // reset the total price
     let totalPriceLabel = document.getElementById("total-price");
     if (totalPriceLabel) {
-      totalPriceLabel.innerText = "0,00€";
+      totalPriceLabel.innerText = getCurrencyString(0);
     }
 
     // unfocus the clear button
     this.blur();
   });
-
-
 };
 
 // getCart().items.forEach((item, id) => {
