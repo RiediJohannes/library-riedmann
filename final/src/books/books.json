@@ -45,7 +45,7 @@
     "author": "J.K. Rowling",
     "description": "In the magical world of wizards and witches, a young orphan named Harry Potter discovers his true heritage and destiny when he receives an invitation to Hogwarts School of Witchcraft and Wizardry. As he embarks on a journey of self-discovery, friendship, and magical adventures, Harry uncovers the dark secrets surrounding his parents' demise and the resurgence of an ancient evil. The narrative weaves a tale of courage, loyalty, and the transformative power of hope, introducing readers to a captivating world where the ordinary and the extraordinary collide.",
     "priceCents": 1499,
-    "coverUrl": "harry_potter.jpg",
+    "coverUrl": "harry_potter_stone.jpg",
     "itemUrl": "harry_potter.html",
     "rating": 4
   },
@@ -58,16 +58,6 @@
     "coverUrl": "pride_and_prejudice.jpg",
     "itemUrl": "pride_and_prejudice.html",
     "rating": 3
-  },
-  {
-    "isbn": "7",
-    "title": "The Catcher in the Rye",
-    "author": "J.D. Salinger",
-    "description": "Holden Caulfield, a disenchanted teenager expelled from an elite boarding school, embarks on a journey through the streets of New York City. In his cynical and introspective narrative, Holden grapples with the phoniness of the adult world, the loss of innocence, and the complexities of identity. As he encounters a cast of eccentric characters, the story unfolds as a poignant exploration of adolescence, alienation, and the quest for authenticity in a world that often seems insincere.",
-    "priceCents": 1099,
-    "coverUrl": "catcher_in_the_rye.jpg",
-    "itemUrl": "catcher_in_the_rye.html",
-    "rating": 4
   },
   {
     "isbn": "8",
@@ -105,7 +95,7 @@
     "author": "Suzanne Collins",
     "description": "In a bleak future, a reluctant participant navigates a televised spectacle where tributes engage in a fight to the death. The dystopian narrative unveils a society divided, with the Capitol orchestrating a brutal competition for control. The protagonist, thrust into this macabre pageantry, grapples with moral dilemmas, survival strategies, and the manipulation of power. Themes of rebellion, sacrifice, and the resilience of the human spirit emerge as the protagonist becomes an unwitting symbol of resistance. Suzanne Collins crafts a riveting exploration of societal control, blending action, social commentary, and emotional depth in a tale that challenges notions of authority and individual agency.",
     "priceCents": 1199,
-    "coverUrl": "hunger_games.jpg",
+    "coverUrl": "the_hunger_games.jpg",
     "itemUrl": "hunger_games.html",
     "rating": 3
   },
@@ -115,7 +105,7 @@
     "author": "Cormac McCarthy",
     "description": "In a desolate post-apocalyptic world, a father and son embark on a haunting journey through ash-covered landscapes. Cormac McCarthy's sparse prose paints a stark picture of survival, love, and the struggle for humanity. The unnamed characters face existential challenges, encountering cannibals and navigating a hopeless landscape. Amidst the bleakest circumstances, McCarthy explores the enduring bond between father and son, emphasizing the power of love in the face of despair. \"The Road\" stands as a profound meditation on the human condition, offering a poignant reflection on the lengths individuals will go to preserve their humanity in a world that has lost its own.",
     "priceCents": 1299,
-    "coverUrl": "the_road.jpg",
+    "coverUrl": "the_road.png",
     "itemUrl": "the_road.html",
     "rating": 1
   },
@@ -125,7 +115,7 @@
     "author": "Stieg Larsson",
     "description": "A journalist and a brilliant hacker join forces to investigate the secrets of a wealthy family, unveiling a complex mystery. Set against a backdrop of Swedish corruption, the duo unravels dark conspiracies and a decades-old disappearance. Stieg Larsson's masterful thriller combines investigative journalism, intricate characters, and relentless suspense. As the unlikely pair delves into the troubled history of the Vanger family, layers of deception and vengeance unfold. \"The Girl with the Dragon Tattoo\" is a gripping exploration of a society's shadows, where justice becomes a relentless pursuit amid the hidden complexities of family dynamics and societal intrigue.",
     "priceCents": 1399,
-    "coverUrl": "dragon_tattoo.jpg",
+    "coverUrl": "dragon_tattoo.jpeg",
     "itemUrl": "dragon_tattoo.html",
     "rating": 2
   },
@@ -165,7 +155,7 @@
     "author": "Reiji Miyajima",
     "description": "A college student's life takes an unexpected turn when he resorts to renting a girlfriend for a family event. The temporary arrangement spins into a complex web of emotions, fake relationships, and unexpected connections, blurring the lines between rented affection and genuine feelings. As the comedy unfolds, the protagonist navigates the challenges of love, identity, and self-discovery, all while trying to keep up with the facade of a picture-perfect relationship.",
     "priceCents": 1299,
-    "coverUrl": "rent_a_girlfriend.jpg",
+    "coverUrl": "rent_a_girlfriend.webp",
     "itemUrl": "rent_a_girlfriend.html",
     "rating": 4
   },
@@ -245,7 +235,7 @@
     "author": "Aka Akasaka",
     "description": "In the prestigious Shuchi'in Academy, two brilliant students, the student council president and vice president, engage in a psychological battle of wits. Despite harboring romantic feelings for each other, their pride prevents them from confessing. The narrative unfolds through strategic mind games, hilarious misunderstandings, and the comical pursuit of making the other confess first. As the war of love escalates, the story explores the vulnerability beneath their competitive exteriors and the humorous complexities of teenage romance in an elite academic setting.",
     "priceCents": 1299,
-    "coverUrl": "kaguya_sama.jpg",
+    "coverUrl": "love_is_war.jpg",
     "itemUrl": "kaguya_sama.html",
     "rating": 5
   },
@@ -265,7 +255,7 @@
     "author": "Wataru Watari",
     "description": "In the cynical world of high school, a sharp-witted loner is enlisted to help his classmates with their social dilemmas. As he navigates the complexities of teenage relationships and societal expectations, his unconventional methods challenge the norms of romance and friendship. The narrative delves into the internal struggles of self-discovery, vulnerability, and the unexpected ways in which genuine connections can reshape one's perspective. Through humor and introspection, the story explores the profound impact of navigating the turbulent waters of adolescence.",
     "priceCents": 1299,
-    "coverUrl": "my_youth_romantic_comedy.jpg",
+    "coverUrl": "snafu.png",
     "itemUrl": "my_youth_romantic_comedy.html",
     "rating": 3
   },
@@ -288,15 +278,5 @@
     "coverUrl": "we_were_there.jpg",
     "itemUrl": "we_were_there.html",
     "rating": 2
-  },
-  {
-    "isbn": "31",
-    "title": "Blue Spring Ride",
-    "author": "Io Sakisaka",
-    "description": "After being separated by circumstances in middle school, a high school girl reunites with her first love, who has undergone a dramatic transformation. As they navigate the complexities of rekindling their relationship, the story explores themes of change, second chances, and the bittersweet nature of young love. Against the backdrop of cherry blossoms and fleeting moments, the characters confront the challenges of reconciling the past with the present, discovering that the path to happiness is often paved with the blossoms of nostalgia.",
-    "priceCents": 1299,
-    "coverUrl": "blue_spring_ride.jpg",
-    "itemUrl": "blue_spring_ride.html",
-    "rating": 4
   }
 ]
