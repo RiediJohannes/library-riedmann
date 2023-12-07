@@ -129,7 +129,7 @@ function setBuyButtonsDisabled(isDisabled: boolean): void {
 
 
 // set listeners and the like when the DOM has loaded
-window.onload = function() {
+window.addEventListener("load", () => {
   Array.from(document.getElementsByClassName("to-cart-button")).forEach(element => {
     element.addEventListener("click", addToCart);
   });
@@ -208,4 +208,4 @@ window.onload = function() {
       document.location.href = "index.html";
     })
   }
-};
+});

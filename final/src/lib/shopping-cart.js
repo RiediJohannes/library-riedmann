@@ -141,7 +141,7 @@ function setBuyButtonsDisabled(isDisabled) {
 }
 
 // set listeners and the like when the DOM has loaded
-window.onload = function () {
+window.addEventListener("load", function () {
   var _document$getElementB8;
   Array.from(document.getElementsByClassName("to-cart-button")).forEach(function (element) {
     element.addEventListener("click", addToCart);
@@ -227,4 +227,4 @@ window.onload = function () {
   } finally {
     _iterator2.f();
   }
-};
+});

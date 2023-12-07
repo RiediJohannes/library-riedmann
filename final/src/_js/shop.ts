@@ -1,4 +1,9 @@
+const relativePathToCovers: string = "./assets/raster/books/";
+const itemPage: string = "./item.html";
+const totalStarCount = 5;
+
 interface Book {
+  isbn: string,
   title: string,
   author: string,
   description: string,
@@ -29,6 +34,7 @@ async function fetchBooks(): Promise<Book[]> {
     const books: Book[] = await response.json();
     // cache the fetched books in the local storage
     localStorage.setItem(localStorageKey, JSON.stringify(books));
+
     return books;
 
   } catch (error) {
@@ -37,27 +43,27 @@ async function fetchBooks(): Promise<Book[]> {
   }
 }
 
+function getBookData(isbn: string): Book {
+  return JSON.parse(localStorage.getItem(isbn) ?? "{}") as Book;
+}
+
 // Example usage
-async function displayBooks() {
-  let bookDestination = document.getElementById("book-results");
-  if (bookDestination) {
+async function displayBooks(bookContainer: HTMLElement) {
+  if (bookContainer) {
     const books: Book[] = await fetchBooks();
     
     let bookCards: string = "";
     books.forEach((book) => {
       let bookCard: string = createBookCard(book);
+      localStorage.setItem(book.isbn, JSON.stringify(book));
       bookCards += bookCard;
     })
-    
-    bookDestination.innerHTML = bookCards;
+
+    bookContainer.innerHTML = bookCards;
   }
 }
 
 function createBookCard(book: Book): string {
-  const relativePathToCovers: string = "./assets/raster/books/";
-  const itemPage: string = "./item.html";
-  const totalStarCount = 5;
-
   // create the rating stars
   let starsToFill: number = book.rating;
   let ratingHtml: string = "";
@@ -73,7 +79,7 @@ function createBookCard(book: Book): string {
 
   // fill the rest of the HTML template
   return `
-  <a href="${itemPage}" class="card book-preview is-shadowless">
+  <a href="${itemPage + "?isbn=" + book.isbn}" class="card book-preview is-shadowless">
     <div class="card-content is-flex is-flex-direction-row is-flex-wrap-nowrap">
       <div class="cover column is-flex-grow-1 is-flex-shrink-1">
         <figure class="image is-2by3">
@@ -99,6 +105,50 @@ function createBookCard(book: Book): string {
   `
 }
 
-window.onload = function() {
-  displayBooks();
-};
+function fillBookInfo(book: Book) {
+  const titleLabel = document.getElementById("title")
+  if (titleLabel) {
+    titleLabel.innerText = book.title;
+  }
+
+  const authorLabel = document.getElementById("author")
+  if (authorLabel) {
+    authorLabel.innerText = book.author;
+  }
+
+  const descriptionLabel = document.getElementById("description")
+  if (descriptionLabel) {
+    descriptionLabel.innerText = book.description;
+  }
+
+  const priceLabel = document.getElementById("price")
+  if (priceLabel) {
+    priceLabel.innerText = getCurrencyString(book.priceCents);
+  }
+
+  const coverImage = document.getElementById("cover") as HTMLImageElement
+  if (coverImage) {
+    coverImage.src = relativePathToCovers + book.coverUrl;
+    coverImage.alt = `Book cover [${book.title}]`;
+  }
+
+  document.title = book.title;
+}
+
+window.addEventListener("load", () => {
+  const bookDestination = document.getElementById("book-results");
+  if (bookDestination) {
+    displayBooks(bookDestination);
+  }
+
+  const bookInfo = document.getElementById("book-info");
+  if (bookInfo) {
+    let isbn = (new URL(document.location.href)).searchParams.get("isbn");
+    if (!isbn) {
+      document.location.href = "/404.html";
+    }
+
+    const book: Book = getBookData(isbn ?? "none");
+    fillBookInfo(book)
+  }
+});
