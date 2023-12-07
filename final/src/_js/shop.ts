@@ -9,7 +9,6 @@ interface Book {
   description: string,
   priceCents: number,
   coverUrl: string,
-  itemUrl: string,
   rating: number,
 }
 
