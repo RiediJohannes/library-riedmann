@@ -12,75 +12,102 @@ function fetchBooks() {
   return _fetchBooks.apply(this, arguments);
 }
 function _fetchBooks() {
-  _fetchBooks = _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee() {
-    var localStorageKey, jsonFilePath, cachedBooks, _ref, response, books;
-    return _regeneratorRuntime().wrap(function _callee$(_context) {
-      while (1) switch (_context.prev = _context.next) {
+  _fetchBooks = _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee2() {
+    var localStorageKey, jsonFilePath, cachedBooks, _ref2, response, books;
+    return _regeneratorRuntime().wrap(function _callee2$(_context2) {
+      while (1) switch (_context2.prev = _context2.next) {
         case 0:
           localStorageKey = "books";
           jsonFilePath = "./books/books.json";
-          _context.prev = 2;
+          _context2.prev = 2;
           // first, check if the books are already cached in the local storage
           cachedBooks = localStorage.getItem(localStorageKey);
           if (!cachedBooks) {
-            _context.next = 6;
+            _context2.next = 6;
             break;
           }
-          return _context.abrupt("return", (_ref = JSON.parse(cachedBooks)) !== null && _ref !== void 0 ? _ref : []);
+          return _context2.abrupt("return", (_ref2 = JSON.parse(cachedBooks)) !== null && _ref2 !== void 0 ? _ref2 : []);
         case 6:
-          _context.next = 8;
+          _context2.next = 8;
           return fetch(jsonFilePath);
         case 8:
-          response = _context.sent;
+          response = _context2.sent;
           if (response.ok) {
-            _context.next = 11;
+            _context2.next = 11;
             break;
           }
           throw new Error('Failed to fetch books');
         case 11:
-          _context.next = 13;
+          _context2.next = 13;
           return response.json();
         case 13:
-          books = _context.sent;
+          books = _context2.sent;
           // cache the fetched books in the local storage
           localStorage.setItem(localStorageKey, JSON.stringify(books));
-          return _context.abrupt("return", books);
+          return _context2.abrupt("return", books);
         case 18:
-          _context.prev = 18;
-          _context.t0 = _context["catch"](2);
-          console.error('Error fetching books:', _context.t0);
-          return _context.abrupt("return", []);
+          _context2.prev = 18;
+          _context2.t0 = _context2["catch"](2);
+          console.error('Error fetching books:', _context2.t0);
+          return _context2.abrupt("return", []);
         case 22:
         case "end":
-          return _context.stop();
+          return _context2.stop();
       }
-    }, _callee, null, [[2, 18]]);
+    }, _callee2, null, [[2, 18]]);
   }));
   return _fetchBooks.apply(this, arguments);
 }
-function getBookData(isbn) {
-  var _localStorage$getItem;
-  return JSON.parse((_localStorage$getItem = localStorage.getItem(isbn)) !== null && _localStorage$getItem !== void 0 ? _localStorage$getItem : "{}");
+function getBookData(_x) {
+  return _getBookData.apply(this, arguments);
+} // Example usage
+function _getBookData() {
+  _getBookData = _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee3(isbn) {
+    var _localStorage$getItem;
+    var book, _bookList$find, bookList;
+    return _regeneratorRuntime().wrap(function _callee3$(_context3) {
+      while (1) switch (_context3.prev = _context3.next) {
+        case 0:
+          // first, check for cached book data in local storage
+          book = JSON.parse((_localStorage$getItem = localStorage.getItem(isbn)) !== null && _localStorage$getItem !== void 0 ? _localStorage$getItem : "{}");
+          if (book) {
+            _context3.next = 6;
+            break;
+          }
+          _context3.next = 4;
+          return fetchBooks();
+        case 4:
+          bookList = _context3.sent;
+          book = (_bookList$find = bookList.find(function (book) {
+            return book.isbn === isbn;
+          })) !== null && _bookList$find !== void 0 ? _bookList$find : null;
+        case 6:
+          return _context3.abrupt("return", book);
+        case 7:
+        case "end":
+          return _context3.stop();
+      }
+    }, _callee3);
+  }));
+  return _getBookData.apply(this, arguments);
 }
-
-// Example usage
-function displayBooks(_x) {
+function displayBooks(_x2) {
   return _displayBooks.apply(this, arguments);
 }
 function _displayBooks() {
-  _displayBooks = _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee2(bookContainer) {
+  _displayBooks = _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee4(bookContainer) {
     var books, bookCards;
-    return _regeneratorRuntime().wrap(function _callee2$(_context2) {
-      while (1) switch (_context2.prev = _context2.next) {
+    return _regeneratorRuntime().wrap(function _callee4$(_context4) {
+      while (1) switch (_context4.prev = _context4.next) {
         case 0:
           if (!bookContainer) {
-            _context2.next = 7;
+            _context4.next = 7;
             break;
           }
-          _context2.next = 3;
+          _context4.next = 3;
           return fetchBooks();
         case 3:
-          books = _context2.sent;
+          books = _context4.sent;
           bookCards = "";
           books.forEach(function (book) {
             var bookCard = createBookCard(book);
@@ -90,9 +117,9 @@ function _displayBooks() {
           bookContainer.innerHTML = bookCards;
         case 7:
         case "end":
-          return _context2.stop();
+          return _context4.stop();
       }
-    }, _callee2);
+    }, _callee4);
   }));
   return _displayBooks.apply(this, arguments);
 }
@@ -132,18 +159,36 @@ function fillBookInfo(book) {
   }
   document.title = book.title;
 }
-window.addEventListener("load", function () {
-  var bookDestination = document.getElementById("book-results");
-  if (bookDestination) {
-    displayBooks(bookDestination);
-  }
-  var bookInfo = document.getElementById("book-info");
-  if (bookInfo) {
-    var isbn = new URL(document.location.href).searchParams.get("isbn");
-    if (!isbn) {
-      document.location.href = "/404.html";
+window.addEventListener("load", /*#__PURE__*/_asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee() {
+  var bookDestination, bookInfo, isbn, book;
+  return _regeneratorRuntime().wrap(function _callee$(_context) {
+    while (1) switch (_context.prev = _context.next) {
+      case 0:
+        bookDestination = document.getElementById("book-results");
+        if (bookDestination) {
+          displayBooks(bookDestination);
+        }
+        bookInfo = document.getElementById("book-info");
+        if (!bookInfo) {
+          _context.next = 10;
+          break;
+        }
+        isbn = new URL(document.location.href).searchParams.get("isbn");
+        if (!isbn) {
+          document.location.href = "/404.html";
+        }
+        _context.next = 8;
+        return getBookData(isbn !== null && isbn !== void 0 ? isbn : "none");
+      case 8:
+        book = _context.sent;
+        if (!book) {
+          document.location.href = "/404.html";
+        } else {
+          fillBookInfo(book);
+        }
+      case 10:
+      case "end":
+        return _context.stop();
     }
-    var book = getBookData(isbn !== null && isbn !== void 0 ? isbn : "none");
-    fillBookInfo(book);
-  }
-});
+  }, _callee);
+})));

@@ -43,8 +43,17 @@ async function fetchBooks(): Promise<Book[]> {
   }
 }
 
-function getBookData(isbn: string): Book {
-  return JSON.parse(localStorage.getItem(isbn) ?? "{}") as Book;
+async function getBookData(isbn: string): Promise<Book | null> {
+  // first, check for cached book data in local storage
+  let book: Book | null = JSON.parse(localStorage.getItem(isbn) ?? "{}") as Book;
+  
+  if (!book) {
+    // otherwise, fetch all books and find the one with the correct ISBN
+    const bookList = await fetchBooks()
+    book = bookList.find(book => book.isbn === isbn) ?? null;
+  }
+
+  return book;
 }
 
 // Example usage
@@ -135,7 +144,7 @@ function fillBookInfo(book: Book) {
   document.title = book.title;
 }
 
-window.addEventListener("load", () => {
+window.addEventListener("load", async () => {
   const bookDestination = document.getElementById("book-results");
   if (bookDestination) {
     displayBooks(bookDestination);
@@ -148,7 +157,11 @@ window.addEventListener("load", () => {
       document.location.href = "/404.html";
     }
 
-    const book: Book = getBookData(isbn ?? "none");
-    fillBookInfo(book)
+    const book: Book | null = await getBookData(isbn ?? "none");
+    if (!book) {
+      document.location.href = "/404.html";
+    } else {
+      fillBookInfo(book)
+    }
   }
 });
