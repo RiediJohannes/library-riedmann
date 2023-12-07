@@ -535,14 +535,14 @@ footer a:hover {
 #book-results:after {
   content: "";
   flex: auto;
-  flex-basis: 450px;
+  flex-basis: 430px;
   flex-grow: 0;
 }
 
 .book-preview {
   display: inline-block;
   flex-grow: 0;
-  flex-basis: 450px;
+  flex-basis: 430px;
 }
 .book-preview:hover {
   color: #EEEEEE;
