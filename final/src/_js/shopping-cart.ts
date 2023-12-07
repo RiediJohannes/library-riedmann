@@ -82,7 +82,7 @@ function addToCart(): void {
   console.log(cart);
   localStorage.setItem("cart", cart.toJSON());
 
-  document.location.href = "../shopping-cart.html";
+  document.location.href = "shopping-cart.html";
 }
 
 function getCart(): ShoppingCart {
@@ -117,11 +117,6 @@ function createItemRow(item: Item): HTMLElement {
   })
 
   return row;
-}
-
-function getCurrencyString(priceInCents: number): string {
-  let price = priceInCents / 100;
-  return price.toLocaleString("de-DE", { style: "currency", currency: "EUR" });
 }
 
 function setBuyButtonsDisabled(isDisabled: boolean): void {

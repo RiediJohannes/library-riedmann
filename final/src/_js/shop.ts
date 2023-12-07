@@ -10,13 +10,25 @@ interface Book {
 
 // Function to fetch the books from "books.json"
 async function fetchBooks(): Promise<Book[]> {
+  const localStorageKey: string = "books";
+  const jsonFilePath: string = "./books/books.json";
+
   try {
-    const response = await fetch('./books/books.json');
+    // first, check if the books are already cached in the local storage
+    let cachedBooks = localStorage.getItem(localStorageKey);
+    if (cachedBooks) {
+      return JSON.parse(cachedBooks) as Book[] ?? [];
+    }
+
+    // otherwise fetch the data from a JSON file
+    const response = await fetch(jsonFilePath);
     if (!response.ok) {
       throw new Error('Failed to fetch books');
     }
 
     const books: Book[] = await response.json();
+    // cache the fetched books in the local storage
+    localStorage.setItem(localStorageKey, JSON.stringify(books));
     return books;
 
   } catch (error) {
@@ -32,7 +44,7 @@ async function displayBooks() {
     const books: Book[] = await fetchBooks();
     
     let bookCards: string = "";
-    books.forEach((book, id, jd) => {
+    books.forEach((book) => {
       let bookCard: string = createBookCard(book);
       bookCards += bookCard;
     })
@@ -43,9 +55,10 @@ async function displayBooks() {
 
 function createBookCard(book: Book): string {
   const relativePathToCovers: string = "./assets/raster/books/";
-  const relativePathToItems: string = "./books/";
+  const itemPage: string = "./item.html";
   const totalStarCount = 5;
 
+  // create the rating stars
   let starsToFill: number = book.rating;
   let ratingHtml: string = "";
   for (let i = 0; i < totalStarCount; i++) {
@@ -58,8 +71,9 @@ function createBookCard(book: Book): string {
     starsToFill--;
   }
 
+  // fill the rest of the HTML template
   return `
-  <a href="${relativePathToItems + book.itemUrl}" class="card book-preview is-shadowless">
+  <a href="${itemPage}" class="card book-preview is-shadowless">
     <div class="card-content is-flex is-flex-direction-row is-flex-wrap-nowrap">
       <div class="cover column is-flex-grow-1 is-flex-shrink-1">
         <figure class="image is-2by3">
@@ -83,11 +97,6 @@ function createBookCard(book: Book): string {
     </div>
   </a>
   `
-}
-
-function getCurrencyString(priceInCents: number): string {
-  let price = priceInCents / 100;
-  return price.toLocaleString("de-DE", { style: "currency", currency: "EUR" });
 }
 
 window.onload = function() {

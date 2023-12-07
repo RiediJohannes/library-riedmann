@@ -8,3 +8,8 @@ window.onload = () => {
     })
   }
 };
+
+function getCurrencyString(priceInCents: number): string {
+  let price = priceInCents / 100;
+  return price.toLocaleString("de-DE", { style: "currency", currency: "EUR" });
+}

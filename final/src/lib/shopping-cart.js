@@ -92,7 +92,7 @@ function addToCart() {
   cart.addItem(newItem);
   console.log(cart);
   localStorage.setItem("cart", cart.toJSON());
-  document.location.href = "../shopping-cart.html";
+  document.location.href = "shopping-cart.html";
 }
 function getCart() {
   var _localStorage$getItem;
@@ -122,13 +122,6 @@ function createItemRow(item) {
     document.location.href = item.itemUrl;
   });
   return row;
-}
-function getCurrencyString(priceInCents) {
-  var price = priceInCents / 100;
-  return price.toLocaleString("de-DE", {
-    style: "currency",
-    currency: "EUR"
-  });
 }
 function setBuyButtonsDisabled(isDisabled) {
   var _iterator = _createForOfIteratorHelper(document.getElementsByClassName('buy-button')),

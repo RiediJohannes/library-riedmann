@@ -10,36 +10,48 @@ function fetchBooks() {
 } // Example usage
 function _fetchBooks() {
   _fetchBooks = _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee() {
-    var response, books;
+    var localStorageKey, jsonFilePath, cachedBooks, _ref, response, books;
     return _regeneratorRuntime().wrap(function _callee$(_context) {
       while (1) switch (_context.prev = _context.next) {
         case 0:
-          _context.prev = 0;
-          _context.next = 3;
-          return fetch('./books/books.json');
-        case 3:
-          response = _context.sent;
-          if (response.ok) {
+          localStorageKey = "books";
+          jsonFilePath = "./books/books.json";
+          _context.prev = 2;
+          // first, check if the books are already cached in the local storage
+          cachedBooks = localStorage.getItem(localStorageKey);
+          if (!cachedBooks) {
             _context.next = 6;
             break;
           }
-          throw new Error('Failed to fetch books');
+          return _context.abrupt("return", (_ref = JSON.parse(cachedBooks)) !== null && _ref !== void 0 ? _ref : []);
         case 6:
           _context.next = 8;
-          return response.json();
+          return fetch(jsonFilePath);
         case 8:
+          response = _context.sent;
+          if (response.ok) {
+            _context.next = 11;
+            break;
+          }
+          throw new Error('Failed to fetch books');
+        case 11:
+          _context.next = 13;
+          return response.json();
+        case 13:
           books = _context.sent;
+          // cache the fetched books in the local storage
+          localStorage.setItem(localStorageKey, JSON.stringify(books));
           return _context.abrupt("return", books);
-        case 12:
-          _context.prev = 12;
-          _context.t0 = _context["catch"](0);
+        case 18:
+          _context.prev = 18;
+          _context.t0 = _context["catch"](2);
           console.error('Error fetching books:', _context.t0);
           return _context.abrupt("return", []);
-        case 16:
+        case 22:
         case "end":
           return _context.stop();
       }
-    }, _callee, null, [[0, 12]]);
+    }, _callee, null, [[2, 18]]);
   }));
   return _fetchBooks.apply(this, arguments);
 }
@@ -62,7 +74,7 @@ function _displayBooks() {
         case 4:
           books = _context2.sent;
           bookCards = "";
-          books.forEach(function (book, id, jd) {
+          books.forEach(function (book) {
             var bookCard = createBookCard(book);
             bookCards += bookCard;
           });
@@ -77,22 +89,19 @@ function _displayBooks() {
 }
 function createBookCard(book) {
   var relativePathToCovers = "./assets/raster/books/";
-  var relativePathToItems = "./books/";
+  var itemPage = "./item.html";
   var totalStarCount = 5;
+
+  // create the rating stars
   var starsToFill = book.rating;
   var ratingHtml = "";
   for (var i = 0; i < totalStarCount; i++) {
     ratingHtml += "\n    <svg class=\"star\" ".concat(starsToFill > 0 ? "data-filled" : "", " fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\">\n      <path d=\"M9.69958 1.65054C10.0344 0.999196 10.9656 0.999197 11.3004 1.65054L13.3968 5.7284C13.6795 6.27816 14.2119 6.65607 14.8241 6.74147L19.4148 7.38186C20.1644 7.48642 20.458 8.41325 19.9054 8.93038L16.6578 11.9693C16.1878 12.4092 15.9725 13.0571 16.0857 13.6908L16.8622 18.0374C16.9927 18.7678 16.2331 19.3334 15.5707 18.9991L11.3561 16.872C10.8177 16.6003 10.1823 16.6003 9.64392 16.872L5.42925 18.9991C4.7669 19.3334 4.00728 18.7678 4.13777 18.0374L4.91433 13.6908C5.02755 13.0571 4.81219 12.4092 4.34216 11.9693L1.09462 8.93038C0.541999 8.41325 0.835636 7.48642 1.58522 7.38186L6.1759 6.74147C6.78813 6.65607 7.32055 6.27816 7.60318 5.7284L9.69958 1.65054Z\" fill=\"#E1CA00\" stroke=\"black\"/>\n    </svg>\n    ");
     starsToFill--;
   }
-  return "\n  <a href=\"".concat(relativePathToItems + book.itemUrl, "\" class=\"card book-preview is-shadowless\">\n    <div class=\"card-content is-flex is-flex-direction-row is-flex-wrap-nowrap\">\n      <div class=\"cover column is-flex-grow-1 is-flex-shrink-1\">\n        <figure class=\"image is-2by3\">\n          <img src=\"").concat(relativePathToCovers + book.coverUrl, "\" alt=\"Book cover [").concat(book.title, "]\">\n        </figure>\n      </div>\n\n      <div class=\"book-info column is-flex-grow-1\">\n        <div>\n          <h1 class=\"title\">").concat(book.title, "</h1>\n          <h2 class=\"subtitle\">").concat(book.author, "</h2>\n        </div>\n        <div>\n          <figure class=\"image rating\">\n            ").concat(ratingHtml, "\n          </figure>\n\n          <span class=\"price\">").concat(getCurrencyString(book.priceCents), "</span>\n        </div>\n      </div>\n    </div>\n  </a>\n  ");
-}
-function getCurrencyString(priceInCents) {
-  var price = priceInCents / 100;
-  return price.toLocaleString("de-DE", {
-    style: "currency",
-    currency: "EUR"
-  });
+
+  // fill the rest of the HTML template
+  return "\n  <a href=\"".concat(itemPage, "\" class=\"card book-preview is-shadowless\">\n    <div class=\"card-content is-flex is-flex-direction-row is-flex-wrap-nowrap\">\n      <div class=\"cover column is-flex-grow-1 is-flex-shrink-1\">\n        <figure class=\"image is-2by3\">\n          <img src=\"").concat(relativePathToCovers + book.coverUrl, "\" alt=\"Book cover [").concat(book.title, "]\">\n        </figure>\n      </div>\n\n      <div class=\"book-info column is-flex-grow-1\">\n        <div>\n          <h1 class=\"title\">").concat(book.title, "</h1>\n          <h2 class=\"subtitle\">").concat(book.author, "</h2>\n        </div>\n        <div>\n          <figure class=\"image rating\">\n            ").concat(ratingHtml, "\n          </figure>\n\n          <span class=\"price\">").concat(getCurrencyString(book.priceCents), "</span>\n        </div>\n      </div>\n    </div>\n  </a>\n  ");
 }
 window.onload = function () {
   displayBooks();

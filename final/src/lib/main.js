@@ -26,3 +26,10 @@ window.onload = function () {
     _iterator.f();
   }
 };
+function getCurrencyString(priceInCents) {
+  var price = priceInCents / 100;
+  return price.toLocaleString("de-DE", {
+    style: "currency",
+    currency: "EUR"
+  });
+}
