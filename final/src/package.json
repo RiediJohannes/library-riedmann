@@ -34,7 +34,11 @@
     "plugins": {
       "autoprefixer": {},
       "cssnano": {
-        "preset": "default"
+        "preset": [
+          "default",
+          {"discardComments": {"removeAll": true}},
+          {"discardUnused": true}
+        ]
       }
     }
   },
