@@ -21,6 +21,10 @@
       max-height: 5em !important;
     }
 
+    tr:hover {
+      cursor: pointer;
+    }
+
     figure, img {
       width: auto;
       height: 100%;

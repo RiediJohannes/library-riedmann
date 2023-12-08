@@ -623,6 +623,9 @@ footer a:hover {
   height: 5em !important;
   max-height: 5em !important;
 }
+.cart-table tbody tr:hover {
+  cursor: pointer;
+}
 .cart-table tbody figure, .cart-table tbody img {
   width: auto;
   height: 100%;
