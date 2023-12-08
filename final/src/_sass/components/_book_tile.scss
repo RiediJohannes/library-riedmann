@@ -11,6 +11,7 @@ $column-basis-touch: min(360px, 100%);
 #book-results {
   display: grid;
   justify-content: space-evenly;
+  min-height: 80svh;
   
   grid-template-columns: repeat(auto-fill, $column-basis-desktop);
   @include mix.until($desktop) {
