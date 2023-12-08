@@ -497,10 +497,12 @@ img {
   }
 }
 
-.has-mark {
+.has-mark,
+.has-no-mark {
   margin-right: 15px !important;
 }
-.has-mark[data-marked]::after {
+.has-mark[data-marked]::after,
+.has-no-mark[data-marked]::after {
   content: attr(value);
   display: block;
   position: absolute;
@@ -641,7 +643,7 @@ footer a:hover {
 .cart-table td, .cart-table th {
   vertical-align: middle !important;
 }
-.cart-table tbody tr, .cart-table tbody td, .cart-table tbody figure {
+.cart-table td, .cart-table figure {
   height: 5em !important;
   max-height: 5em !important;
 }
@@ -653,12 +655,18 @@ footer a:hover {
   height: 100%;
   aspect-ratio: 2/3;
 }
+.cart-table th:last-child,
+.cart-table td:last-child:not(.empty-row) {
+  text-align: right !important;
+}
 .cart-table tfoot th {
   height: 3em !important;
 }
-.cart-table th:last-child,
-.cart-table td:last-child {
-  text-align: right !important;
+.cart-table #no-items-footer td {
+  text-align: center !important;
+  font-style: italic;
+  color: hsl(0, 0%, 48%);
+  background-color: #1e1e1e;
 }
 
 #thumbnail {

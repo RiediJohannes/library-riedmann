@@ -120,11 +120,21 @@ function createItemRow(item: Item): HTMLElement {
   return row;
 }
 
-function setBuyButtonsDisabled(isDisabled: boolean): void {
+function updateItemTable(isEmpty: boolean): void {
+  // either display the summary footer or the "there are no items" footer
+  document.getElementById("no-items-footer")?.classList.toggle("is-hidden", !isEmpty);
+  document.getElementById("summary-footer")?.classList.toggle("is-hidden", isEmpty);
+  
   for (let button of document.getElementsByClassName('buy-button')) {
     if (button instanceof HTMLButtonElement) {
-      button.disabled = isDisabled;
+      button.disabled = isEmpty;
     }
+  }
+
+  // also disable or enable the clear button at the same time
+  const clearButton = document.getElementById("clear-button") as HTMLButtonElement;
+  if (clearButton) {
+    clearButton.disabled = isEmpty;
   }
 }
 
@@ -149,7 +159,7 @@ window.addEventListener("load", () => {
     element.addEventListener("click", addToCart);
   });
 
-  setBuyButtonsDisabled(true);
+  updateItemTable(true);
 
   let totalPriceLabel = document.getElementById("total-price");
   if (totalPriceLabel) {
@@ -163,7 +173,7 @@ window.addEventListener("load", () => {
       mutations.forEach((mutation) => {
         if (mutation.type === 'childList') {
           let container = mutation.target as HTMLElement;
-          setBuyButtonsDisabled(container.children?.length === 0)
+          updateItemTable(container.children?.length === 0)
 
           let totalPriceLabel = document.getElementById("total-price")
           if (totalPriceLabel) {
@@ -178,7 +188,9 @@ window.addEventListener("load", () => {
     itemListObserver.observe(itemList, childListOnly);
 
     // fill the item list with one table row per item in the shopping cart
-    getCart().items.forEach((item, id) => {
+    const items = getCart().items;
+
+    items.forEach((item, id) => {
       let itemRow = createItemRow(item);
       itemRow.dataset.id = id.toString();
       itemList?.appendChild(itemRow);

@@ -68,7 +68,8 @@
 
 
 // add a small mark to an item which shows the content of the "value" attribute
-.has-mark {
+.has-mark,
+.has-no-mark {
   $mark-diameter: 20px;
   $corner-offset: -7px;
   margin-right: 15px !important;

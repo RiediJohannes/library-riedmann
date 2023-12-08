@@ -124,20 +124,30 @@ function createItemRow(item) {
   });
   return row;
 }
-function setBuyButtonsDisabled(isDisabled) {
+function updateItemTable(isEmpty) {
+  var _document$getElementB8, _document$getElementB9;
+  // either display the summary footer or the "there are no items" footer
+  (_document$getElementB8 = document.getElementById("no-items-footer")) === null || _document$getElementB8 === void 0 || _document$getElementB8.classList.toggle("is-hidden", !isEmpty);
+  (_document$getElementB9 = document.getElementById("summary-footer")) === null || _document$getElementB9 === void 0 || _document$getElementB9.classList.toggle("is-hidden", isEmpty);
   var _iterator = _createForOfIteratorHelper(document.getElementsByClassName('buy-button')),
     _step;
   try {
     for (_iterator.s(); !(_step = _iterator.n()).done;) {
       var button = _step.value;
       if (button instanceof HTMLButtonElement) {
-        button.disabled = isDisabled;
+        button.disabled = isEmpty;
       }
     }
+
+    // also disable or enable the clear button at the same time
   } catch (err) {
     _iterator.e(err);
   } finally {
     _iterator.f();
+  }
+  var clearButton = document.getElementById("clear-button");
+  if (clearButton) {
+    clearButton.disabled = isEmpty;
   }
 }
 function updateItemCount() {
@@ -164,11 +174,11 @@ function updateItemCount() {
 
 // set listeners and the like when the DOM has loaded
 window.addEventListener("load", function () {
-  var _document$getElementB8;
+  var _document$getElementB10;
   Array.from(document.getElementsByClassName("to-cart-button")).forEach(function (element) {
     element.addEventListener("click", addToCart);
   });
-  setBuyButtonsDisabled(true);
+  updateItemTable(true);
   var totalPriceLabel = document.getElementById("total-price");
   if (totalPriceLabel) {
     totalPriceLabel.innerText = getCurrencyString(0);
@@ -181,7 +191,7 @@ window.addEventListener("load", function () {
         if (mutation.type === 'childList') {
           var _container$children;
           var container = mutation.target;
-          setBuyButtonsDisabled(((_container$children = container.children) === null || _container$children === void 0 ? void 0 : _container$children.length) === 0);
+          updateItemTable(((_container$children = container.children) === null || _container$children === void 0 ? void 0 : _container$children.length) === 0);
           var _totalPriceLabel = document.getElementById("total-price");
           if (_totalPriceLabel) {
             _totalPriceLabel.innerText = getCurrencyString(getCart().getTotalPriceCents());
@@ -199,7 +209,8 @@ window.addEventListener("load", function () {
     itemListObserver.observe(itemList, childListOnly);
 
     // fill the item list with one table row per item in the shopping cart
-    getCart().items.forEach(function (item, id) {
+    var items = getCart().items;
+    items.forEach(function (item, id) {
       var itemRow = createItemRow(item);
       itemRow.dataset.id = id.toString();
       itemList === null || itemList === void 0 || itemList.appendChild(itemRow);
@@ -207,14 +218,14 @@ window.addEventListener("load", function () {
   }
 
   // clear the shopping cart
-  (_document$getElementB8 = document.getElementById("clear-button")) === null || _document$getElementB8 === void 0 || _document$getElementB8.addEventListener("click", function () {
-    var _document$getElementB9;
+  (_document$getElementB10 = document.getElementById("clear-button")) === null || _document$getElementB10 === void 0 || _document$getElementB10.addEventListener("click", function () {
+    var _document$getElementB11;
     // empty the shopping cart in localStorage
     var clearedCart = getCart().clear();
     localStorage.setItem("cart", clearedCart.toJSON());
 
     // clear the item table in the UI
-    (_document$getElementB9 = document.getElementById("item-table")) === null || _document$getElementB9 === void 0 || _document$getElementB9.replaceChildren();
+    (_document$getElementB11 = document.getElementById("item-table")) === null || _document$getElementB11 === void 0 || _document$getElementB11.replaceChildren();
 
     // reset the total price
     var totalPriceLabel = document.getElementById("total-price");

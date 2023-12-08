@@ -78,10 +78,11 @@
 
       <div class="navbar-end">
         <div class="navbar-item buttons is-hidden-touch">
-          <a class="button is-link is-dark has-mark" href="shopping-cart.html">
+          <!-- Note: shopping cart button has no item mark (class "has-mark") on this page because
+               we are already in the shopping cart -> would needlessly distract the user -->
+          <a class="button is-link is-dark has-no-mark" href="shopping-cart.html">
             <span class="icon">
               <i class="fa-solid fa-cart-shopping"></i>
-              <!-- <img src="assets/svg/icons/shopping-cart.svg" style="padding: 2px;" alt="Shopping cart icon"> -->
             </span>
             <span>Shopping Cart</span>
           </a>
@@ -127,9 +128,14 @@
         <!-- will be populated by javascript -->
       </tbody>
       <tfoot>
-        <tr>
+        <!-- show this when there are items in the cart -->
+        <tr id="summary-footer">
           <th colspan="2">Total</th>
           <th id="total-price"></th>
+        </tr>
+        <!-- show this instead when the cart is empty -->
+        <tr id="no-items-footer" class="is-hidden">
+          <td colspan="3">There are currently no items in your cart</td>
         </tr>
       </tfoot>
     </table>
