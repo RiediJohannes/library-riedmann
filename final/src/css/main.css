@@ -519,30 +519,26 @@ footer a:hover {
 }
 
 #book-results {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
+  display: grid;
   justify-content: space-evenly;
+  grid-template-columns: repeat(auto-fill, clamp(18%, 450px, 33.3333333333% - 2.5rem));
   padding: 1rem;
   gap: 1rem;
 }
-@media screen and (min-width: 1024px) {
+@media screen and (max-width: 1023px) {
+  #book-results {
+    grid-template-columns: repeat(auto-fill, min(360px, 100%));
+  }
+}
+@media screen and (min-width: 680px) {
   #book-results {
     padding: 2.5rem;
     gap: 2.5rem;
   }
 }
-#book-results:after {
-  content: "";
-  flex: auto;
-  flex-basis: 430px;
-  flex-grow: 0;
-}
 
 .book-preview {
   display: inline-block;
-  flex-grow: 0;
-  flex-basis: 430px;
 }
 .book-preview:hover {
   color: #EEEEEE;
@@ -594,7 +590,7 @@ footer a:hover {
 .book-preview .rating .star[data-filled] path {
   fill: #E1CA00;
 }
-@media screen and (min-width: 1024px) {
+@media screen and (min-width: 680px) {
   .book-preview {
     padding: 0.5rem;
   }

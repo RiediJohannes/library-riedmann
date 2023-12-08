@@ -1,31 +1,32 @@
 @use "../abstracts/variables" as *;
 @use "../../node_modules/bulma/sass/utilities/mixins.sass" as mix;
 
-#book-results {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  justify-content: space-evenly;
-  padding: 1rem;
-  gap: 1rem;
+$gap: 2.5rem;
+$gap-mobile: 1rem;
 
-  @include mix.from($desktop) {
-    padding: 2.5rem;
-    gap: 2.5rem;
+// defines the width of the grid's columns
+$column-basis-desktop: clamp(18%, 450px, calc(100% / 3.0 - $gap));
+$column-basis-touch: min(360px, 100%);
+
+#book-results {
+  display: grid;
+  justify-content: space-evenly;
+  
+  grid-template-columns: repeat(auto-fill, $column-basis-desktop);
+  @include mix.until($desktop) {
+    grid-template-columns: repeat(auto-fill, $column-basis-touch);
   }
 
-  &:after {
-    content: "";
-    flex: auto;
-    flex-basis: 430px;
-    flex-grow: 0; // 1
+  padding: $gap-mobile;
+  gap: $gap-mobile;
+  @include mix.from($tablet) {
+    padding: $gap;
+    gap: $gap;
   }
 }
 
 .book-preview {
   display: inline-block;
-  flex-grow: 0; // 1
-  flex-basis: 430px;
 
   &:hover {
     color: $text;
@@ -93,7 +94,7 @@
     }
   }
 
-  @include mix.from($desktop) {
+  @include mix.from($tablet) {
     padding: 0.5rem;
 
     .book-info {
