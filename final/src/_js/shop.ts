@@ -153,6 +153,22 @@ function fillBookInfo(book: Book) {
   document.title = book.title;
 }
 
+function searchBooks(bookDestination: HTMLElement, event: SubmitEvent) {
+  event.preventDefault();
+
+  const form = event.target;
+  if (form) {
+    const formData = new FormData(form as HTMLFormElement);
+  
+    const filter = formData.get("filter")?.toString() ?? "";
+    displayBooks(bookDestination, filter);
+
+    // update URL with search filter parameter
+    const url = new URL(window.location.href);
+    url.searchParams.set("filter", filter);
+    window.history.replaceState({path: url.toString()},'', url.toString());
+  }
+}
 
 window.addEventListener("load", async () => {
   const filter = (new URL(document.location.href)).searchParams.get("filter") ?? "";
@@ -160,6 +176,11 @@ window.addEventListener("load", async () => {
   const bookDestination = document.getElementById("book-results");
   if (bookDestination) {
     displayBooks(bookDestination, filter);
+
+    const searchForm = document.getElementById("search-form") as HTMLFormElement;
+    if (searchForm) {
+      searchForm.onsubmit = (event) => searchBooks(bookDestination, event);
+    }
   }
 
   // if the user already searched something, focus the searchbar input and set its value to the last filter

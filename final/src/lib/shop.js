@@ -173,9 +173,26 @@ function fillBookInfo(book) {
   }
   document.title = book.title;
 }
+function searchBooks(bookDestination, event) {
+  event.preventDefault();
+  var form = event.target;
+  if (form) {
+    var _formData$get$toStrin, _formData$get;
+    var formData = new FormData(form);
+    var filter = (_formData$get$toStrin = (_formData$get = formData.get("filter")) === null || _formData$get === void 0 ? void 0 : _formData$get.toString()) !== null && _formData$get$toStrin !== void 0 ? _formData$get$toStrin : "";
+    displayBooks(bookDestination, filter);
+
+    // update URL with search filter parameter
+    var url = new URL(window.location.href);
+    url.searchParams.set("filter", filter);
+    window.history.replaceState({
+      path: url.toString()
+    }, '', url.toString());
+  }
+}
 window.addEventListener("load", /*#__PURE__*/_asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee() {
   var _URL$searchParams$get;
-  var filter, bookDestination, searchForm, bookInfo, isbn, book;
+  var filter, bookDestination, searchForm, _searchForm, bookInfo, isbn, book;
   return _regeneratorRuntime().wrap(function _callee$(_context) {
     while (1) switch (_context.prev = _context.next) {
       case 0:
@@ -183,13 +200,19 @@ window.addEventListener("load", /*#__PURE__*/_asyncToGenerator( /*#__PURE__*/_re
         bookDestination = document.getElementById("book-results");
         if (bookDestination) {
           displayBooks(bookDestination, filter);
+          searchForm = document.getElementById("search-form");
+          if (searchForm) {
+            searchForm.onsubmit = function (event) {
+              return searchBooks(bookDestination, event);
+            };
+          }
         }
 
         // if the user already searched something, focus the searchbar input and set its value to the last filter
         if (filter.trim() !== "") {
-          searchForm = document.getElementById("search-form");
-          searchForm.filter.value = filter;
-          searchForm.filter.focus();
+          _searchForm = document.getElementById("search-form");
+          _searchForm.filter.value = filter;
+          _searchForm.filter.focus();
         }
         bookInfo = document.getElementById("book-info");
         if (!bookInfo) {
