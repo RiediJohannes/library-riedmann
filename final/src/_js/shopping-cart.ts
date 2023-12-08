@@ -128,6 +128,20 @@ function setBuyButtonsDisabled(isDisabled: boolean): void {
   }
 }
 
+function updateItemCount(): void {
+  // add a small mark if there are items in the shopping cart
+  for (let markedElement of document.getElementsByClassName("has-mark")) {
+    let itemCount: number = getCart().items.size;
+
+    if (itemCount > 0) {
+      markedElement.setAttribute("value", itemCount.toString());
+      markedElement.setAttribute("data-marked", "true");
+    } else {
+      markedElement.removeAttribute("data-marked")
+    }
+  }
+}
+
 
 // set listeners and the like when the DOM has loaded
 window.addEventListener("load", () => {
@@ -188,6 +202,9 @@ window.addEventListener("load", () => {
 
     // unfocus the clear button
     this.blur();
+
+    // update the item count marks
+    updateItemCount();
   });
 
   for (let button of document.getElementsByClassName("buy-button")) {
@@ -205,8 +222,12 @@ window.addEventListener("load", () => {
       cart.clear();
       localStorage.setItem("cart", cart.toJSON());
 
+      updateItemCount();
+      
       // return to home page
       document.location.href = "index.html";
     })
   }
+
+  updateItemCount();
 });

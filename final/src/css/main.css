@@ -497,6 +497,27 @@ img {
   }
 }
 
+.has-mark {
+  margin-right: 15px !important;
+}
+.has-mark[data-marked]::after {
+  content: attr(value);
+  display: block;
+  position: absolute;
+  top: -7px;
+  right: -7px;
+  height: 20px;
+  border-radius: 20px;
+  line-height: 20px;
+  min-width: 20px;
+  padding: 0 5px;
+  font-size: 12px;
+  font-weight: bold;
+  color: #EEEEEE;
+  background-color: hsl(348, 86%, 61%);
+  box-shadow: 0 0.5em 8em 0.125em rgba(241, 70, 104, 0.5), 0 0px 0.5em 2px rgba(241, 70, 104, 0.25);
+}
+
 footer {
   margin-top: 20px;
   -webkit-clip-path: polygon(0 0, 100% 20%, 100% 100%, 0 100%);

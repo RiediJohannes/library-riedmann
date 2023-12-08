@@ -140,6 +140,27 @@ function setBuyButtonsDisabled(isDisabled) {
     _iterator.f();
   }
 }
+function updateItemCount() {
+  // add a small mark if there are items in the shopping cart
+  var _iterator2 = _createForOfIteratorHelper(document.getElementsByClassName("has-mark")),
+    _step2;
+  try {
+    for (_iterator2.s(); !(_step2 = _iterator2.n()).done;) {
+      var markedElement = _step2.value;
+      var itemCount = getCart().items.size;
+      if (itemCount > 0) {
+        markedElement.setAttribute("value", itemCount.toString());
+        markedElement.setAttribute("data-marked", "true");
+      } else {
+        markedElement.removeAttribute("data-marked");
+      }
+    }
+  } catch (err) {
+    _iterator2.e(err);
+  } finally {
+    _iterator2.f();
+  }
+}
 
 // set listeners and the like when the DOM has loaded
 window.addEventListener("load", function () {
@@ -203,12 +224,15 @@ window.addEventListener("load", function () {
 
     // unfocus the clear button
     this.blur();
+
+    // update the item count marks
+    updateItemCount();
   });
-  var _iterator2 = _createForOfIteratorHelper(document.getElementsByClassName("buy-button")),
-    _step2;
+  var _iterator3 = _createForOfIteratorHelper(document.getElementsByClassName("buy-button")),
+    _step3;
   try {
-    for (_iterator2.s(); !(_step2 = _iterator2.n()).done;) {
-      var button = _step2.value;
+    for (_iterator3.s(); !(_step3 = _iterator3.n()).done;) {
+      var button = _step3.value;
       button.addEventListener("click", function () {
         var cart = getCart();
         cart.items.forEach(function (item, id) {
@@ -218,14 +242,16 @@ window.addEventListener("load", function () {
         // empty the shopping cart
         cart.clear();
         localStorage.setItem("cart", cart.toJSON());
+        updateItemCount();
 
         // return to home page
         document.location.href = "index.html";
       });
     }
   } catch (err) {
-    _iterator2.e(err);
+    _iterator3.e(err);
   } finally {
-    _iterator2.f();
+    _iterator3.f();
   }
+  updateItemCount();
 });
