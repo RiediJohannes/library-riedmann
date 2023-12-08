@@ -96,12 +96,13 @@ function createBookCard(book: Book): string {
   }
 
   // fill the rest of the HTML template
+  const previewPathAddon = "preview/";
   return `
   <a href="${itemPage + "?isbn=" + book.isbn}" class="card book-preview is-shadowless">
     <div class="card-content is-flex is-flex-direction-row is-flex-wrap-nowrap">
       <div class="cover column is-flex-grow-1 is-flex-shrink-1">
         <figure class="image is-2by3">
-          <img src="${relativePathToCovers + book.coverUrl}" alt="Book cover [${book.title}]">
+          <img src="${relativePathToCovers + previewPathAddon + book.coverUrl}" alt="Book cover [${book.title}]">
         </figure>
       </div>
 
