@@ -56,10 +56,20 @@ async function getBookData(isbn: string): Promise<Book | null> {
 }
 
 // Example usage
-async function displayBooks(bookContainer: HTMLElement) {
+async function displayBooks(bookContainer: HTMLElement, filter: string) {
   if (bookContainer) {
-    const books: Book[] = await fetchBooks();
+    let books: Book[] = await fetchBooks();
     
+    const keyword = filter.trim().toLowerCase();
+    if (filter.length > 0) {
+      books = books
+        .filter(book =>  // filter for books that match the keyword either in title or author
+          book.title.toLowerCase().includes(keyword) ||
+          book.author.toLowerCase().includes(keyword))
+        .sort(book =>  // show title matches before author matches
+          book.title.toLowerCase().includes(keyword) ? -1 : 1); 
+    }
+
     let bookCards: string = "";
     books.forEach((book) => {
       let bookCard: string = createBookCard(book);
@@ -143,15 +153,25 @@ function fillBookInfo(book: Book) {
   document.title = book.title;
 }
 
+
 window.addEventListener("load", async () => {
+  const filter = (new URL(document.location.href)).searchParams.get("filter") ?? "";
+
   const bookDestination = document.getElementById("book-results");
   if (bookDestination) {
-    displayBooks(bookDestination);
+    displayBooks(bookDestination, filter);
+  }
+
+  // if the user already searched something, focus the searchbar input and set its value to the last filter
+  if (filter.trim() !== "") {
+    const searchForm = document.getElementById("search-form") as HTMLFormElement;
+    searchForm.filter.value = filter;
+    searchForm.filter.focus();
   }
 
   const bookInfo = document.getElementById("book-info");
   if (bookInfo) {
-    let isbn = (new URL(document.location.href)).searchParams.get("isbn");
+    const isbn = (new URL(document.location.href)).searchParams.get("isbn");
     if (!isbn) {
       document.location.href = "/404.html";
     }

@@ -97,10 +97,10 @@
   </nav>
 
   <header class="box is-radiusless is-shadowless mb-0">
-    <form action="index.html" method="get" class="is-flex is-justify-content-center">
+    <form id="search-form" method="get" class="is-flex is-justify-content-center">
       <div class="field has-addons searchbar">
         <div class="control is-flex-grow-1">
-          <input type="text" class="input is-primary is-shadowless" placeholder="Search term">
+          <input name="filter" type="text" class="input is-primary is-shadowless" placeholder="Search for title or author">
         </div>
         <div class="control">
           <button type="submit" class="button is-primary">
@@ -121,9 +121,11 @@
     </form>
   </header>
 
-  <section id="book-results" class="section">
-    <!-- will be populated by javascript (shop.js) -->
-  </section>
+  <div id="content">
+    <section id="book-results" class="section">
+      <!-- will be populated by javascript (shop.js) -->
+    </section>
+  </div>
 
   <footer class="footer">
     <div class="is-flex is-flex-direction-row is-justify-content-space-around">

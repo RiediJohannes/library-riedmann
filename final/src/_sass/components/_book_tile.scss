@@ -5,13 +5,16 @@ $gap: 2.5rem;
 $gap-mobile: 1rem;
 
 // defines the width of the grid's columns
-$column-basis-desktop: clamp(18%, 450px, calc(100% / 3.0 - $gap));
+$column-basis-desktop: clamp(360px, 450px, calc(100% / 3.0 - $gap));
 $column-basis-touch: min(360px, 100%);
+
+#content {
+  min-height: 80svh;
+}
 
 #book-results {
   display: grid;
   justify-content: space-evenly;
-  min-height: 80svh;
   
   grid-template-columns: repeat(auto-fill, $column-basis-desktop);
   @include mix.until($desktop) {

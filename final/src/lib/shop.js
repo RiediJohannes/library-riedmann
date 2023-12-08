@@ -91,23 +91,37 @@ function _getBookData() {
   }));
   return _getBookData.apply(this, arguments);
 }
-function displayBooks(_x2) {
+function displayBooks(_x2, _x3) {
   return _displayBooks.apply(this, arguments);
 }
 function _displayBooks() {
-  _displayBooks = _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee4(bookContainer) {
-    var books, bookCards;
+  _displayBooks = _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee4(bookContainer, filter) {
+    var books, keyword, bookCards;
     return _regeneratorRuntime().wrap(function _callee4$(_context4) {
       while (1) switch (_context4.prev = _context4.next) {
         case 0:
           if (!bookContainer) {
-            _context4.next = 7;
+            _context4.next = 9;
             break;
           }
           _context4.next = 3;
           return fetchBooks();
         case 3:
           books = _context4.sent;
+          keyword = filter.trim().toLowerCase();
+          if (filter.length > 0) {
+            books = books.filter(function (book) {
+              return (
+                // filter for books that match the keyword either in title or author
+                book.title.toLowerCase().includes(keyword) || book.author.toLowerCase().includes(keyword)
+              );
+            }).sort(function (book) {
+              return (
+                // show title matches before author matches
+                book.title.toLowerCase().includes(keyword) ? -1 : 1
+              );
+            });
+          }
           bookCards = "";
           books.forEach(function (book) {
             var bookCard = createBookCard(book);
@@ -115,7 +129,7 @@ function _displayBooks() {
             bookCards += bookCard;
           });
           bookContainer.innerHTML = bookCards;
-        case 7:
+        case 9:
         case "end":
           return _context4.stop();
       }
@@ -160,33 +174,42 @@ function fillBookInfo(book) {
   document.title = book.title;
 }
 window.addEventListener("load", /*#__PURE__*/_asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee() {
-  var bookDestination, bookInfo, isbn, book;
+  var _URL$searchParams$get;
+  var filter, bookDestination, searchForm, bookInfo, isbn, book;
   return _regeneratorRuntime().wrap(function _callee$(_context) {
     while (1) switch (_context.prev = _context.next) {
       case 0:
+        filter = (_URL$searchParams$get = new URL(document.location.href).searchParams.get("filter")) !== null && _URL$searchParams$get !== void 0 ? _URL$searchParams$get : "";
         bookDestination = document.getElementById("book-results");
         if (bookDestination) {
-          displayBooks(bookDestination);
+          displayBooks(bookDestination, filter);
+        }
+
+        // if the user already searched something, focus the searchbar input and set its value to the last filter
+        if (filter.trim() !== "") {
+          searchForm = document.getElementById("search-form");
+          searchForm.filter.value = filter;
+          searchForm.filter.focus();
         }
         bookInfo = document.getElementById("book-info");
         if (!bookInfo) {
-          _context.next = 10;
+          _context.next = 12;
           break;
         }
         isbn = new URL(document.location.href).searchParams.get("isbn");
         if (!isbn) {
           document.location.href = "/404.html";
         }
-        _context.next = 8;
+        _context.next = 10;
         return getBookData(isbn !== null && isbn !== void 0 ? isbn : "none");
-      case 8:
+      case 10:
         book = _context.sent;
         if (!book) {
           document.location.href = "/404.html";
         } else {
           fillBookInfo(book);
         }
-      case 10:
+      case 12:
       case "end":
         return _context.stop();
     }

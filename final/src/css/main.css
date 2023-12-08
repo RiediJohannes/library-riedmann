@@ -541,11 +541,14 @@ footer a:hover {
   color: #bbbbbb;
 }
 
+#content {
+  min-height: 80svh;
+}
+
 #book-results {
   display: grid;
   justify-content: space-evenly;
-  min-height: 80svh;
-  grid-template-columns: repeat(auto-fill, clamp(18%, 450px, 33.3333333333% - 2.5rem));
+  grid-template-columns: repeat(auto-fill, clamp(360px, 450px, 33.3333333333% - 2.5rem));
   padding: 1rem;
   gap: 1rem;
 }
@@ -762,6 +765,14 @@ input[type=submit] {
 .searchbar {
   width: min(100%, 600px);
   border-radius: 6px;
+}
+.searchbar input::-moz-placeholder {
+  color: hsl(0, 0%, 48%);
+  font-style: italic;
+}
+.searchbar input::placeholder {
+  color: hsl(0, 0%, 48%);
+  font-style: italic;
 }
 .searchbar:focus-within {
   box-shadow: 0 0 0.5em 0em #0b7fc1;
