@@ -2,6 +2,10 @@
 @use "../abstracts/mixins" as mix;
 
 $tilt-angle: 3deg;
+$stripe-height: 100px;
+$z-index-background: -3;
+$z-index-middle: -2;
+$z-index-front: -1;
 
 .my-hero {
   position: relative;
@@ -11,18 +15,18 @@ $tilt-angle: 3deg;
   z-index: 10;
 
   &::after {
-    @include mix.tilted-rectangle($background, 100px, $tilt-angle, -3);
+    @include mix.tilted-rectangle($background, $stripe-height, $tilt-angle, $z-index-background);
   }
 
   .title {
     font-size: 2rem;
 
     &::before {
-      @include mix.tilted-rectangle($dim-blue, 100px, calc(-2 * $tilt-angle), -2);
+      @include mix.tilted-rectangle($dim-blue, $stripe-height, calc(-2 * $tilt-angle), $z-index-middle);
     }
   
     &::after {
-      @include mix.tilted-rectangle($dim-magenta, 100px, $tilt-angle, -1);
+      @include mix.tilted-rectangle($dim-magenta, $stripe-height, $tilt-angle, $z-index-front);
     }
   }
 
@@ -31,18 +35,18 @@ $tilt-angle: 3deg;
     $tilt-angle: 1.5deg;
 
     &::after {
-      @include mix.tilted-rectangle($background, 100px, $tilt-angle, -3);
+      @include mix.tilted-rectangle($background, $stripe-height, $tilt-angle, $z-index-background);
     }
   
     .title {
       font-size: 2rem;
   
       &::before {
-        @include mix.tilted-rectangle($dim-blue, 100px, calc(-2 * $tilt-angle), -2);
+        @include mix.tilted-rectangle($dim-blue, $stripe-height, calc(-2 * $tilt-angle), $z-index-middle);
       }
     
       &::after {
-        @include mix.tilted-rectangle($dim-magenta, 100px, $tilt-angle, -1);
+        @include mix.tilted-rectangle($dim-magenta, $stripe-height, $tilt-angle, $z-index-front);
       }
     }
   }
