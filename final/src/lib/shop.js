@@ -148,7 +148,7 @@ function createBookCard(book) {
 
   // fill the rest of the HTML template
   var previewPathAddon = "preview/";
-  return "\n  <a href=\"".concat(itemPage + "?isbn=" + book.isbn, "\" class=\"card book-preview is-shadowless\">\n    <div class=\"card-content is-flex is-flex-direction-row is-flex-wrap-nowrap\">\n      <div class=\"cover column is-flex-grow-1 is-flex-shrink-1\">\n        <figure class=\"image is-2by3\">\n          <img src=\"").concat(relativePathToCovers + previewPathAddon + book.coverUrl, "\" alt=\"Book cover [").concat(book.title, "]\">\n        </figure>\n      </div>\n\n      <div class=\"book-info column is-flex-grow-1\">\n        <div>\n          <h1 class=\"title\">").concat(book.title, "</h1>\n          <h2 class=\"subtitle\">").concat(book.author, "</h2>\n        </div>\n        <div>\n          <figure class=\"image rating\">\n            ").concat(ratingHtml, "\n          </figure>\n\n          <span class=\"price\">").concat(getCurrencyString(book.priceCents), "</span>\n        </div>\n      </div>\n    </div>\n  </a>\n  ");
+  return "\n  <a href=\"".concat(itemPage + "?isbn=" + book.isbn, "\" class=\"card book-preview is-shadowless\">\n    <div class=\"card-content is-flex is-flex-direction-row is-flex-wrap-nowrap\">\n      <div class=\"cover column is-flex-grow-1 is-flex-shrink-1\">\n        <figure class=\"image is-2by3\">\n          <img src=\"").concat(relativePathToCovers + previewPathAddon + book.coverUrl, "\" alt=\"Book cover [").concat(book.title, "]\">\n        </figure>\n      </div>\n\n      <div class=\"book-info column is-flex-grow-1\">\n        <div>\n          <h1 class=\"title\">").concat(book.title, "</h1>\n          <h2 class=\"subtitle\">").concat(book.author, "</h2>\n        </div>\n        <div>\n          <figure class=\"image rating\">\n            ").concat(ratingHtml, "\n          </figure>\n\n          <span class=\"price\" data-cents=\"").concat(book.priceCents, "\">").concat(getCurrencyString(book.priceCents), "</span>\n        </div>\n      </div>\n    </div>\n  </a>\n  ");
 }
 function fillBookInfo(book) {
   var titleLabel = document.getElementById("title");
@@ -165,6 +165,7 @@ function fillBookInfo(book) {
   }
   var priceLabel = document.getElementById("price");
   if (priceLabel) {
+    priceLabel.dataset.cents = book.priceCents.toString();
     priceLabel.innerText = getCurrencyString(book.priceCents);
   }
   var coverImage = document.getElementById("cover");

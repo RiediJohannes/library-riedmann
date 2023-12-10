@@ -116,7 +116,7 @@ function createBookCard(book: Book): string {
             ${ratingHtml}
           </figure>
 
-          <span class="price">${getCurrencyString(book.priceCents)}</span>
+          <span class="price" data-cents="${book.priceCents}">${getCurrencyString(book.priceCents)}</span>
         </div>
       </div>
     </div>
@@ -142,6 +142,7 @@ function fillBookInfo(book: Book) {
 
   const priceLabel = document.getElementById("price")
   if (priceLabel) {
+    priceLabel.dataset.cents = book.priceCents.toString();
     priceLabel.innerText = getCurrencyString(book.priceCents);
   }
 
