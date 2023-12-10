@@ -11,18 +11,18 @@ $tilt-angle: 3deg;
   z-index: 10;
 
   &::after {
-    @include mix.tilted-rectangle($background, 100px, $tilt-angle, 7);
+    @include mix.tilted-rectangle($background, 100px, $tilt-angle, -3);
   }
 
   .title {
     font-size: 2rem;
 
     &::before {
-      @include mix.tilted-rectangle($dim-blue, 100px, calc(-2 * $tilt-angle), 8);
+      @include mix.tilted-rectangle($dim-blue, 100px, calc(-2 * $tilt-angle), -2);
     }
   
     &::after {
-      @include mix.tilted-rectangle($dim-magenta, 100px, $tilt-angle, 9);
+      @include mix.tilted-rectangle($dim-magenta, 100px, $tilt-angle, -1);
     }
   }
 
