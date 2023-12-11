@@ -5,7 +5,7 @@ _Johannes Riedmann, AE9614_
 This document summarizes the process of creating the [Library Riedmann webpage](https://ae9614.pages.labranet.jamk.fi/web-visualization/final/src/index.html). The following chapters will explain time investment, technology choices and some general decisions and thoughts in regards to the project.
 
 
-## Resourcing
+## 1. Resourcing
 
 I divided my time records into three parts:
 
@@ -21,15 +21,15 @@ In total, ... have been invested into creating this webpage so far. However, thi
 
 ---
 
-## Technology Choices
+## 2. Technology Choices
 
-### Protyping
+### 2.1 Protyping
 
 For the prototyping stage, [Figma](https://www.figma.com/de/) was my design tool of choice. This was a very easy choice for me, as Figma is basically the most popular free tool for webdesign and as I had some previous experience with the program.
 
 The prototypes were created in a mobile first manner and set the guidelines for colour choices and general component design early on.
 
-### Static Webpage
+### 2.2 Static Webpage
 
 The website was creating using a rather conventional technology stack, i.e., no Javascript framework was used as it is often the case for modern, dynamic webpages. In fact, Javascript was at first hardly used at all, as this project was intended as an exercise for creating a **responsive, static website** as opposed to a full web application.
 
@@ -53,7 +53,7 @@ In practice, the following CSS tools were used:
 + [**PostCSS**](https://postcss.org/)  
   To ensure compatibility across various (older) browsers, PostCSS can be used to modify a CSS file and make it more universally understandable. For this project, the **Autoprefixer** and **CSSnano** plugins of PostCSS was used. Autoprefixer adds a fallback-value of specific CSS attributes with browser-specific prefixes to the CSS file (e.g. `--webkit`, `--moz`) where necessary. CSSnano drastically reduced the file size of the final CSS file by removing all whitespaces and comments and discarding unused CSS classes.
 
-### Scripting
+### 2.3 Scripting
 In addition to the requirement of simply creating a static webpage, there was also a significant amount of scripting added to the page to enable an actual shopping cart, dynamically loaded shop items and a working searchbar for the shop.
 
 The following technologies were used:
@@ -66,7 +66,7 @@ The following technologies were used:
 
 So, I wrote my website's logic in Typescript which was then compiled to plain JS using `tsc` (typescript compiler) and Babel sees theses changes and transpiles the new version of the outputted JS file to a highly-compatible JS script.
 
-### Workspace
+### 2.4 Workspace
 
 The setup of the workspace was created using the **[bulma-start](https://bulma.io/bulma-start/) npm package** recommended by Bulma. Even though this is still a relatively new package, it included every technology I planned to use anyway (Bulma, SCSS, PostCSS, Babel).
 
@@ -75,25 +75,25 @@ A short explanation on how to use bulma-start can be found in the `deploy.md` fi
  However, I ended up modifying the actual packages I was using a little bit. The exact version numbers of the packages and tools I used can be found in the `package.json` or `package-lock.json` file.
 
 
-### Graphics
+### 2.5 Graphics
 
 For the creation of **custom vector graphics** (SVG) [Inkscape](https://inkscape.org) was used. I chose this program due to its popularity among SVG designers as well as its powerful toolset. I had no prior experience in Inkscape before but I have created a few SVGs in a simple online tool called [Boxy SVG](https://boxy-svg.com/).
 
 ---
 
-## Implementation
+## 3. Implementation
 
 This chapter focuses on some general thoughts about my implementation of the webpage.
 
-### General Idea
+### 3.1 General Idea
 
 The vision of this project was to create a **prototype** of a simple **online shop for books**. I say prototype because I did not intend to create every single page required for a comprehensive online shop (e.g. order form, connection to payment service, profile settings, order history, etc.) as this would clearly exceed the scope of the course's assignment. One of my main goals, however, was to accomplish a very modern look for my webpage, taking inspirations from other popular webpages with a **dark theme option** like [GitHub](https://github.com) and [Stackoverflow](https://stackoverflow.com). Of course, another goal of this project was to implement as much of the things we have learned in the Web Visualization course as possible. More about this in the next few chapters.
 
-### CSS-Framework
+### 3.2 CSS-Framework
 
 As mentioned earlier, I used the popular CSS framework _Bulma_ to streamline the styling of my webpage. As suggested by Bulma's documentation, I used SCSS to overwrite some of Bulma's variables to **customize the framework** according to my needs. After some initial complications (mostly about how to set this up and how to structure the files), this customization worked very well and really enhanced my experience when working with a CSS framework. I was able to easily change the general theme colours and define some content spacings or font families that were adopted for everyone of Bulma's components.
 
-### Custom Styles With SCSS
+### 3.3 Custom Styles With SCSS
 
 Obviously, just using a CSS framework on its own will often not suffice, at least if you want to create a unique experience. That's why I wrote some additional styles using the popular CSS pre-processor SASS (more specifically the variation SCSS). Of course, I made use of a lot of SCSS-specific features:
 
@@ -108,7 +108,7 @@ Obviously, just using a CSS framework on its own will often not suffice, at leas
 5. **Loops** are also part of the SCSS specification. I found an interesting usecase for a `@for` loop when animating one of my vector graphics. I wanted to create a "wiggling animation" which makes a pen look like it is writing on a sheet of paper. To make this very repetitive motion easier to write and especially to change, I used a for-loop in conjunction with a custom mixin I created.
 
 
-### Graphic Design
+### 3.4 Graphic Design
 
 One requirement of the assignment was to play with some SVGs (vector graphics). Therefore, I designed my home page in a way that it uses multiple SVGs to create a modern look. **Every SVG** on my website - except for small icon like the shopping cart - have been **drawn and animated by myself**. For full disclosure, I used the following tutorials for two graphics:
 
@@ -123,7 +123,7 @@ For the **logo** of the bookstore, I used an SVG of some books which I modified 
 **Remark:**  
 I tried to include my SVGs via the `<img>` tag wherever possible, however, this does not work when animating them with CSS. CSS can unfortunately only animate **inline SVGs** right in the HTML. The only two solutions would be to either put all of the animating CSS code into the SVG file (which I did not want to do because of the violation of my code structure) or to dynamically add the SVG into the page on load with either Javascript or a server-side technology like PHP. So, in the end, I left the SVG code of animated graphics inside the HTML, even though it clutters the HTML file.
 
-### Scripting
+### 3.5 Scripting
 
 Even though it was not a requirement to add actual logic to the webpage using Javascript, a webshop that was not function felt very odd and lifeless to me. That's why I decided to **add some functionality** after I was done with the design process. The finished prototype includes the following functionality:
 
@@ -143,7 +143,7 @@ Even though it was not a requirement to add actual logic to the webpage using Ja
   If you have put some items into your shopping cart and have not yet removed or bought them, a small mark with the number of items in the cart appear at the corner of the shopping cart button. This feature is currently only supported on the desktop view of the website though.
 
 
-### File Size Optimizations
+### 3.6 File Size Optimizations
 
 After basically finishing my website, I started to care about optimizing its loading speed. Therefore I applied three measures:
 
@@ -161,11 +161,11 @@ All in all, the page now has much more satisfying load speed, especially on the 
 
 ---
 
-## Missing Pieces
+## 4. Missing Pieces
 
 In this chapter I would like to quickly highlight an outlook into the future of some features that are still missing or lacking in their implementation.
 
-### Additional Pages
+### 4.1 Additional Pages
 
 The most obvious missing piece to have a full online shop are obviously some more sub-pages. This includes the following pages for a comprehensive user experience:
 - order form (name, address, choose shipping and payment option)
@@ -177,37 +177,37 @@ The most obvious missing piece to have a full online shop are obviously some mor
 
 These are the additions I would have in mind for an actual online shop but of course, this wildly exceeds the scope of the course.
 
-### Account System
+### 4.2 Account System
 
 While there is already a **login** button and login page, filling out this form does not actually do something at the moment. Moreover, even though the page presents a way to log in, there is no way to **create a new account**. Additionally, a logged in user should not see the login button anymore. Instead, there would be some sort of profile name or picture to indicate that the user is now logged in.
 
-### Pagination
+### 4.3 Pagination
 
 Pagination is the act of splitting the content of a section up into multiple pages that can be accessed and loaded sequentially. Currently, the shop loads all of the books specified in the `books.json` file at once. If the file grows larger, this will heavily slow down the loading time of the shop page. Therefore, only a set number of books (e.g. 15 or 20) should be loaded at a time, while the rest of the books should either load in when the customer scrolls to the bottom or made accessible through a small control to jump to the next page.
 
 ---
 
-## Learning Outcomes
+## 5. Learning Outcomes
 
 Luckily, I wasn't a complete newcomer to modern CSS technologies and web development in general. However, there were still some learning outcomes that could be made from this project (and by extension this course).
 
-### Proper Use Of CSS Libraries
+### 5.1 Proper Use Of CSS Libraries
 Previously, I did not have a lot of experience when it comes to CSS libraries like Bootstrap, Bulma or Material UI. I have used all of the aforementioned tools before, however, I had never gone past the basics and had never modified the default theme. During this project, I learned how to customize a CSS library like Bulma by overwriting its default styles. This made using the library a lot more fun and useful, thus improving my opinion on these libraries a lot.
 
-### Clear Structuring Of SCSS Modules
+### 5.2 Clear Structuring Of SCSS Modules
 The structure of my CSS or more accurately SCSS code has benefitted tremendously from this project. Even though I have used SCSS before, I had never used multiple SCSS modules and did not know how to properly structure my modules. Using the tree structure taught during this course made my SCSS codebase a lot easier to traverse and thus simpler to modify.
 
-### Animating SVGs
+### 5.3 Animating SVGs
 
 A newly obtained skill from this course in general was the method of animating inline-SVGs. I have seen `@keyframes` before but I had never used them in a project and I did not know how to animated SVGs. This task turned out to be a lot of fun for me, so I am glad this was taught in the course.
 
-### Using Typescript
+### 5.4 Using Typescript
 
 This project was the first time I used typescript even though I've heard a lot about it. My experience with it was overly positive (compared to plain JS), as the added typesafety and support for proper code suggestions by IDEs were game-changing. Using typescript for this project, I learned about the tools needed to get it running and gained some more knowledge about web scripting in general (e.g. how to `serialize/deserialize JS classes` from/to JSON, using `localStorage` to save some data on the client side, etc.).
 
 ---
 
-## Grade proposal
+## 6. Grade proposal
 
 Judging by the wide set of technologies I used and features I implemented, I propose a **grade 5** for this assignment.  
 
