@@ -9,13 +9,13 @@ This document summarizes the process of creating the [Library Riedmann webpage](
 
 I divided my time records into three parts:
 
-| activity                         | time    |
-| :------------------------------- | ------: |
-| prototyping                      |  6 h    |
-| implementation (HTML, CSS, SVGs) | 37 h    |
-| scripting (JS) + data collection | 23 h    |
-| report                           |  2 h    |
-| **total**                        | **68h** |
+| activity                         |      time |
+| :------------------------------- | --------: |
+| prototyping                      |     6 h   |
+| implementation (HTML, CSS, SVGs) |    37 h   |
+| scripting (JS) + data collection |    23 h   |
+| report                           |   4,5 h   |
+| **total**                        | **70,5h** |
 
 In total, ... have been invested into creating this webpage so far. However, this includes the prototyping stage and writing the report you are currently reading. 
 
@@ -209,5 +209,12 @@ This project was the first time I used typescript even though I've heard a lot a
 
 ## Grade proposal
 
-**Pending**  
+Judging by the wide set of technologies I used and features I implemented, I propose a **grade 5** for this assignment.  
 
+
+As described in the earlier chapters, I tried to use the technologies to their fullest potential (CSS framework with customization, various SCSS features) and even added a lot of logic to the page using modern tools like Typescript and Babel. Moreover, I invested a lot of time into drawing and animating my own vector graphics and also added some custom fonts. Additionally, I made the shop more lively by gathering a ton of actual book data and made it dynamically load this data into the shop page.  
+In the end, expected working time for this assignment was greatly exceeded, altough this was mostly due to the addition of Typescript code and general emphasis on quality.
+
+---
+
+_11.12.2023, Johannes Riedmann_
