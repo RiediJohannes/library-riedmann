@@ -120,10 +120,70 @@ The other items sketched by vector graphics (pen, paper, sword, shield, coat of 
 
 For the **logo** of the bookstore, I used an SVG of some books which I modified to add custom writing. The book on the 404 page is also just a reused part of the original graphic.
 
+**Remark:**  
+I tried to include my SVGs via the `<img>` tag wherever possible, however, this does not work when animating them with CSS. CSS can unfortunately only animate **inline SVGs** right in the HTML. The only two solutions would be to either put all of the animating CSS code into the SVG file (which I did not want to do because of the violation of my code structure) or to dynamically add the SVG into the page on load with either Javascript or a server-side technology like PHP. So, in the end, I left the SVG code of animated graphics inside the HTML, even though it clutters the HTML file.
+
 ### Scripting
+
+Even though it was not a requirement to add actual logic to the webpage using Javascript, a webshop that was not function felt very odd and lifeless to me. That's why I decided to **add some functionality** after I was done with the design process. The finished prototype includes the following functionality:
+
+  1. **Dynamic Shop Items**  
+  The books that are on display on the shop are dynamically loaded from a **JSON file** using Javascript's **fetch API**. New books can simply be added to the store by adding another entry into the `books/books.json` file.
+
+  2. **Functional Shopping Cart**   
+  If you select a book that you like, you can actually add it to the shopping cart and come back to it later. The current state of the shopping cart is saved by **serializing a custom shopping cart class** to JSON and saving it in the browser's `localStorage` property ([see docs](https://developer.mozilla.org/en-US/docs/Web/API/Window/localStorage?retiredLocale=de)).
+
+  3. **Clearing Your Cart**  
+  In addition to adding items to your cart and saving the state, the **clear button** on the shopping cart page also works as expected by removing all items form the cart. If the cart is not empty, the **buy buttons** are also active. However, the do nothing besides also emptying the cart and sending the user back to the home page.
+
+  4. **Search Bar**  
+  The shop page also includes a simple search bar which allows the user to search for specific books by name or author. The search happend on the client side and checks for an **exact match** (altough case-insensitive) of the search term in a **book's title or author name**.
+
+  5. **Item Count Mark** (desktop only)  
+  If you have put some items into your shopping cart and have not yet removed or bought them, a small mark with the number of items in the cart appear at the corner of the shopping cart button. This feature is currently only supported on the desktop view of the website though.
+
 
 ### File Size Optimizations
 
+After basically finishing my website, I started to care about optimizing its loading speed. Therefore I applied three measures:
+
+1. **Compressing Images**  
+First, I simply used an image compression program to reduce the file size of the images I used (lots of book covers) and scale them down to a height of a maximum of 800px (which looks good enough).
+
+2. **Adding Preview Images**  
+Secondly, I created a lot smaller version of the book covers to use them as **preview images** on the shop page. Thus, the full image of the book cover is only loaded as soon as the user actually clicks on a book. This drastically reduced the size of images on the shop page from `9.5 MB` to just `820 kB`.
+
+3. **Minifying The CSS Stylesheet**  
+Lastly, I added **CSSnano** to my project which reduces the size of the final stylesheet `main.css` by removing all unnecessary whitespace and comment as well as discard styles that are never used (which includes a lot of the styles that come with Bulma). This reduced the file size of the final stylesheet from `350 kB` to a mere `133 kB`.
+
+
+All in all, the page now has much more satisfying load speed, especially on the shop page.
+
+---
+
+## Missing Pieces
+
+In this chapter I would like to quickly highlight an outlook into the future of some features that are still missing or lacking in their implementation.
+
+### Additional Pages
+
+The most obvious missing piece to have a full online shop are obviously some more sub-pages. This includes the following pages for a comprehensive user experience:
+- order form (name, address, choose shipping and payment option)
+- connection to one or ideally more actual payment services
+- profile settings screen
+- sign up button and page
+- order history
+- copyright and contact pages
+
+These are the additions I would have in mind for an actual online shop but of course, this wildly exceeds the scope of the course.
+
+### Account System
+
+While there is already a **login** button and login page, filling out this form does not actually do something at the moment. Moreover, even though the page presents a way to log in, there is no way to **create a new account**. Additionally, a logged in user should not see the login button anymore. Instead, there would be some sort of profile name or picture to indicate that the user is now logged in.
+
+### Pagination
+
+Pagination is the act of splitting the content of a section up into multiple pages that can be accessed and loaded sequentially. Currently, the shop loads all of the books specified in the `books.json` file at once. If the file grows larger, this will heavily slow down the loading time of the shop page. Therefore, only a set number of books (e.g. 15 or 20) should be loaded at a time, while the rest of the books should either load in when the customer scrolls to the bottom or made accessible through a small control to jump to the next page.
 
 ---
 
@@ -145,7 +205,9 @@ A newly obtained skill from this course in general was the method of animating i
 
 This project was the first time I used typescript even though I've heard a lot about it. My experience with it was overly positive (compared to plain JS), as the added typesafety and support for proper code suggestions by IDEs were game-changing. Using typescript for this project, I learned about the tools needed to get it running and gained some more knowledge about web scripting in general (e.g. how to `serialize/deserialize JS classes` from/to JSON, using `localStorage` to save some data on the client side, etc.).
 
+---
+
 ## Grade proposal
 
 **Pending**  
-_A grade proposal will follow as soon as the project is completely finished. The proposal will also depend on the feedback of the halfway assessment._
+
