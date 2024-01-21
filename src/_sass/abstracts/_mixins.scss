@@ -1,0 +1,34 @@
+@forward "../../node_modules/bulma/sass/utilities/mixins.sass";
+
+@mixin tilted-rectangle($color, $height, $tilt-angle, $z-index) {
+  content: '';
+  display: block;
+  position: absolute;
+  z-index: $z-index;
+  top: -5px;
+  left: -15%;
+  width: 130%;
+  height: $height;
+  background-color: $color;
+  rotate: $tilt-angle;
+}
+
+// outputs a new translation and rotation value of a single keyframe to create repeating wiggling movement
+@mixin wiggling-translation($start-x, $start-y, $end-x, $end-y, $start-rotation, $iterations, $i) {
+  $sign: 0;
+  
+  // change the sign of the rotation offset every other iteration
+  @if $i % 2 == 0 {
+    $sign: -1;
+  } @else {
+    $sign: 1;
+  }
+
+  // calculate the x and y delta to move every iteration
+  $x-step: calc(($end-x - $start-x) / $iterations);
+  $y-step: calc(($end-y - $start-y) / $iterations);
+
+  // calculate and set the actual properties
+  translate: #{$start-x + $x-step * $i} #{$start-y + $y-step * $i};
+  rotate: #{$start-rotation + 5deg * $sign};
+}

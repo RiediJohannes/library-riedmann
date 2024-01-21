@@ -1,0 +1,37 @@
+@use "../abstracts/variables" as *;
+@use "../../node_modules/bulma/sass/utilities/mixins.sass" as mix;
+
+.field:not(:last-child) {
+  margin-bottom: 1em !important;
+}
+
+input[type="submit"] {
+  margin-top: 1.5em;
+}
+
+.form-wrapper {
+  padding: 4rem 1.5rem 6rem;
+  max-width: min(100%, 800px) !important;
+
+  form {
+    padding: 1.5rem;
+
+    @include mix.from($desktop) {
+      padding: 2rem 3rem 2rem 3rem;
+    }
+  }
+}
+
+.searchbar {
+  width: min(100%, 600px);
+  border-radius: $radius;
+  
+  input::placeholder {
+    color: $grey;
+    font-style: italic;
+  }
+
+  &:focus-within {
+    box-shadow: 0 0 0.5em 0em rgba($primary, 1);
+  }
+}

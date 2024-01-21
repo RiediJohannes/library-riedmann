@@ -1,0 +1,112 @@
+/*
+  Defines custom variables to be used within SCSS modules and  
+  overrides bulma's default variables to create a custom theme
+*/
+
+@use "../general/typography" as font;
+
+// import bulma's initial variables
+@import "../../node_modules/bulma/sass/utilities/initial-variables.sass";
+
+
+/*
+  Custom colours
+*/
+$my-black: #1e1e1e;
+$my-dark-grey: #2c2c2c;
+$my-light-grey: #585858;
+$my-white: #EEEEEE;
+
+$my-primary: #0b7fc1;
+$my-turquoise: rgba(0, 255, 255, 0.45);
+$my-lavender: hsl(259, 75%, 75%);
+$my-yellow: #E1CA00;
+
+$dim-blue: rgba(0, 95, 182, 0.38);
+$dim-magenta: rgba(165, 26, 135, 0.63);
+
+/*
+  Some custom properties
+*/
+$star-filled-color: $my-yellow;
+$star-empty-color: #585858;
+
+
+/*
+  Bulma theme overrides
+*/
+$primary: $my-primary;
+
+$white: $my-white;
+$black: $my-black;
+$grey-darker: #AAAAAA;
+
+$turquoise: $my-turquoise;
+$lavender: $my-lavender;
+
+$scheme-main: $my-black;
+$scheme-main-bis: lighten($my-black, 10%);
+$scheme-main-ter: lighten($my-black, 20%);
+
+$scheme-invert: $lavender;
+$scheme-invert-bis: darken($scheme-invert, 10%);
+$scheme-invert-ter: darken($scheme-invert, 20%);
+
+$background: $my-dark-grey;
+
+$shadow:
+  0 0.5em 10em -0.125em rgba($scheme-invert, 0.3),
+  0 0px 0.5em 2px rgba($scheme-invert, 0.25);
+
+$radius-small: 3px;
+$radius: 6px;
+$radius-large: 10px;
+
+$tablet: 680px;
+
+/*
+  Bulma typography overrides
+*/
+$text: $white;
+$text-strong: $white;
+$family-sans-serif: font.$text;
+
+$link: $lavender;
+$link-hover: lighten($lavender, 10%);
+
+$title-color: $white;
+$title-family: font.$title;
+$subtitle-color: $grey-darker;
+$subtitle-family: font.$title;
+
+
+/*
+  Bulma component-specific overrides
+*/
+$navbar-background-color: $background;
+$navbar-dropdown-background-color: $background;
+$navbar-height: 5rem;
+$navbar-item-active-color: $link-hover;
+$navbar-item-active-background-color: darken($background, 2%);
+
+$footer-background-color: $turquoise;
+$footer-padding: 4rem 1.5rem 5rem;
+
+$box-background-color: $background;
+$card-background-color: $background;
+$card-radius: 15px;
+$card-content-padding: 0.3rem;
+
+$input-color: $white-ter;
+
+$table-background-color: $background;
+$table-cell-border: none;
+$table-head-background-color: $background;
+$table-foot-background-color: $scheme-main;
+
+$pre-padding: 60px;
+$gap: 60px;
+
+
+// lastly, import bulma's derived variables which will now be calculated using the overrides
+@import "../../node_modules/bulma/sass/utilities/derived-variables.sass";

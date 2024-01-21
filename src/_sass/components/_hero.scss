@@ -1,0 +1,53 @@
+@use "../abstracts/variables" as *;
+@use "../abstracts/mixins" as mix;
+
+$tilt-angle: 3deg;
+$stripe-height: 100px;
+$z-index-background: -3;
+$z-index-middle: -2;
+$z-index-front: -1;
+
+.my-hero {
+  position: relative;
+  text-align: center;
+  padding-top: 1.3rem;
+  margin-bottom: 4rem;
+  z-index: 10;
+
+  &::after {
+    @include mix.tilted-rectangle($background, $stripe-height, $tilt-angle, $z-index-background);
+  }
+
+  .title {
+    font-size: 2rem;
+
+    &::before {
+      @include mix.tilted-rectangle($dim-blue, $stripe-height, calc(-2 * $tilt-angle), $z-index-middle);
+    }
+  
+    &::after {
+      @include mix.tilted-rectangle($dim-magenta, $stripe-height, $tilt-angle, $z-index-front);
+    }
+  }
+
+  /* reduce the tilt angle on larger devices */
+  @include mix.from($desktop) {
+    $tilt-angle: 1.5deg;
+
+    &::after {
+      @include mix.tilted-rectangle($background, $stripe-height, $tilt-angle, $z-index-background);
+    }
+  
+    .title {
+      font-size: 2rem;
+  
+      &::before {
+        @include mix.tilted-rectangle($dim-blue, $stripe-height, calc(-2 * $tilt-angle), $z-index-middle);
+      }
+    
+      &::after {
+        @include mix.tilted-rectangle($dim-magenta, $stripe-height, $tilt-angle, $z-index-front);
+      }
+    }
+  }
+}

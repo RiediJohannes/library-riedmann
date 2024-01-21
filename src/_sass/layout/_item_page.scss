@@ -1,0 +1,25 @@
+@use "../abstracts/variables" as *;
+
+.item-page {
+  max-width: 1200px;
+  margin: auto;
+}
+
+.cover-box {
+  width: 100%;
+  aspect-ratio: 1;
+  max-height: 65svh;
+  padding: 10px;
+  // border: 3px solid $background;
+  // border-radius: $card-radius;
+  // background-color: $scheme-main-bis;
+  // overflow: hidden;
+
+  img {
+    object-fit: contain;
+    height: 100%;
+    width: auto;
+    margin: auto;
+    box-shadow: $shadow;
+  }
+}

@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- general meta information -->
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="msapplication-TileColor" content="#da532c">
+  <meta name="msapplication-config" content="/web-visualization/final/src/assets/favicons/light/browserconfig.xml">
+  <meta name="theme-color" content="#ffffff">
+  <title>Book</title>
+
+  <!-- favicons in various sizes for light mode enjoyers -->
+  <link rel="apple-touch-icon" sizes="180x180" href="/web-visualization/final/src/assets/favicons/light/apple-touch-icon.png" media="(prefers-color-scheme: light)">
+  <link rel="icon" type="image/png" sizes="32x32" href="/web-visualization/final/src/assets/favicons/light/favicon-32x32.png" media="(prefers-color-scheme: light)">
+  <link rel="icon" type="image/png" sizes="16x16" href="/web-visualization/final/src/assets/favicons/light/favicon-16x16.png" media="(prefers-color-scheme: light)">
+  <link rel="manifest" href="/web-visualization/final/src/assets/favicons/light/site.webmanifest" media="(prefers-color-scheme: light)">
+  <link rel="mask-icon" href="/web-visualization/final/src/assets/favicons/light/safari-pinned-tab.svg" color="#5bbad5" media="(prefers-color-scheme: light)">
+  <link rel="shortcut icon" href="/web-visualization/final/src/assets/favicons/light/favicon.ico" media="(prefers-color-scheme: light)">
+
+  <!-- favicons in various sizes for dark mode enjoyers -->
+  <link rel="apple-touch-icon" sizes="180x180" href="/web-visualization/final/src/assets/favicons/dark/apple-touch-icon.png" media="(prefers-color-scheme: dark)">
+  <link rel="icon" type="image/png" sizes="32x32" href="/web-visualization/final/src/assets/favicons/dark/favicon-32x32.png" media="(prefers-color-scheme: dark)">
+  <link rel="icon" type="image/png" sizes="16x16" href="/web-visualization/final/src/assets/favicons/dark/favicon-16x16.png" media="(prefers-color-scheme: dark)">
+  <link rel="manifest" href="/web-visualization/final/src/assets/favicons/dark/site.webmanifest" media="(prefers-color-scheme: dark)">
+  <link rel="mask-icon" href="/web-visualization/final/src/assets/favicons/dark/safari-pinned-tab.svg" color="#5bbad5" media="(prefers-color-scheme: dark)">
+  <link rel="shortcut icon" href="/web-visualization/final/src/assets/favicons/dark/favicon.ico" media="(prefers-color-scheme: dark)">
+  
+  <!-- global stylesheet (product of bulma CSS + custom SCSS) -->
+  <link rel="stylesheet" href="css/main.css">
+
+  <!-- scripts for font-awesome (small icons), jQuery and custom JS module -->
+  <script src="https://kit.fontawesome.com/ee733139c3.js" crossorigin="anonymous"></script>
+  <script src="lib/main.js" defer></script>
+  <script type="module" src="lib/shop.js"></script>
+  <script type="module" src="lib/shopping-cart.js"></script>
+</head>
+<body>
+  <nav class="navbar" role="navigation" aria-label="main navigation">
+    <!-- Part of the nav that is always visible -->
+    <div class="navbar-brand">
+      <a class="navbar-item" href="index.html">
+        <object id="logo" data="assets/svg/logo.svg" style="pointer-events: none;"></object>
+      </a>
+
+      <a class="navbar-item shopping-cart-icon is-hidden-desktop" href="shopping-cart.html">
+        <span class="icon">
+          <!-- <i class="fa-solid fa-cart-shopping"></i> -->
+          <img src="assets/svg/icons/shopping-cart.svg" alt="Shopping cart icon">
+        </span>
+      </a>
+
+      <!-- Hamburger button for mobile devices -->
+      <a role="button" class="navbar-burger" style="width: 60px;" aria-label="menu" aria-expanded="false" data-target="nav-menu">
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+      </a>        
+    </div>
+
+    <!-- Part of the nav that is only visible on desktop devices -->
+    <div id="nav-menu" class="navbar-menu">
+      <div class="navbar-start">
+        <a href="index.html" class="navbar-item">
+          Home
+        </a>
+        <a href="shop.html" class="navbar-item">
+          Shop
+        </a>
+        <!-- Only show these on desktop devices -->
+        <a href="shopping-cart.html" class="navbar-item is-hidden-desktop">
+          Shopping Cart
+        </a>
+        <hr class="navbar-divider">
+        <a href="login.html" class="navbar-item is-hidden-desktop">
+          Login
+        </a>
+      </div>
+
+      <div class="navbar-end">
+        <div class="navbar-item buttons is-hidden-touch">
+          <a class="button is-link is-dark has-mark" href="shopping-cart.html">
+            <span class="icon">
+              <i class="fa-solid fa-cart-shopping"></i>
+              <!-- <img src="assets/svg/icons/shopping-cart.svg" style="padding: 2px;" alt="Shopping cart icon"> -->
+            </span>
+            <span>Shopping Cart</span>
+          </a>
+          <a class="button is-link is-outlined" href="login.html">
+            <span class="icon">
+              <i class="fa-solid fa-sign-in"></i>
+            </span>
+            <span>Login</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <section id="book-info" class="section item-page">
+    <h1 id="title" class="title">No title found</h1>
+    <div class="columns">
+      <div class="column">
+        <div class="block cover-box">
+          <img id="cover" alt="Book cover">
+        </div>
+      </div>
+  
+      <article class="item-info column">
+        <h2 class="title is-5 mb-3">Synopsis</h2>
+        <p id="description" class="block">
+          Frodo Baggins, a hobbit tasked with destroying the One Ring, a powerful artifact created by the dark lord Sauron to dominate the world. Frodo is joined by a diverse fellowship of companions, including humans, dwarves, elves, and other hobbits, as they journey through dangerous lands to Mount Doom, where the Ring must be destroyed. The trilogy explores themes of friendship, courage, sacrifice, and the struggle against one's own darkness. It consists of the books "The Fellowship of the Ring," "The Two Towers," and "The Return of the King." The series has become a landmark in fantasy literature and was successfully adapted into a film trilogy by Peter Jackson.
+        </p>
+        <div class="is-block block">
+          <h2 class="title is-5 mb-3">Author </h2>
+          <span id="author">No author found</span>
+        </div>
+        <div class="is-block block">
+          <h2 class="title is-5 mb-3">Price</h2>
+          <span id="price" data-cents=0>No price found</span>
+        </div>
+        <button class="block button is-primary is-fullwidth to-cart-button">
+          Add to cart
+        </button>
+      </article>
+    </div>
+  </section>
+</body>
+</html>
