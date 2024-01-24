@@ -1,0 +1,8 @@
+@use "../abstracts/variables" as *;
+
+table {
+  border: 3px solid $background;
+  border-radius: $card-radius;
+  border-collapse: separate !important;
+  overflow: hidden;
+}
