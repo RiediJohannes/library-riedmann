@@ -27,15 +27,15 @@ jobs:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v3
 
+      - name: Navigate to src folder
+        run: cd src
+
       # Sets up node.js environment
       - name: Initialize Node.js ${{ matrix.node-version }}
         uses: actions/setup-node@v3
         with:
           node-version: ${{ matrix.node-version }}
           cache: 'npm'
-
-      - name: Navigate to src folder
-        run: cd src
 
       - name: Install dependencies
         run: npm install
