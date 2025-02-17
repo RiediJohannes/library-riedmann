@@ -41,11 +41,11 @@
   },
   "scripts": {
     "clean": "rm -rf dist",
-    "copy-public": "npx copyfiles public/**.html dist/.",
+    "copy-public": "mkdir -p dist && cp -r public/* dist/.",
     "build": "npm run clean && npm run css-build && npm run js-build && npm run copy-public",
     "deploy": "npm run build",
 
-    "clean-win": "rd /s /q \"dist\"",
+    "clean-win": "if not exist \"dist\" mkdir \"dist\" && rd /s /q \"dist\"",
     "copy-public-win": "xcopy \"public\\**\" dist /S /I /Q /Y",
     "build-win": "npm run clean-win && npm run css-build && npm run js-build && npm run copy-public-win",
 
