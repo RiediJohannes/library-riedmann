@@ -7,8 +7,9 @@ npm-debug.log
 # Folders
 
 .idea/
-.jekyll-cache/
 .sass-cache
 _gh_pages
 _site
 node_modules
+dist/
+

@@ -6,7 +6,7 @@
 @use "../general/typography" as font;
 
 // import bulma's initial variables
-@import "../../node_modules/bulma/sass/utilities/initial-variables.sass";
+@import "../../../node_modules/bulma/sass/utilities/initial-variables.sass";
 
 
 /*
@@ -109,4 +109,4 @@ $gap: 60px;
 
 
 // lastly, import bulma's derived variables which will now be calculated using the overrides
-@import "../../node_modules/bulma/sass/utilities/derived-variables.sass";
+@import "../../../node_modules/bulma/sass/utilities/derived-variables.sass";

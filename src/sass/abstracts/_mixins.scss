@@ -1,4 +1,4 @@
-@forward "../../node_modules/bulma/sass/utilities/mixins.sass";
+@forward "../../../node_modules/bulma/sass/utilities/mixins.sass";
 
 @mixin tilted-rectangle($color, $height, $tilt-angle, $z-index) {
   content: '';
