@@ -1,0 +1,17 @@
+{
+  "presets": [
+    ["@babel/preset-env", {
+      "targets": {
+        "esmodules": true
+      },
+      "modules": "commonjs",
+      "useBuiltIns": "entry",
+      "corejs": 3
+    }],
+    ["@babel/preset-typescript", {
+      "strict": true,
+      "strictPropertyInitialization": true,
+      "allowDeclareFields": true
+    }]
+  ]
+}

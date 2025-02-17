@@ -44,12 +44,13 @@
     "copy-public": "npx copyfiles public/**.html dist/.",
     "build": "npm run clean && npm run css-build && npm run js-build && npm run copy-public",
     "deploy": "npm run build",
+
     "clean-win": "rd /s /q \"dist\"",
     "copy-public-win": "xcopy \"public\\**\" dist /S /I /Q /Y",
     "build-win": "npm run clean-win && npm run css-build && npm run js-build && npm run copy-public-win",
 
     "css-build": "sass --no-source-map src/sass/main.scss dist/css/main.css",
-    "js-build": "babel --extensions \".ts,.js\" src/js --out-dir dist/lib",
+    "js-build": "babel --extensions .ts src/js --out-dir dist/lib",
     "css-watch": "npm run css-build -- --watch",
     "js-watch": "npm run js-build -- --watch",
     "css-deploy": "npm run css-build && npm run css-postcss",
