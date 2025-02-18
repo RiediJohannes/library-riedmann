@@ -36,7 +36,7 @@
 </head>
 <body>
   <nav class="navbar" role="navigation" aria-label="main navigation">
-    <!-- Part of the nav that is always visible -->
+    <!-- Section of the nav that is always displayed -->
     <div class="navbar-brand">
       <a class="navbar-item" href="index.html">
         <object id="logo" data="assets/svg/logo.svg" style="pointer-events: none;"></object>
@@ -57,7 +57,7 @@
       </a>        
     </div>
 
-    <!-- Part of the nav that is only visible on desktop devices -->
+    <!-- Section of the nav that is only visible on desktop devices (navigation menu) -->
     <div id="nav-menu" class="navbar-menu">
       <div class="navbar-start">
         <a href="index.html" class="navbar-item">
@@ -66,7 +66,7 @@
         <a href="shop.html" class="navbar-item">
           Shop
         </a>
-        <!-- Only show these on desktop devices -->
+        <!-- Only show these nav items on touch divices - they will appear in the dropdown menu -->
         <a href="shopping-cart.html" class="navbar-item is-hidden-desktop">
           Shopping Cart
         </a>
@@ -76,8 +76,8 @@
         </a>
       </div>
 
-      <div class="navbar-end">
-        <div class="navbar-item buttons is-hidden-touch">
+      <div class="navbar-end is-hidden-touch">
+        <div class="navbar-item buttons">
           <a class="button is-link is-dark has-mark" href="shopping-cart.html">
             <span class="icon">
               <i class="fa-solid fa-cart-shopping"></i>
